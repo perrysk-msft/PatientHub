@@ -31,3 +31,7 @@ bld/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+*.json
+*.csv
+*.dot
+*.log
