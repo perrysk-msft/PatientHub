@@ -1,9 +1,11 @@
 /**
 Script Name: setup-or-reset
 Description:
-Created By:
-Created On:
+Created By: Perry Skountrianos
+Created On: 01/23/2019
 **/
+
+
 
 -- Populate Sample Data
 INSERT INTO dbo.Patient (MRN,  PCP, FullName, PreferredName, DOB, PhoneNumber, EmailAddress, Photo) values(24566,'Laboni Deb','Agrita Abele','Agrita','1957-12-19','(415) 575-1182','agrita@example.com',NULL);

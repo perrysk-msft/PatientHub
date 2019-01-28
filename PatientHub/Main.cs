@@ -13,14 +13,12 @@ namespace PatientHub
 {
     public partial class Main : Form
     {
-        
 
         public Main()
         {
             InitializeComponent();
-            
+            DbConnection con = new DbConnection();            
         }
-
 
     }
 }

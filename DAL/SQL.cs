@@ -11,11 +11,11 @@ namespace PatientHub
 {
     public class DbConnection
     {
-        private static string connectionString = ConfigurationManager.AppSettings["Db"];
-        private static string spGetPatients = ConfigurationManager.AppSettings["spGetPatients"];
-        private static int commandTimeout = int.Parse(ConfigurationManager.AppSettings["commandTimeout"]);
+        private string connectionString = ConfigurationManager.AppSettings["Db"];
+        private string spGetPatients = ConfigurationManager.AppSettings["spGetPatients"];
+        private int commandTimeout = int.Parse(ConfigurationManager.AppSettings["commandTimeout"]);
 
-        public static async Task GetPatients()
+        public async Task GetPatients()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
