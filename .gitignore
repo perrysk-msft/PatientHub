@@ -35,3 +35,4 @@ bld/
 *.csv
 *.dot
 *.log
+*.ipynb
