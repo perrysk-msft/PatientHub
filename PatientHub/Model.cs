@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientHubData;
 
-namespace PatientHub
+namespace PatientHubUI
 {
     public partial class Model : Form
     {

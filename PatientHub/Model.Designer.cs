@@ -1,4 +1,4 @@
-﻿namespace PatientHub
+﻿namespace PatientHubUI
 {
     partial class Model
     {

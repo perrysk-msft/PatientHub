@@ -9,6 +9,9 @@ namespace PatientHubData
 {
     public static class Configuration
     {
+        public static string scoringURL = ConfigurationManager.AppSettings["scoringURL"];
+        public static string authKey = ConfigurationManager.AppSettings["authKey"];
+
         public static string connectionString = ConfigurationManager.ConnectionStrings["Db"].ConnectionString;
         public static string spGetPatients = ConfigurationManager.AppSettings["spGetPatients"];
         public static string spGetModels = ConfigurationManager.AppSettings["spGetModels"];        
