@@ -42,8 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SQL.cs" />
+    <Compile Include="BatchInference.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleInference.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\PatientHub\App.config">
