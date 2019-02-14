@@ -101,7 +101,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\Data.csproj">
+    <ProjectReference Include="..\Data\Data.csproj">
       <Project>{6b0efa99-8c38-4a7f-8e3d-c3566db288a8}</Project>
       <Name>Data</Name>
     </ProjectReference>
