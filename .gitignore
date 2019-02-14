@@ -36,3 +36,4 @@ bld/
 *.dot
 *.log
 *.ipynb
+*.gz
