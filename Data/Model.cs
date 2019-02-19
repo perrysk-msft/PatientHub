@@ -14,7 +14,7 @@ namespace PatientHubData
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public List<Model> GetAll()
+        public static List<Model> GetAll()
         {
             List<Model> models = new List<Model>();
             SqlCommand cmd = new SqlCommand();

@@ -13,15 +13,15 @@ namespace PatientHubData
     {
         public decimal DMPRW30Days_Score { get; set; }
         public long Id { get; set; }
-        //public int patientNbr { get; set; }
-        //public string firstName { get; set; }
-        //public string lastName { get; set; }
-        //public string race { get; set; }
-        //public string gender { get; set; }
-        //public string age { get; set; }
-        //public string weight { get; set; }
+        public int patientNbr { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string race { get; set; }
+        public string gender { get; set; }
+        public string age { get; set; }
+        public string weight { get; set; }
 
-        public List<Patient> GetAll()
+        public static List<Patient> GetAll()
         {
             List<Patient> patients = new List<Patient>();
             SqlCommand cmd = new SqlCommand();
@@ -44,9 +44,13 @@ namespace PatientHubData
                             {
                                 DMPRW30Days_Score = rdr.GetDecimal(0),
                                 Id = rdr.GetInt64(1),
-
-                                //TODO: Read all columns
-                                //patientNbr = rdr.GetInt32(2)
+                                patientNbr = rdr.GetInt32(2),
+                                firstName = rdr.GetString(3),
+                                lastName = rdr.GetString(4),
+                                race = rdr.GetString(5),
+                                gender = rdr.GetString(6),
+                                age = rdr.GetString(7),
+                                weight = rdr.GetString(8)
                             };
 
                             patients.Add(patient);

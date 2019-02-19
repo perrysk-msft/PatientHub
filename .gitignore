@@ -36,4 +36,16 @@ bld/
 *.dot
 *.log
 *.ipynb
+<<<<<<< HEAD
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/packages/*
+# except build/, which is used as an MSBuild target.
+!**/packages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/packages/repositories.config
+=======
 *.gz
+>>>>>>> b8accfad7d502feb68d24f192dfa6c3f62af647c

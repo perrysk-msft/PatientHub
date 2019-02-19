@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PatientHubData;
+using model = PatientHubData.Model;
 
 namespace PatientHubUI
 {
     public partial class Model : Form
     {
-        private PatientHubData.Model model = new PatientHubData.Model();
-        private List<PatientHubData.Model> models;
+        private List<model> models;
 
         public Model()
         {
@@ -41,18 +40,6 @@ namespace PatientHubUI
 
 
             }
-
-
-            //foreach (var model in models)
-            //{
-            //    //clModels.Items.Add(model.Name);
-            //    listView1.Items.Add(model.Name, @"images\DM.jpg");
-            //    listView1.Items.Add(model.Name, @"images\DM.jpg");
-            //    listView1.Items.Add(model.Name, @"images\DM.jpg");
-
-            //    //listView1.Items.Add(model.Name);
-            //}
-
         }
 
         private void Inference_Load(object sender, EventArgs e)
