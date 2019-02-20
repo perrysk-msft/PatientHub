@@ -44,6 +44,7 @@
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Tile;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Model
             // 
@@ -53,6 +54,7 @@
             this.ClientSize = new System.Drawing.Size(1687, 797);
             this.Controls.Add(this.listView1);
             this.Name = "Model";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Models";
             this.Load += new System.EventHandler(this.Inference_Load);
             this.ResumeLayout(false);

@@ -47,20 +47,30 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bSingleInferenceTest = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.topPanel = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatients)).BeginInit();
+            this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +80,7 @@
             this.TopToolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.TopToolStrip.Location = new System.Drawing.Point(0, 0);
             this.TopToolStrip.Name = "TopToolStrip";
-            this.TopToolStrip.Size = new System.Drawing.Size(1237, 25);
+            this.TopToolStrip.Size = new System.Drawing.Size(1741, 25);
             this.TopToolStrip.TabIndex = 0;
             this.TopToolStrip.Text = "toolStrip1";
             // 
@@ -78,21 +88,26 @@
             // 
             this.BottomToolStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomToolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.BottomToolStrip.Location = new System.Drawing.Point(0, 686);
+            this.BottomToolStrip.Location = new System.Drawing.Point(0, 1020);
             this.BottomToolStrip.Name = "BottomToolStrip";
-            this.BottomToolStrip.Size = new System.Drawing.Size(1237, 25);
+            this.BottomToolStrip.Size = new System.Drawing.Size(1741, 25);
             this.BottomToolStrip.TabIndex = 1;
             this.BottomToolStrip.Text = "toolStrip1";
             // 
             // bPredict
             // 
-            this.bPredict.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bPredict.Location = new System.Drawing.Point(8, 13);
+            this.bPredict.BackColor = System.Drawing.Color.White;
+            this.bPredict.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bPredict.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.bPredict.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bPredict.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bPredict.ForeColor = System.Drawing.Color.DimGray;
+            this.bPredict.Location = new System.Drawing.Point(0, 0);
             this.bPredict.Name = "bPredict";
-            this.bPredict.Size = new System.Drawing.Size(129, 53);
+            this.bPredict.Size = new System.Drawing.Size(132, 37);
             this.bPredict.TabIndex = 3;
             this.bPredict.Text = "Predict";
-            this.bPredict.UseVisualStyleBackColor = true;
+            this.bPredict.UseVisualStyleBackColor = false;
             this.bPredict.Click += new System.EventHandler(this.bPredict_Click);
             // 
             // dgPatients
@@ -145,7 +160,7 @@
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPatients.Size = new System.Drawing.Size(1232, 228);
+            this.dgPatients.Size = new System.Drawing.Size(1736, 255);
             this.dgPatients.TabIndex = 2;
             // 
             // Id
@@ -218,69 +233,134 @@
             // 
             // bSingleInferenceTest
             // 
-            this.bSingleInferenceTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSingleInferenceTest.Location = new System.Drawing.Point(143, 13);
+            this.bSingleInferenceTest.BackColor = System.Drawing.Color.White;
+            this.bSingleInferenceTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSingleInferenceTest.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSingleInferenceTest.ForeColor = System.Drawing.Color.DimGray;
+            this.bSingleInferenceTest.Location = new System.Drawing.Point(15, 476);
             this.bSingleInferenceTest.Name = "bSingleInferenceTest";
-            this.bSingleInferenceTest.Size = new System.Drawing.Size(159, 53);
+            this.bSingleInferenceTest.Size = new System.Drawing.Size(238, 43);
             this.bSingleInferenceTest.TabIndex = 4;
-            this.bSingleInferenceTest.Text = "SingleInference REST API Call";
-            this.bSingleInferenceTest.UseVisualStyleBackColor = true;
+            this.bSingleInferenceTest.Text = "Re-Calculate Risk";
+            this.bSingleInferenceTest.UseVisualStyleBackColor = false;
             this.bSingleInferenceTest.Click += new System.EventHandler(this.bSingleInferenceTest_Click);
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.dgPatients);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.bSingleInferenceTest);
-            this.splitContainer1.Panel2.Controls.Add(this.bPredict);
-            this.splitContainer1.Size = new System.Drawing.Size(1234, 567);
-            this.splitContainer1.SplitterDistance = 230;
-            this.splitContainer1.TabIndex = 5;
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 25);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 661);
+            this.splitter1.Size = new System.Drawing.Size(3, 995);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
             // 
-            // splitContainer2
+            // topPanel
             // 
-            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 25);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.topPanel.Controls.Add(this.pictureBox1);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.Location = new System.Drawing.Point(3, 25);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(1738, 90);
+            this.topPanel.TabIndex = 7;
             // 
-            // splitContainer2.Panel1
+            // splitContainer1
             // 
-            this.splitContainer2.Panel1.BackColor = System.Drawing.Color.White;
-            this.splitContainer2.Panel1.Controls.Add(this.pictureBox1);
-            this.splitContainer2.Panel1MinSize = 90;
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 115);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer2.Panel2
+            // splitContainer1.Panel1
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
-            this.splitContainer2.Size = new System.Drawing.Size(1234, 661);
-            this.splitContainer2.SplitterDistance = 90;
-            this.splitContainer2.TabIndex = 7;
+            this.splitContainer1.Panel1.Controls.Add(this.panel2);
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer1.Size = new System.Drawing.Size(1738, 905);
+            this.splitContainer1.SplitterDistance = 294;
+            this.splitContainer1.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.bPredict);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1736, 37);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgPatients);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 37);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1736, 255);
+            this.panel2.TabIndex = 4;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1736, 605);
+            this.tabControl1.TabIndex = 0;
+            this.tabControl1.Visible = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.pictureBox3);
+            this.tabPage1.Controls.Add(this.pictureBox2);
+            this.tabPage1.Location = new System.Drawing.Point(8, 50);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1720, 547);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Batch Inference";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.bSingleInferenceTest);
+            this.tabPage2.Location = new System.Drawing.Point(8, 50);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1720, 547);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Single Inference";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox3.Image = global::PatientHub.Properties.Resources.globalExplanation2;
+            this.pictureBox3.Location = new System.Drawing.Point(713, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(755, 541);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox2.Image = global::PatientHub.Properties.Resources.globalExplanation;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(710, 541);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PatientHub.Properties.Resources.logo;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(7, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(297, 86);
             this.pictureBox1.TabIndex = 0;
@@ -288,11 +368,12 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 36F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1237, 711);
-            this.Controls.Add(this.splitContainer2);
+            this.ClientSize = new System.Drawing.Size(1741, 1045);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.topPanel);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.BottomToolStrip);
             this.Controls.Add(this.TopToolStrip);
@@ -302,14 +383,18 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPatients)).EndInit();
+            this.topPanel.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -333,11 +418,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Age;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Panel topPanel;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

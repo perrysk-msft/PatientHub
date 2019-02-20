@@ -36,6 +36,11 @@ namespace PatientHubUI
         {
             dgPatients.AutoGenerateColumns = false;            
             dgPatients.DataSource = patients;
+
+            //TODO: Move to different method
+            tabControl1.TabPages[0].AutoScroll = true;
+            tabControl1.TabPages[1].AutoScroll = true;
+
         }
 
         private void bPredict_Click(object sender, EventArgs e)
@@ -49,6 +54,8 @@ namespace PatientHubUI
             // Order by the column
             var sortedList = patients.OrderByDescending(s => s.DMPRW30Days_Score).ToList();
             dgPatients.DataSource = sortedList;
+
+            tabControl1.Visible = true;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -122,6 +129,11 @@ namespace PatientHubUI
 
             string response = SingleInference.GetScore(payloadData);
             MessageBox.Show(response);
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }
