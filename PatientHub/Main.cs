@@ -15,12 +15,19 @@ namespace PatientHubUI
     public partial class Main : Form
     {       
         private List<Patient> patients;
+        private List<ModelParams> modelParams;
+        private long selectedPatientId;
+        private string selectedFirstName;
+        private string selectedLastName;
+        private decimal selectedScore; //TODO: Capture this dynamically
+
+
 
         public Main()
         {
             InitializeComponent();
 
-            patients = Patient.GetAll();
+            patients = Patient.GetAll();            
         }
 
         private void AddBarGraphColumn(string columnName)
@@ -36,10 +43,17 @@ namespace PatientHubUI
         {
             dgPatients.AutoGenerateColumns = false;            
             dgPatients.DataSource = patients;
+            dgPatients.Rows[0].Selected = false;            
 
             //TODO: Move to different method
             tabControl1.TabPages[0].AutoScroll = true;
             tabControl1.TabPages[1].AutoScroll = true;
+
+
+            //TODO: MOve to a different Mathod
+           
+
+
 
         }
 
@@ -49,13 +63,20 @@ namespace PatientHubUI
             f.ShowDialog();
 
             // Get the Model Name and add colum to the Grid
-            AddBarGraphColumn("DMPRW30Days_Score");
+            AddBarGraphColumn("DMPRW30Days_Score"); // TODO: Do this dynamically...
 
             // Order by the column
             var sortedList = patients.OrderByDescending(s => s.DMPRW30Days_Score).ToList();
             dgPatients.DataSource = sortedList;
 
+            CellClick(0);
+
             tabControl1.Visible = true;
+
+            // SingleInference
+
+
+
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -65,6 +86,7 @@ namespace PatientHubUI
 
         private void bSingleInferenceTest_Click(object sender, EventArgs e)
         {
+
             /*
                 ['age', 'time_in_hospital', 'num_lab_procedures', 'num_procedures',
                'num_medications', 'number_outpatient', 'number_emergency',
@@ -131,9 +153,71 @@ namespace PatientHubUI
             MessageBox.Show(response);
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void CellClick(int rowIndex)
         {
+            if (rowIndex >= 0)
+            { 
+            DataGridViewRow row = dgPatients.Rows[rowIndex];
+            selectedPatientId = Int64.Parse(row.Cells["Id"].Value.ToString());
+            selectedFirstName = row.Cells["FirstName"].Value.ToString();
+            selectedLastName = row.Cells["LastName"].Value.ToString();
 
+            try
+            {
+                selectedScore = decimal.Parse(row.Cells["DMPRW30Days_Score"].Value.ToString());
+                UpdateChart(selectedScore);
+            }
+            catch (System.ArgumentException) { }
+
+            lbPatientInfo.Text = selectedLastName + ", " + selectedFirstName + " (id:" + selectedPatientId + ")";
+
+            modelParams = SingleInference.GetParameters(selectedPatientId);
+            HighL1.Text = modelParams[0].paramName + ": " + modelParams[0].paramValue;
+            HighL2.Text = modelParams[1].paramName + ": " + modelParams[1].paramValue;
+            HighL3.Text = modelParams[2].paramName + ": " + modelParams[2].paramValue;
+            HighL4.Text = modelParams[3].paramName + ": " + modelParams[3].paramValue;
+            HighL5.Text = modelParams[4].paramName + ": " + modelParams[4].paramValue;
+
+            LowL1.Text = modelParams[5].paramName + ": " + modelParams[5].paramValue;
+            LowL2.Text = modelParams[6].paramName + ": " + modelParams[6].paramValue;
+            LowL3.Text = modelParams[7].paramName + ": " + modelParams[7].paramValue;
+            LowL4.Text = modelParams[8].paramName + ": " + modelParams[8].paramValue;
+            LowL5.Text = modelParams[9].paramName + ": " + modelParams[9].paramValue;
+        }
+        }
+        private void dgPatients_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CellClick(e.RowIndex);
+        }
+
+        private void UpdateChart(decimal score)
+        {            
+            this.RiskChart.Series[0].Points[0].SetValueY(score);
+            this.RiskChart.Series[0].Points[1].SetValueY(100-score);
+            Color color;
+
+            if (score < 20.00M)
+            {
+                color = Color.Green;
+            }
+            else if (score >= 20.00M && score <= 50.00M)
+            {
+                color = Color.Orange;
+            }
+            else if (score > 50.00M && score < 80.00M)
+            {
+                color = Color.OrangeRed;
+            }
+            else
+            {
+                color = Color.Red;
+            }
+
+            this.RiskChart.Series[0].Points[0].Color = color;
+
+            this.RiskChart.Series[0].LegendText = score.ToString();
+
+            this.RiskChart.Update();
         }
     }
 }

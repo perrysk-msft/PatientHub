@@ -4,6 +4,8 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace PatientHubData
 {
@@ -15,8 +17,54 @@ namespace PatientHubData
         //   one or more arrays of doubles
         internal string[,] data;
     }
+
+    public class ModelParams
+    {
+        public int isTopInfluencer { get; set; }
+        public string paramName { get; set; }
+        public string paramValue { get; set; }
+
+    }
+
     public class SingleInference
     {
+
+        public static List<ModelParams> GetParameters(Int64 patientId)
+        {
+            List<ModelParams> modelParams = new List<ModelParams>();
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Configuration.connectionString))
+                {
+                    connection.Open();
+
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandTimeout = Configuration.commandTimeout;
+                    cmd.CommandText = Configuration.spGetDMPRW30Days_LocalExplanation; // TODO: Read Dynamically
+                    cmd.Parameters.Add(new SqlParameter("PatientId", patientId));
+
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            ModelParams p = new ModelParams
+                            {
+                                isTopInfluencer = rdr.GetInt32(0),
+                                paramName = rdr.GetString(1),
+                                paramValue = rdr.GetString(2)
+                            };
+
+                            modelParams.Add(p);
+                        }
+                    }
+                }
+                return modelParams;
+            }
+            catch (SqlException e) { throw e; }
+            finally { }
+        }
         public static string GetScore( string[,] payloadData)
         {
             // Set the scoring URI and authentication key

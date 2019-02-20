@@ -19,7 +19,13 @@ namespace PatientHubData
         public string race { get; set; }
         public string gender { get; set; }
         public string age { get; set; }
-        public string weight { get; set; }
+        public Int16 timeInHospital { get; set; }
+        public Int16 numberOfProcedures { get; set; }
+        public Int16 numberOfMedications { get; set; }
+        public Int16 numberOfDiagnoses { get; set; }
+        public string admissionSource { get; set; }
+        public string admissionType { get; set; }
+        public string dischargeDisposition { get; set; }
 
         public static List<Patient> GetAll()
         {
@@ -50,7 +56,13 @@ namespace PatientHubData
                                 race = rdr.GetString(5),
                                 gender = rdr.GetString(6),
                                 age = rdr.GetString(7),
-                                weight = rdr.GetString(8)
+                                timeInHospital = rdr.GetInt16(8),
+                                numberOfProcedures = rdr.GetInt16(9),
+                                numberOfMedications = rdr.GetInt16(10),
+                                numberOfDiagnoses = rdr.GetInt16(11),                                
+                                admissionSource = rdr.GetString(12),
+                                admissionType = rdr.GetString(13),
+                                dischargeDisposition = rdr.GetString(14)
                             };
 
                             patients.Add(patient);
