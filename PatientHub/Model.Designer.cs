@@ -53,8 +53,8 @@
             this.ClientSize = new System.Drawing.Size(1687, 797);
             this.Controls.Add(this.listView1);
             this.Name = "Model";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Models";
-            this.Load += new System.EventHandler(this.Inference_Load);
             this.ResumeLayout(false);
 
         }

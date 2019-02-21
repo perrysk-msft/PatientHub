@@ -19,7 +19,13 @@ namespace PatientHubData
         public string race { get; set; }
         public string gender { get; set; }
         public string age { get; set; }
-        public string weight { get; set; }
+        public Int16 timeInHospital { get; set; }
+        public Int16 numberOfProcedures { get; set; }
+        public Int16 numberOfMedications { get; set; }
+        public Int16 numberOfDiagnoses { get; set; }
+        public string admissionSource { get; set; }
+        public string admissionType { get; set; }
+        public string dischargeDisposition { get; set; }
 
         public static List<Patient> GetAll()
         {
@@ -42,15 +48,22 @@ namespace PatientHubData
                         {
                             Patient patient = new Patient
                             {
-                                DMPRW30Days_Score = rdr.GetDecimal(0),
-                                Id = rdr.GetInt64(1),
-                                patientNbr = rdr.GetInt32(2),
-                                firstName = rdr.GetString(3),
-                                lastName = rdr.GetString(4),
-                                race = rdr.GetString(5),
-                                gender = rdr.GetString(6),
-                                age = rdr.GetString(7),
-                                weight = rdr.GetString(8)
+                                
+                                DMPRW30Days_Score = decimal.Parse(rdr["DMPatientReadmittedWithin30Days_Score"].ToString()),
+                                Id = int.Parse(rdr["Id"].ToString()),
+                                patientNbr = int.Parse(rdr["patient_nbr"].ToString()),
+                                firstName = rdr["FirstName"].ToString(),
+                                lastName = rdr["LastName"].ToString(),
+                                race = rdr["race"].ToString(),
+                                gender = rdr["gender"].ToString(),
+                                age = rdr["age"].ToString(),
+                                timeInHospital = Int16.Parse(rdr["time_in_hospital"].ToString()),
+                                numberOfProcedures = Int16.Parse(rdr["num_lab_procedures"].ToString()),
+                                numberOfMedications = Int16.Parse(rdr["num_medications"].ToString()),
+                                numberOfDiagnoses = Int16.Parse(rdr["number_diagnoses"].ToString()),
+                                admissionSource = rdr["admission_source"].ToString(),
+                                admissionType = rdr["admission_type"].ToString(),
+                                dischargeDisposition = rdr["discharge_disposition"].ToString()
                             };
 
                             patients.Add(patient);

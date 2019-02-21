@@ -42,9 +42,5 @@ namespace PatientHubUI
             }
         }
 
-        private void Inference_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

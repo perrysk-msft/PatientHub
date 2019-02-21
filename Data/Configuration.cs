@@ -15,6 +15,7 @@ namespace PatientHubData
         public static string connectionString = ConfigurationManager.ConnectionStrings["Db"].ConnectionString;
         public static string spGetPatients = ConfigurationManager.AppSettings["spGetPatients"];
         public static string spGetModels = ConfigurationManager.AppSettings["spGetModels"];        
+        public static string spGetDMPRW30Days_LocalExplanation = ConfigurationManager.AppSettings["spGetDMPRW30Days_LocalExplanation"];
         public static int commandTimeout = int.Parse(ConfigurationManager.AppSettings["commandTimeout"]);
     }
 }
