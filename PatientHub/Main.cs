@@ -21,8 +21,6 @@ namespace PatientHubUI
         private string selectedLastName;
         private decimal selectedScore; //TODO: Capture this dynamically
 
-
-
         public Main()
         {
             InitializeComponent();
@@ -157,33 +155,34 @@ namespace PatientHubUI
         {
             if (rowIndex >= 0)
             { 
-            DataGridViewRow row = dgPatients.Rows[rowIndex];
-            selectedPatientId = Int64.Parse(row.Cells["Id"].Value.ToString());
-            selectedFirstName = row.Cells["FirstName"].Value.ToString();
-            selectedLastName = row.Cells["LastName"].Value.ToString();
+                DataGridViewRow row = dgPatients.Rows[rowIndex];
+                selectedPatientId = Int64.Parse(row.Cells["Id"].Value.ToString());
+                selectedFirstName = row.Cells["FirstName"].Value.ToString();
+                selectedLastName = row.Cells["LastName"].Value.ToString();
 
-            try
-            {
-                selectedScore = decimal.Parse(row.Cells["DMPRW30Days_Score"].Value.ToString());
-                UpdateChart(selectedScore);
+                try
+                {
+                    selectedScore = decimal.Parse(row.Cells["DMPRW30Days_Score"].Value.ToString());
+                    UpdateChart(selectedScore);
+
+                    lbPatientInfo.Text = selectedLastName + ", " + selectedFirstName + " (id:" + selectedPatientId + ")";
+
+                    modelParams = SingleInference.GetParameters(selectedPatientId);
+                    HighL1.Text = modelParams[0].paramName + ": " + modelParams[0].paramValue;
+                    HighL2.Text = modelParams[1].paramName + ": " + modelParams[1].paramValue;
+                    HighL3.Text = modelParams[2].paramName + ": " + modelParams[2].paramValue;
+                    HighL4.Text = modelParams[3].paramName + ": " + modelParams[3].paramValue;
+                    HighL5.Text = modelParams[4].paramName + ": " + modelParams[4].paramValue;
+
+                    LowL1.Text = modelParams[5].paramName + ": " + modelParams[5].paramValue;
+                    LowL2.Text = modelParams[6].paramName + ": " + modelParams[6].paramValue;
+                    LowL3.Text = modelParams[7].paramName + ": " + modelParams[7].paramValue;
+                    LowL4.Text = modelParams[8].paramName + ": " + modelParams[8].paramValue;
+                    LowL5.Text = modelParams[9].paramName + ": " + modelParams[9].paramValue;
+                }
+                catch (System.ArgumentException) { }
+            
             }
-            catch (System.ArgumentException) { }
-
-            lbPatientInfo.Text = selectedLastName + ", " + selectedFirstName + " (id:" + selectedPatientId + ")";
-
-            modelParams = SingleInference.GetParameters(selectedPatientId);
-            HighL1.Text = modelParams[0].paramName + ": " + modelParams[0].paramValue;
-            HighL2.Text = modelParams[1].paramName + ": " + modelParams[1].paramValue;
-            HighL3.Text = modelParams[2].paramName + ": " + modelParams[2].paramValue;
-            HighL4.Text = modelParams[3].paramName + ": " + modelParams[3].paramValue;
-            HighL5.Text = modelParams[4].paramName + ": " + modelParams[4].paramValue;
-
-            LowL1.Text = modelParams[5].paramName + ": " + modelParams[5].paramValue;
-            LowL2.Text = modelParams[6].paramName + ": " + modelParams[6].paramValue;
-            LowL3.Text = modelParams[7].paramName + ": " + modelParams[7].paramValue;
-            LowL4.Text = modelParams[8].paramName + ": " + modelParams[8].paramValue;
-            LowL5.Text = modelParams[9].paramName + ": " + modelParams[9].paramValue;
-        }
         }
         private void dgPatients_CellClick(object sender, DataGridViewCellEventArgs e)
         {

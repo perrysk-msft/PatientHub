@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.TopToolStrip = new System.Windows.Forms.ToolStrip();
             this.BottomToolStrip = new System.Windows.Forms.ToolStrip();
             this.dgPatients = new System.Windows.Forms.DataGridView();
@@ -67,6 +67,19 @@
             this.BatchInferenceDescription = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.LowL5 = new System.Windows.Forms.Label();
+            this.LowL4 = new System.Windows.Forms.Label();
+            this.LowL3 = new System.Windows.Forms.Label();
+            this.LowL2 = new System.Windows.Forms.Label();
+            this.LowL1 = new System.Windows.Forms.Label();
+            this.HighL5 = new System.Windows.Forms.Label();
+            this.HighL4 = new System.Windows.Forms.Label();
+            this.HighL3 = new System.Windows.Forms.Label();
+            this.HighL2 = new System.Windows.Forms.Label();
+            this.HighL1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.RiskChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbPatientInfo = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,19 +96,6 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.RiskChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.HighL1 = new System.Windows.Forms.Label();
-            this.HighL2 = new System.Windows.Forms.Label();
-            this.HighL3 = new System.Windows.Forms.Label();
-            this.HighL4 = new System.Windows.Forms.Label();
-            this.HighL5 = new System.Windows.Forms.Label();
-            this.LowL5 = new System.Windows.Forms.Label();
-            this.LowL4 = new System.Windows.Forms.Label();
-            this.LowL3 = new System.Windows.Forms.Label();
-            this.LowL2 = new System.Windows.Forms.Label();
-            this.LowL1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatients)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,10 +109,10 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).BeginInit();
-            this.panel5.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopToolStrip
@@ -143,14 +143,14 @@
             this.dgPatients.BackgroundColor = System.Drawing.Color.White;
             this.dgPatients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgPatients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgPatients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.patient_nbr,
@@ -166,28 +166,28 @@
             this.admissionSource,
             this.admissionType,
             this.dischargeDisposition});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgPatients.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgPatients.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgPatients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgPatients.GridColor = System.Drawing.Color.Gainsboro;
             this.dgPatients.Location = new System.Drawing.Point(0, 0);
             this.dgPatients.MultiSelect = false;
             this.dgPatients.Name = "dgPatients";
             this.dgPatients.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgPatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgPatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -385,7 +385,7 @@
             this.bPredict.Name = "bPredict";
             this.bPredict.Size = new System.Drawing.Size(151, 37);
             this.bPredict.TabIndex = 3;
-            this.bPredict.Text = "[+] New Prediction";
+            this.bPredict.Text = "Patient Insights";
             this.bPredict.UseVisualStyleBackColor = false;
             this.bPredict.Click += new System.EventHandler(this.bPredict_Click);
             // 
@@ -441,13 +441,153 @@
             this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.panel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1728, 575);
+            this.tabPage2.Size = new System.Drawing.Size(1728, 579);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Single Inference";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.LowL5);
+            this.panel5.Controls.Add(this.LowL4);
+            this.panel5.Controls.Add(this.LowL3);
+            this.panel5.Controls.Add(this.LowL2);
+            this.panel5.Controls.Add(this.LowL1);
+            this.panel5.Controls.Add(this.HighL5);
+            this.panel5.Controls.Add(this.HighL4);
+            this.panel5.Controls.Add(this.HighL3);
+            this.panel5.Controls.Add(this.HighL2);
+            this.panel5.Controls.Add(this.HighL1);
+            this.panel5.Controls.Add(this.bSingleInferenceTest);
+            this.panel5.Location = new System.Drawing.Point(327, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(744, 382);
+            this.panel5.TabIndex = 7;
+            // 
+            // LowL5
+            // 
+            this.LowL5.AutoSize = true;
+            this.LowL5.Location = new System.Drawing.Point(447, 135);
+            this.LowL5.Name = "LowL5";
+            this.LowL5.Size = new System.Drawing.Size(43, 17);
+            this.LowL5.TabIndex = 14;
+            this.LowL5.Text = "label1";
+            // 
+            // LowL4
+            // 
+            this.LowL4.AutoSize = true;
+            this.LowL4.Location = new System.Drawing.Point(447, 104);
+            this.LowL4.Name = "LowL4";
+            this.LowL4.Size = new System.Drawing.Size(43, 17);
+            this.LowL4.TabIndex = 13;
+            this.LowL4.Text = "label1";
+            // 
+            // LowL3
+            // 
+            this.LowL3.AutoSize = true;
+            this.LowL3.Location = new System.Drawing.Point(447, 71);
+            this.LowL3.Name = "LowL3";
+            this.LowL3.Size = new System.Drawing.Size(43, 17);
+            this.LowL3.TabIndex = 12;
+            this.LowL3.Text = "label1";
+            // 
+            // LowL2
+            // 
+            this.LowL2.AutoSize = true;
+            this.LowL2.Location = new System.Drawing.Point(447, 40);
+            this.LowL2.Name = "LowL2";
+            this.LowL2.Size = new System.Drawing.Size(43, 17);
+            this.LowL2.TabIndex = 11;
+            this.LowL2.Text = "label1";
+            // 
+            // LowL1
+            // 
+            this.LowL1.AutoSize = true;
+            this.LowL1.Location = new System.Drawing.Point(447, 10);
+            this.LowL1.Name = "LowL1";
+            this.LowL1.Size = new System.Drawing.Size(43, 17);
+            this.LowL1.TabIndex = 10;
+            this.LowL1.Text = "label1";
+            // 
+            // HighL5
+            // 
+            this.HighL5.AutoSize = true;
+            this.HighL5.Location = new System.Drawing.Point(14, 135);
+            this.HighL5.Name = "HighL5";
+            this.HighL5.Size = new System.Drawing.Size(43, 17);
+            this.HighL5.TabIndex = 9;
+            this.HighL5.Text = "label1";
+            // 
+            // HighL4
+            // 
+            this.HighL4.AutoSize = true;
+            this.HighL4.Location = new System.Drawing.Point(14, 104);
+            this.HighL4.Name = "HighL4";
+            this.HighL4.Size = new System.Drawing.Size(43, 17);
+            this.HighL4.TabIndex = 8;
+            this.HighL4.Text = "label1";
+            // 
+            // HighL3
+            // 
+            this.HighL3.AutoSize = true;
+            this.HighL3.Location = new System.Drawing.Point(14, 71);
+            this.HighL3.Name = "HighL3";
+            this.HighL3.Size = new System.Drawing.Size(43, 17);
+            this.HighL3.TabIndex = 7;
+            this.HighL3.Text = "label1";
+            // 
+            // HighL2
+            // 
+            this.HighL2.AutoSize = true;
+            this.HighL2.Location = new System.Drawing.Point(14, 40);
+            this.HighL2.Name = "HighL2";
+            this.HighL2.Size = new System.Drawing.Size(43, 17);
+            this.HighL2.TabIndex = 6;
+            this.HighL2.Text = "label1";
+            // 
+            // HighL1
+            // 
+            this.HighL1.AutoSize = true;
+            this.HighL1.Location = new System.Drawing.Point(14, 10);
+            this.HighL1.Name = "HighL1";
+            this.HighL1.Size = new System.Drawing.Size(43, 17);
+            this.HighL1.TabIndex = 5;
+            this.HighL1.Text = "label1";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.RiskChart);
+            this.panel4.Location = new System.Drawing.Point(3, 66);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(318, 205);
+            this.panel4.TabIndex = 6;
+            // 
+            // RiskChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.RiskChart.ChartAreas.Add(chartArea1);
+            this.RiskChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.RiskChart.Legends.Add(legend1);
+            this.RiskChart.Location = new System.Drawing.Point(0, 0);
+            this.RiskChart.Name = "RiskChart";
+            this.RiskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            dataPoint2.IsVisibleInLegend = false;
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            this.RiskChart.Series.Add(series1);
+            this.RiskChart.Size = new System.Drawing.Size(318, 205);
+            this.RiskChart.TabIndex = 0;
+            this.RiskChart.Text = "chart1";
             // 
             // panel3
             // 
@@ -560,146 +700,6 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Discharge Disposition";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.RiskChart);
-            this.panel4.Location = new System.Drawing.Point(3, 66);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(318, 205);
-            this.panel4.TabIndex = 6;
-            // 
-            // RiskChart
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.RiskChart.ChartAreas.Add(chartArea2);
-            this.RiskChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.RiskChart.Legends.Add(legend2);
-            this.RiskChart.Location = new System.Drawing.Point(0, 0);
-            this.RiskChart.Name = "RiskChart";
-            this.RiskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            dataPoint4.IsVisibleInLegend = false;
-            series2.Points.Add(dataPoint3);
-            series2.Points.Add(dataPoint4);
-            this.RiskChart.Series.Add(series2);
-            this.RiskChart.Size = new System.Drawing.Size(318, 205);
-            this.RiskChart.TabIndex = 0;
-            this.RiskChart.Text = "chart1";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.LowL5);
-            this.panel5.Controls.Add(this.LowL4);
-            this.panel5.Controls.Add(this.LowL3);
-            this.panel5.Controls.Add(this.LowL2);
-            this.panel5.Controls.Add(this.LowL1);
-            this.panel5.Controls.Add(this.HighL5);
-            this.panel5.Controls.Add(this.HighL4);
-            this.panel5.Controls.Add(this.HighL3);
-            this.panel5.Controls.Add(this.HighL2);
-            this.panel5.Controls.Add(this.HighL1);
-            this.panel5.Controls.Add(this.bSingleInferenceTest);
-            this.panel5.Location = new System.Drawing.Point(327, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(744, 382);
-            this.panel5.TabIndex = 7;
-            // 
-            // HighL1
-            // 
-            this.HighL1.AutoSize = true;
-            this.HighL1.Location = new System.Drawing.Point(14, 10);
-            this.HighL1.Name = "HighL1";
-            this.HighL1.Size = new System.Drawing.Size(43, 17);
-            this.HighL1.TabIndex = 5;
-            this.HighL1.Text = "label1";
-            // 
-            // HighL2
-            // 
-            this.HighL2.AutoSize = true;
-            this.HighL2.Location = new System.Drawing.Point(14, 40);
-            this.HighL2.Name = "HighL2";
-            this.HighL2.Size = new System.Drawing.Size(43, 17);
-            this.HighL2.TabIndex = 6;
-            this.HighL2.Text = "label1";
-            // 
-            // HighL3
-            // 
-            this.HighL3.AutoSize = true;
-            this.HighL3.Location = new System.Drawing.Point(14, 71);
-            this.HighL3.Name = "HighL3";
-            this.HighL3.Size = new System.Drawing.Size(43, 17);
-            this.HighL3.TabIndex = 7;
-            this.HighL3.Text = "label1";
-            // 
-            // HighL4
-            // 
-            this.HighL4.AutoSize = true;
-            this.HighL4.Location = new System.Drawing.Point(14, 104);
-            this.HighL4.Name = "HighL4";
-            this.HighL4.Size = new System.Drawing.Size(43, 17);
-            this.HighL4.TabIndex = 8;
-            this.HighL4.Text = "label1";
-            // 
-            // HighL5
-            // 
-            this.HighL5.AutoSize = true;
-            this.HighL5.Location = new System.Drawing.Point(14, 135);
-            this.HighL5.Name = "HighL5";
-            this.HighL5.Size = new System.Drawing.Size(43, 17);
-            this.HighL5.TabIndex = 9;
-            this.HighL5.Text = "label1";
-            // 
-            // LowL5
-            // 
-            this.LowL5.AutoSize = true;
-            this.LowL5.Location = new System.Drawing.Point(447, 135);
-            this.LowL5.Name = "LowL5";
-            this.LowL5.Size = new System.Drawing.Size(43, 17);
-            this.LowL5.TabIndex = 14;
-            this.LowL5.Text = "label1";
-            // 
-            // LowL4
-            // 
-            this.LowL4.AutoSize = true;
-            this.LowL4.Location = new System.Drawing.Point(447, 104);
-            this.LowL4.Name = "LowL4";
-            this.LowL4.Size = new System.Drawing.Size(43, 17);
-            this.LowL4.TabIndex = 13;
-            this.LowL4.Text = "label1";
-            // 
-            // LowL3
-            // 
-            this.LowL3.AutoSize = true;
-            this.LowL3.Location = new System.Drawing.Point(447, 71);
-            this.LowL3.Name = "LowL3";
-            this.LowL3.Size = new System.Drawing.Size(43, 17);
-            this.LowL3.TabIndex = 12;
-            this.LowL3.Text = "label1";
-            // 
-            // LowL2
-            // 
-            this.LowL2.AutoSize = true;
-            this.LowL2.Location = new System.Drawing.Point(447, 40);
-            this.LowL2.Name = "LowL2";
-            this.LowL2.Size = new System.Drawing.Size(43, 17);
-            this.LowL2.TabIndex = 11;
-            this.LowL2.Text = "label1";
-            // 
-            // LowL1
-            // 
-            this.LowL1.AutoSize = true;
-            this.LowL1.Location = new System.Drawing.Point(447, 10);
-            this.LowL1.Name = "LowL1";
-            this.LowL1.Size = new System.Drawing.Size(43, 17);
-            this.LowL1.TabIndex = 10;
-            this.LowL1.Text = "label1";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -730,12 +730,12 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
