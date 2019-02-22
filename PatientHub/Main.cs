@@ -15,15 +15,22 @@ namespace PatientHubUI
     public partial class Main : Form
     {       
         private List<Patient> patients;
-        private List<ModelParams> modelParams;
+        private List<ModelParams> positiveModelParams;
+        private List<ModelParams> negativeModelParams;
+
         private long selectedPatientId;
         private string selectedFirstName;
         private string selectedLastName;
         private decimal selectedScore; //TODO: Capture this dynamically
+        private ToolTip tt = new ToolTip();
 
         public Main()
         {
             InitializeComponent();
+            
+            tt.InitialDelay = 0;
+            tt.ShowAlways = true;
+
 
             patients = Patient.GetAll();            
         }
@@ -45,8 +52,7 @@ namespace PatientHubUI
 
             //TODO: Move to different method
             tabControl1.TabPages[0].AutoScroll = true;
-            tabControl1.TabPages[1].AutoScroll = true;
-
+       
 
             //TODO: MOve to a different Mathod
            
@@ -165,20 +171,87 @@ namespace PatientHubUI
                     selectedScore = decimal.Parse(row.Cells["DMPRW30Days_Score"].Value.ToString());
                     UpdateChart(selectedScore);
 
-                    lbPatientInfo.Text = selectedLastName + ", " + selectedFirstName + " (id:" + selectedPatientId + ")";
+                    lbPatientInfo.Text = selectedLastName + ", " + selectedFirstName;
 
-                    modelParams = SingleInference.GetParameters(selectedPatientId);
-                    HighL1.Text = modelParams[0].paramName + ": " + modelParams[0].paramValue;
-                    HighL2.Text = modelParams[1].paramName + ": " + modelParams[1].paramValue;
-                    HighL3.Text = modelParams[2].paramName + ": " + modelParams[2].paramValue;
-                    HighL4.Text = modelParams[3].paramName + ": " + modelParams[3].paramValue;
-                    HighL5.Text = modelParams[4].paramName + ": " + modelParams[4].paramValue;
+                    //Reset DropDown Items
+                    PositiveText1.Items.Clear();
+                    PositiveText2.Items.Clear();
+                    PositiveText3.Items.Clear();
+                    PositiveText4.Items.Clear();
+                    PositiveText5.Items.Clear();
+                    NegativeText1.Items.Clear();
+                    NegativeText2.Items.Clear();
+                    NegativeText3.Items.Clear();
+                    NegativeText4.Items.Clear();
+                    NegativeText5.Items.Clear();
 
-                    LowL1.Text = modelParams[5].paramName + ": " + modelParams[5].paramValue;
-                    LowL2.Text = modelParams[6].paramName + ": " + modelParams[6].paramValue;
-                    LowL3.Text = modelParams[7].paramName + ": " + modelParams[7].paramValue;
-                    LowL4.Text = modelParams[8].paramName + ": " + modelParams[8].paramValue;
-                    LowL5.Text = modelParams[9].paramName + ": " + modelParams[9].paramValue;
+
+                    // Positive Values
+                    positiveModelParams = SingleInference.GetParameters(selectedPatientId, true);
+
+                    PositiveL1.Text = positiveModelParams[0].paramName + ":";
+                    PositiveText1.Text = positiveModelParams[0].paramValue;
+                    tt.SetToolTip(PositiveL1, "Score: " + positiveModelParams[0].score.ToString());
+
+                    PositiveText1.Items.AddRange(positiveModelParams[0].distinctValues.Split(',').ToArray());
+
+                    PositiveL2.Text = positiveModelParams[1].paramName + ":";
+                    PositiveText2.Text = positiveModelParams[1].paramValue;
+                    tt.SetToolTip(PositiveL2, "Score: " + positiveModelParams[1].score.ToString());
+
+                    PositiveText2.Items.AddRange(positiveModelParams[1].distinctValues.Split(',').ToArray());
+         
+                    PositiveL3.Text = positiveModelParams[2].paramName + ":";
+                    PositiveText3.Text = positiveModelParams[2].paramValue;
+                    tt.SetToolTip(PositiveL3, "Score: " + positiveModelParams[2].score.ToString());
+
+                    PositiveText3.Items.AddRange(positiveModelParams[2].distinctValues.Split(',').ToArray());
+                   
+                    PositiveL4.Text = positiveModelParams[3].paramName + ":";
+                    PositiveText4.Text = positiveModelParams[3].paramValue;
+                    tt.SetToolTip(PositiveL4, "Score: " + positiveModelParams[3].score.ToString());
+
+                    PositiveText4.Items.AddRange(positiveModelParams[3].distinctValues.Split(',').ToArray());
+                   
+                    PositiveL5.Text = positiveModelParams[4].paramName + ":";
+                    PositiveText5.Text = positiveModelParams[4].paramValue;
+                    tt.SetToolTip(PositiveL5, "Score: " + positiveModelParams[4].score.ToString());
+
+                    PositiveText5.Items.AddRange(positiveModelParams[4].distinctValues.Split(',').ToArray());
+                   
+                    // Negative Values
+                    negativeModelParams = SingleInference.GetParameters(selectedPatientId, false);
+
+                    NegativeL1.Text = negativeModelParams[0].paramName + ":";
+                    NegativeText1.Text = negativeModelParams[0].paramValue;
+                    tt.SetToolTip(NegativeL1, "Score: " + positiveModelParams[0].score.ToString());
+
+                    NegativeText1.Items.AddRange(negativeModelParams[0].distinctValues.Split(',').ToArray());
+
+                    NegativeL2.Text = negativeModelParams[1].paramName + ":";
+                    NegativeText2.Text = negativeModelParams[1].paramValue;
+                    tt.SetToolTip(NegativeL2, "Score: " + positiveModelParams[1].score.ToString());
+
+                    NegativeText2.Items.AddRange(negativeModelParams[1].distinctValues.Split(',').ToArray());
+
+                    NegativeL3.Text = negativeModelParams[2].paramName + ":";
+                    NegativeText3.Text = negativeModelParams[2].paramValue;
+                    tt.SetToolTip(NegativeL3, "Score: " + positiveModelParams[2].score.ToString());
+
+                    NegativeText3.Items.AddRange(negativeModelParams[2].distinctValues.Split(',').ToArray());
+
+                    NegativeL4.Text = negativeModelParams[3].paramName + ":";
+                    NegativeText4.Text = negativeModelParams[3].paramValue;
+                    tt.SetToolTip(NegativeL4, "Score: " + positiveModelParams[3].score.ToString());
+
+                    NegativeText4.Items.AddRange(negativeModelParams[3].distinctValues.Split(',').ToArray());
+
+                    NegativeL5.Text = negativeModelParams[4].paramName + ":";
+                    NegativeText5.Text = negativeModelParams[4].paramValue;
+                    tt.SetToolTip(NegativeL5, "Score: " + positiveModelParams[4].score.ToString());
+
+                    NegativeText5.Items.AddRange(negativeModelParams[4].distinctValues.Split(',').ToArray());
+
                 }
                 catch (System.ArgumentException) { }
             
@@ -217,6 +290,16 @@ namespace PatientHubUI
             this.RiskChart.Series[0].LegendText = score.ToString();
 
             this.RiskChart.Update();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

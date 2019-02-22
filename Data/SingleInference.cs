@@ -20,16 +20,18 @@ namespace PatientHubData
 
     public class ModelParams
     {
-        public int isTopInfluencer { get; set; }
+        public decimal score { get; set; }
         public string paramName { get; set; }
         public string paramValue { get; set; }
+        public string distinctValues { get; set; }
+
 
     }
 
     public class SingleInference
     {
 
-        public static List<ModelParams> GetParameters(Int64 patientId)
+        public static List<ModelParams> GetParameters(Int64 patientId, bool isPositive)
         {
             List<ModelParams> modelParams = new List<ModelParams>();
             SqlCommand cmd = new SqlCommand();
@@ -44,6 +46,8 @@ namespace PatientHubData
                     cmd.CommandTimeout = Configuration.commandTimeout;
                     cmd.CommandText = Configuration.spGetDMPRW30Days_LocalExplanation; // TODO: Read Dynamically
                     cmd.Parameters.Add(new SqlParameter("PatientId", patientId));
+                    cmd.Parameters.Add(new SqlParameter("IsPositive", isPositive));
+
 
                     using (SqlDataReader rdr = cmd.ExecuteReader())
                     {
@@ -51,9 +55,10 @@ namespace PatientHubData
                         {
                             ModelParams p = new ModelParams
                             {
-                                isTopInfluencer = rdr.GetInt32(0),
+                                score = rdr.GetDecimal(0),
                                 paramName = rdr.GetString(1),
-                                paramValue = rdr.GetString(2)
+                                paramValue = rdr.GetString(2),
+                                distinctValues = rdr.GetString(3)
                             };
 
                             modelParams.Add(p);
