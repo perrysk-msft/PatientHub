@@ -34,8 +34,8 @@ bld/
 *.json
 *.csv
 *.dot
-*.log
-*.ipynb
+*.log*
+*-checkpoint.ipynb
 <<<<<<< HEAD
 
 # NuGet Packages

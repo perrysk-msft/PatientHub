@@ -9,7 +9,7 @@ import pandas as pd
 
 def init():
     global model
-    model_path = Model.get_model_path(model_name = 'AutoMLfa0c1e2ddbest') # this name is model.id of model that we want to deploy
+    model_path = Model.get_model_path(model_name = 'AutoML90752bf1cbest') # this name is model.id of model that we want to deploy
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
