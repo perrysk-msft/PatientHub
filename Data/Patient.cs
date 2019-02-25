@@ -61,9 +61,9 @@ namespace PatientHubData
                                 numberOfProcedures = Int16.Parse(rdr["num_lab_procedures"].ToString()),
                                 numberOfMedications = Int16.Parse(rdr["num_medications"].ToString()),
                                 numberOfDiagnoses = Int16.Parse(rdr["number_diagnoses"].ToString()),
-                                admissionSource = rdr["admission_source"].ToString(),
-                                admissionType = rdr["admission_type"].ToString(),
-                                dischargeDisposition = rdr["discharge_disposition"].ToString()
+                                admissionSource = rdr["admission_source_id"].ToString(),
+                                admissionType = rdr["admission_type_id"].ToString(),
+                                dischargeDisposition = rdr["discharge_disposition_id"].ToString()
                             };
 
                             patients.Add(patient);

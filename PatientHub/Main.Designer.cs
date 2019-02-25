@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint10 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.TopToolStrip = new System.Windows.Forms.ToolStrip();
             this.BottomToolStrip = new System.Windows.Forms.ToolStrip();
             this.dgPatients = new System.Windows.Forms.DataGridView();
@@ -65,16 +65,36 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.RiskChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.NegativeL5 = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbPatientInfo = new System.Windows.Forms.Label();
+            this.NegativeL4 = new System.Windows.Forms.TextBox();
+            this.NegativeL3 = new System.Windows.Forms.TextBox();
+            this.NegativeL2 = new System.Windows.Forms.TextBox();
+            this.NegativeL1 = new System.Windows.Forms.TextBox();
+            this.NegativeText5 = new System.Windows.Forms.ComboBox();
+            this.NegativeText4 = new System.Windows.Forms.ComboBox();
+            this.NegativeText3 = new System.Windows.Forms.ComboBox();
+            this.NegativeText2 = new System.Windows.Forms.ComboBox();
+            this.NegativeText1 = new System.Windows.Forms.ComboBox();
+            this.PositiveL5 = new System.Windows.Forms.TextBox();
+            this.PositiveL4 = new System.Windows.Forms.TextBox();
+            this.PositiveL3 = new System.Windows.Forms.TextBox();
+            this.PositiveL2 = new System.Windows.Forms.TextBox();
+            this.PositiveL1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.PositiveText5 = new System.Windows.Forms.ComboBox();
             this.PositiveText4 = new System.Windows.Forms.ComboBox();
             this.PositiveText3 = new System.Windows.Forms.ComboBox();
             this.PositiveText2 = new System.Windows.Forms.ComboBox();
             this.PositiveText1 = new System.Windows.Forms.ComboBox();
             this.lblPositiveTitle = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.RiskChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbPatientInfo = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,26 +109,9 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.PositiveL1 = new System.Windows.Forms.TextBox();
-            this.PositiveL2 = new System.Windows.Forms.TextBox();
-            this.PositiveL3 = new System.Windows.Forms.TextBox();
-            this.PositiveL4 = new System.Windows.Forms.TextBox();
-            this.PositiveL5 = new System.Windows.Forms.TextBox();
-            this.NegativeL5 = new System.Windows.Forms.TextBox();
-            this.NegativeL4 = new System.Windows.Forms.TextBox();
-            this.NegativeL3 = new System.Windows.Forms.TextBox();
-            this.NegativeL2 = new System.Windows.Forms.TextBox();
-            this.NegativeL1 = new System.Windows.Forms.TextBox();
-            this.NegativeText5 = new System.Windows.Forms.ComboBox();
-            this.NegativeText4 = new System.Windows.Forms.ComboBox();
-            this.NegativeText3 = new System.Windows.Forms.ComboBox();
-            this.NegativeText2 = new System.Windows.Forms.ComboBox();
-            this.NegativeText1 = new System.Windows.Forms.ComboBox();
+            this.lbAPIResponse = new System.Windows.Forms.Label();
+            this.lbAPIParams = new System.Windows.Forms.Label();
+            this.lbAPIException = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatients)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -154,14 +157,14 @@
             this.dgPatients.BackgroundColor = System.Drawing.Color.White;
             this.dgPatients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgPatients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgPatients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.patient_nbr,
@@ -177,28 +180,28 @@
             this.admissionSource,
             this.admissionType,
             this.dischargeDisposition});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgPatients.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgPatients.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgPatients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgPatients.GridColor = System.Drawing.Color.Gainsboro;
             this.dgPatients.Location = new System.Drawing.Point(0, 0);
             this.dgPatients.MultiSelect = false;
             this.dgPatients.Name = "dgPatients";
             this.dgPatients.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgPatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgPatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -427,6 +430,9 @@
             // 
             this.panel5.AutoScroll = true;
             this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.lbAPIException);
+            this.panel5.Controls.Add(this.lbAPIParams);
+            this.panel5.Controls.Add(this.lbAPIResponse);
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.NegativeL5);
             this.panel5.Controls.Add(this.panel3);
@@ -461,6 +467,266 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1084, 569);
             this.panel5.TabIndex = 7;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.RiskChart);
+            this.panel4.Location = new System.Drawing.Point(3, 69);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(318, 205);
+            this.panel4.TabIndex = 6;
+            // 
+            // RiskChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.RiskChart.ChartAreas.Add(chartArea1);
+            this.RiskChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.RiskChart.Legends.Add(legend1);
+            this.RiskChart.Location = new System.Drawing.Point(0, 0);
+            this.RiskChart.Name = "RiskChart";
+            this.RiskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            dataPoint2.IsVisibleInLegend = false;
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            this.RiskChart.Series.Add(series1);
+            this.RiskChart.Size = new System.Drawing.Size(318, 205);
+            this.RiskChart.TabIndex = 0;
+            this.RiskChart.Text = "chart1";
+            // 
+            // NegativeL5
+            // 
+            this.NegativeL5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NegativeL5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NegativeL5.Location = new System.Drawing.Point(337, 398);
+            this.NegativeL5.Name = "NegativeL5";
+            this.NegativeL5.ReadOnly = true;
+            this.NegativeL5.Size = new System.Drawing.Size(233, 18);
+            this.NegativeL5.TabIndex = 53;
+            this.NegativeL5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.lbPatientInfo);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(318, 60);
+            this.panel3.TabIndex = 5;
+            // 
+            // lbPatientInfo
+            // 
+            this.lbPatientInfo.AutoSize = true;
+            this.lbPatientInfo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPatientInfo.Location = new System.Drawing.Point(7, 5);
+            this.lbPatientInfo.Name = "lbPatientInfo";
+            this.lbPatientInfo.Size = new System.Drawing.Size(0, 30);
+            this.lbPatientInfo.TabIndex = 0;
+            // 
+            // NegativeL4
+            // 
+            this.NegativeL4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NegativeL4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NegativeL4.Location = new System.Drawing.Point(337, 365);
+            this.NegativeL4.Name = "NegativeL4";
+            this.NegativeL4.ReadOnly = true;
+            this.NegativeL4.Size = new System.Drawing.Size(233, 18);
+            this.NegativeL4.TabIndex = 52;
+            this.NegativeL4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // NegativeL3
+            // 
+            this.NegativeL3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NegativeL3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NegativeL3.Location = new System.Drawing.Point(337, 332);
+            this.NegativeL3.Name = "NegativeL3";
+            this.NegativeL3.ReadOnly = true;
+            this.NegativeL3.Size = new System.Drawing.Size(233, 18);
+            this.NegativeL3.TabIndex = 51;
+            this.NegativeL3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // NegativeL2
+            // 
+            this.NegativeL2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NegativeL2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NegativeL2.Location = new System.Drawing.Point(337, 299);
+            this.NegativeL2.Name = "NegativeL2";
+            this.NegativeL2.ReadOnly = true;
+            this.NegativeL2.Size = new System.Drawing.Size(233, 18);
+            this.NegativeL2.TabIndex = 50;
+            this.NegativeL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // NegativeL1
+            // 
+            this.NegativeL1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.NegativeL1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NegativeL1.Location = new System.Drawing.Point(337, 266);
+            this.NegativeL1.Name = "NegativeL1";
+            this.NegativeL1.ReadOnly = true;
+            this.NegativeL1.Size = new System.Drawing.Size(233, 18);
+            this.NegativeL1.TabIndex = 49;
+            this.NegativeL1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // NegativeText5
+            // 
+            this.NegativeText5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NegativeText5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NegativeText5.FormattingEnabled = true;
+            this.NegativeText5.Location = new System.Drawing.Point(574, 393);
+            this.NegativeText5.Name = "NegativeText5";
+            this.NegativeText5.Size = new System.Drawing.Size(459, 29);
+            this.NegativeText5.TabIndex = 48;
+            // 
+            // NegativeText4
+            // 
+            this.NegativeText4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NegativeText4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NegativeText4.FormattingEnabled = true;
+            this.NegativeText4.Location = new System.Drawing.Point(574, 360);
+            this.NegativeText4.Name = "NegativeText4";
+            this.NegativeText4.Size = new System.Drawing.Size(459, 29);
+            this.NegativeText4.TabIndex = 47;
+            // 
+            // NegativeText3
+            // 
+            this.NegativeText3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NegativeText3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NegativeText3.FormattingEnabled = true;
+            this.NegativeText3.Location = new System.Drawing.Point(574, 327);
+            this.NegativeText3.Name = "NegativeText3";
+            this.NegativeText3.Size = new System.Drawing.Size(459, 29);
+            this.NegativeText3.TabIndex = 46;
+            // 
+            // NegativeText2
+            // 
+            this.NegativeText2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NegativeText2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NegativeText2.FormattingEnabled = true;
+            this.NegativeText2.Location = new System.Drawing.Point(574, 294);
+            this.NegativeText2.Name = "NegativeText2";
+            this.NegativeText2.Size = new System.Drawing.Size(459, 29);
+            this.NegativeText2.TabIndex = 45;
+            // 
+            // NegativeText1
+            // 
+            this.NegativeText1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NegativeText1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NegativeText1.FormattingEnabled = true;
+            this.NegativeText1.Location = new System.Drawing.Point(574, 261);
+            this.NegativeText1.Name = "NegativeText1";
+            this.NegativeText1.Size = new System.Drawing.Size(459, 29);
+            this.NegativeText1.TabIndex = 44;
+            // 
+            // PositiveL5
+            // 
+            this.PositiveL5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PositiveL5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PositiveL5.Location = new System.Drawing.Point(337, 184);
+            this.PositiveL5.Name = "PositiveL5";
+            this.PositiveL5.ReadOnly = true;
+            this.PositiveL5.Size = new System.Drawing.Size(233, 18);
+            this.PositiveL5.TabIndex = 43;
+            this.PositiveL5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PositiveL4
+            // 
+            this.PositiveL4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PositiveL4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PositiveL4.Location = new System.Drawing.Point(337, 151);
+            this.PositiveL4.Name = "PositiveL4";
+            this.PositiveL4.ReadOnly = true;
+            this.PositiveL4.Size = new System.Drawing.Size(233, 18);
+            this.PositiveL4.TabIndex = 42;
+            this.PositiveL4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PositiveL3
+            // 
+            this.PositiveL3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PositiveL3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PositiveL3.Location = new System.Drawing.Point(337, 118);
+            this.PositiveL3.Name = "PositiveL3";
+            this.PositiveL3.ReadOnly = true;
+            this.PositiveL3.Size = new System.Drawing.Size(233, 18);
+            this.PositiveL3.TabIndex = 41;
+            this.PositiveL3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PositiveL2
+            // 
+            this.PositiveL2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PositiveL2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PositiveL2.Location = new System.Drawing.Point(337, 85);
+            this.PositiveL2.Name = "PositiveL2";
+            this.PositiveL2.ReadOnly = true;
+            this.PositiveL2.Size = new System.Drawing.Size(233, 18);
+            this.PositiveL2.TabIndex = 40;
+            this.PositiveL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // PositiveL1
+            // 
+            this.PositiveL1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PositiveL1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PositiveL1.Location = new System.Drawing.Point(337, 52);
+            this.PositiveL1.Name = "PositiveL1";
+            this.PositiveL1.ReadOnly = true;
+            this.PositiveL1.Size = new System.Drawing.Size(233, 18);
+            this.PositiveL1.TabIndex = 39;
+            this.PositiveL1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(497, 222);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(215, 30);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Impacting Parameters";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(383, 222);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 30);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Negative [-]";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(327, 222);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 30);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Top 5";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(491, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(215, 30);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Impacting Parameters";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Green;
+            this.label2.Location = new System.Drawing.Point(383, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 30);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Positive [+]";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // PositiveText5
             // 
@@ -521,53 +787,6 @@
             this.lblPositiveTitle.Size = new System.Drawing.Size(63, 30);
             this.lblPositiveTitle.TabIndex = 15;
             this.lblPositiveTitle.Text = "Top 5";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.RiskChart);
-            this.panel4.Location = new System.Drawing.Point(3, 69);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(318, 205);
-            this.panel4.TabIndex = 6;
-            // 
-            // RiskChart
-            // 
-            chartArea5.Name = "ChartArea1";
-            this.RiskChart.ChartAreas.Add(chartArea5);
-            this.RiskChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Name = "Legend1";
-            this.RiskChart.Legends.Add(legend5);
-            this.RiskChart.Location = new System.Drawing.Point(0, 0);
-            this.RiskChart.Name = "RiskChart";
-            this.RiskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            dataPoint10.IsVisibleInLegend = false;
-            series5.Points.Add(dataPoint9);
-            series5.Points.Add(dataPoint10);
-            this.RiskChart.Series.Add(series5);
-            this.RiskChart.Size = new System.Drawing.Size(318, 205);
-            this.RiskChart.TabIndex = 0;
-            this.RiskChart.Text = "chart1";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.lbPatientInfo);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(318, 60);
-            this.panel3.TabIndex = 5;
-            // 
-            // lbPatientInfo
-            // 
-            this.lbPatientInfo.AutoSize = true;
-            this.lbPatientInfo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPatientInfo.Location = new System.Drawing.Point(7, 5);
-            this.lbPatientInfo.Name = "lbPatientInfo";
-            this.lbPatientInfo.Size = new System.Drawing.Size(0, 30);
-            this.lbPatientInfo.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -663,218 +882,35 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Discharge Disposition";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // label2
+            // lbAPIResponse
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Green;
-            this.label2.Location = new System.Drawing.Point(383, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 30);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Positive [+]";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lbAPIResponse.AutoSize = true;
+            this.lbAPIResponse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAPIResponse.Location = new System.Drawing.Point(334, 499);
+            this.lbAPIResponse.Name = "lbAPIResponse";
+            this.lbAPIResponse.Size = new System.Drawing.Size(81, 15);
+            this.lbAPIResponse.TabIndex = 8;
+            this.lbAPIResponse.Text = "API Response:";
             // 
-            // label3
+            // lbAPIParams
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(491, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(215, 30);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Impacting Parameters";
+            this.lbAPIParams.AutoSize = true;
+            this.lbAPIParams.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAPIParams.Location = new System.Drawing.Point(334, 518);
+            this.lbAPIParams.Name = "lbAPIParams";
+            this.lbAPIParams.Size = new System.Drawing.Size(90, 15);
+            this.lbAPIParams.TabIndex = 54;
+            this.lbAPIParams.Text = "API Parameters:";
             // 
-            // label1
+            // lbAPIException
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(497, 222);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 30);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Impacting Parameters";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(383, 222);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 30);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Negative [-]";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(327, 222);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 30);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Top 5";
-            // 
-            // PositiveL1
-            // 
-            this.PositiveL1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PositiveL1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PositiveL1.Location = new System.Drawing.Point(337, 52);
-            this.PositiveL1.Name = "PositiveL1";
-            this.PositiveL1.ReadOnly = true;
-            this.PositiveL1.Size = new System.Drawing.Size(233, 18);
-            this.PositiveL1.TabIndex = 39;
-            this.PositiveL1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PositiveL2
-            // 
-            this.PositiveL2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PositiveL2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PositiveL2.Location = new System.Drawing.Point(337, 85);
-            this.PositiveL2.Name = "PositiveL2";
-            this.PositiveL2.ReadOnly = true;
-            this.PositiveL2.Size = new System.Drawing.Size(233, 18);
-            this.PositiveL2.TabIndex = 40;
-            this.PositiveL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PositiveL3
-            // 
-            this.PositiveL3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PositiveL3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PositiveL3.Location = new System.Drawing.Point(337, 118);
-            this.PositiveL3.Name = "PositiveL3";
-            this.PositiveL3.ReadOnly = true;
-            this.PositiveL3.Size = new System.Drawing.Size(233, 18);
-            this.PositiveL3.TabIndex = 41;
-            this.PositiveL3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PositiveL4
-            // 
-            this.PositiveL4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PositiveL4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PositiveL4.Location = new System.Drawing.Point(337, 151);
-            this.PositiveL4.Name = "PositiveL4";
-            this.PositiveL4.ReadOnly = true;
-            this.PositiveL4.Size = new System.Drawing.Size(233, 18);
-            this.PositiveL4.TabIndex = 42;
-            this.PositiveL4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // PositiveL5
-            // 
-            this.PositiveL5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PositiveL5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PositiveL5.Location = new System.Drawing.Point(337, 184);
-            this.PositiveL5.Name = "PositiveL5";
-            this.PositiveL5.ReadOnly = true;
-            this.PositiveL5.Size = new System.Drawing.Size(233, 18);
-            this.PositiveL5.TabIndex = 43;
-            this.PositiveL5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // NegativeL5
-            // 
-            this.NegativeL5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NegativeL5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NegativeL5.Location = new System.Drawing.Point(337, 398);
-            this.NegativeL5.Name = "NegativeL5";
-            this.NegativeL5.ReadOnly = true;
-            this.NegativeL5.Size = new System.Drawing.Size(233, 18);
-            this.NegativeL5.TabIndex = 53;
-            this.NegativeL5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // NegativeL4
-            // 
-            this.NegativeL4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NegativeL4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NegativeL4.Location = new System.Drawing.Point(337, 365);
-            this.NegativeL4.Name = "NegativeL4";
-            this.NegativeL4.ReadOnly = true;
-            this.NegativeL4.Size = new System.Drawing.Size(233, 18);
-            this.NegativeL4.TabIndex = 52;
-            this.NegativeL4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // NegativeL3
-            // 
-            this.NegativeL3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NegativeL3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NegativeL3.Location = new System.Drawing.Point(337, 332);
-            this.NegativeL3.Name = "NegativeL3";
-            this.NegativeL3.ReadOnly = true;
-            this.NegativeL3.Size = new System.Drawing.Size(233, 18);
-            this.NegativeL3.TabIndex = 51;
-            this.NegativeL3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // NegativeL2
-            // 
-            this.NegativeL2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NegativeL2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NegativeL2.Location = new System.Drawing.Point(337, 299);
-            this.NegativeL2.Name = "NegativeL2";
-            this.NegativeL2.ReadOnly = true;
-            this.NegativeL2.Size = new System.Drawing.Size(233, 18);
-            this.NegativeL2.TabIndex = 50;
-            this.NegativeL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // NegativeL1
-            // 
-            this.NegativeL1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.NegativeL1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.NegativeL1.Location = new System.Drawing.Point(337, 266);
-            this.NegativeL1.Name = "NegativeL1";
-            this.NegativeL1.ReadOnly = true;
-            this.NegativeL1.Size = new System.Drawing.Size(233, 18);
-            this.NegativeL1.TabIndex = 49;
-            this.NegativeL1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // NegativeText5
-            // 
-            this.NegativeText5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NegativeText5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NegativeText5.FormattingEnabled = true;
-            this.NegativeText5.Location = new System.Drawing.Point(574, 393);
-            this.NegativeText5.Name = "NegativeText5";
-            this.NegativeText5.Size = new System.Drawing.Size(459, 29);
-            this.NegativeText5.TabIndex = 48;
-            // 
-            // NegativeText4
-            // 
-            this.NegativeText4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NegativeText4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NegativeText4.FormattingEnabled = true;
-            this.NegativeText4.Location = new System.Drawing.Point(574, 360);
-            this.NegativeText4.Name = "NegativeText4";
-            this.NegativeText4.Size = new System.Drawing.Size(459, 29);
-            this.NegativeText4.TabIndex = 47;
-            // 
-            // NegativeText3
-            // 
-            this.NegativeText3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NegativeText3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NegativeText3.FormattingEnabled = true;
-            this.NegativeText3.Location = new System.Drawing.Point(574, 327);
-            this.NegativeText3.Name = "NegativeText3";
-            this.NegativeText3.Size = new System.Drawing.Size(459, 29);
-            this.NegativeText3.TabIndex = 46;
-            // 
-            // NegativeText2
-            // 
-            this.NegativeText2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NegativeText2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NegativeText2.FormattingEnabled = true;
-            this.NegativeText2.Location = new System.Drawing.Point(574, 294);
-            this.NegativeText2.Name = "NegativeText2";
-            this.NegativeText2.Size = new System.Drawing.Size(459, 29);
-            this.NegativeText2.TabIndex = 45;
-            // 
-            // NegativeText1
-            // 
-            this.NegativeText1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NegativeText1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NegativeText1.FormattingEnabled = true;
-            this.NegativeText1.Location = new System.Drawing.Point(574, 261);
-            this.NegativeText1.Name = "NegativeText1";
-            this.NegativeText1.Size = new System.Drawing.Size(459, 29);
-            this.NegativeText1.TabIndex = 44;
+            this.lbAPIException.AutoSize = true;
+            this.lbAPIException.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAPIException.Location = new System.Drawing.Point(334, 538);
+            this.lbAPIException.Name = "lbAPIException";
+            this.lbAPIException.Size = new System.Drawing.Size(61, 15);
+            this.lbAPIException.TabIndex = 55;
+            this.lbAPIException.Text = "Exception:";
             // 
             // Main
             // 
@@ -988,6 +1024,9 @@
         private System.Windows.Forms.ComboBox NegativeText3;
         private System.Windows.Forms.ComboBox NegativeText2;
         private System.Windows.Forms.ComboBox NegativeText1;
+        private System.Windows.Forms.Label lbAPIParams;
+        private System.Windows.Forms.Label lbAPIResponse;
+        private System.Windows.Forms.Label lbAPIException;
     }
 }
 

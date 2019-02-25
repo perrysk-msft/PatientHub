@@ -13,7 +13,7 @@ using PatientHubData;
 namespace PatientHubUI
 {
     public partial class Main : Form
-    {       
+    {
         private List<Patient> patients;
         private List<ModelParams> positiveModelParams;
         private List<ModelParams> negativeModelParams;
@@ -27,12 +27,12 @@ namespace PatientHubUI
         public Main()
         {
             InitializeComponent();
-            
+
             tt.InitialDelay = 0;
             tt.ShowAlways = true;
 
 
-            patients = Patient.GetAll();            
+            patients = Patient.GetAll();
         }
 
         private void AddBarGraphColumn(string columnName)
@@ -42,22 +42,16 @@ namespace PatientHubUI
             col.DataPropertyName = columnName;
 
             dgPatients.Columns.Add(col);
-            
+
         }
         private void InitDataGrid()
         {
-            dgPatients.AutoGenerateColumns = false;            
+            dgPatients.AutoGenerateColumns = false;
             dgPatients.DataSource = patients;
-            dgPatients.Rows[0].Selected = false;            
+            dgPatients.Rows[0].Selected = false;
 
             //TODO: Move to different method
             tabControl1.TabPages[0].AutoScroll = true;
-       
-
-            //TODO: MOve to a different Mathod
-           
-
-
 
         }
 
@@ -90,26 +84,39 @@ namespace PatientHubUI
 
         private void bSingleInferenceTest_Click(object sender, EventArgs e)
         {
-            /*
-             
-             ['race', 'gender', 'age', 'weight', 'admission_type_id', 'discharge_disposition_id', 'admission_source_id', 
-             'time_in_hospital', 'payer_code', 'medical_specialty', 'num_lab_procedures', 'num_procedures', 'num_medications', 
-             'number_outpatient', 'number_emergency', 'number_inpatient', 'diag_1', 'diag_2', 'diag_3', 'number_diagnoses', 
-             'max_glu_serum', 'A1Cresult', 'metformin', 'repaglinide', 'nateglinide', 'chlorpropamide', 'glimepiride', 
-             'acetohexamide', 'glipizide', 'glyburide', 'tolbutamide', 'pioglitazone', 'rosiglitazone', 'acarbose', 'miglitol', 
-             'troglitazone', 'tolazamide', 'examide', 'citoglipton', 'insulin', 'glyburide-metformin', 'glipizide-metformin', 'glimepiride-pioglitazone', 
-             'metformin-rosiglitazone', 'metformin-pioglitazone', 'change', 'diabetesMed']
-             
-             */
-                                    
-            string[,] payloadData = new string[,] {
-                {
-                    "Asian", "Male", "[90-100)", "?", "6", "25", "1", "1", "?", "Pediatrics-Endocrinology", "41", "10", "100", "100", "100", "100", "250.83","?", "?", "1", "None", "None", "No", "No", "No", "No", "No", "No","No", "No", "No", "No", "No", "No", "No", "No", "No", "No", "No","No", "No", "No", "No", "No", "No", "No", "No"
-                }
-            };
+            // Build dynamic sql parameters:
+            string[] sqlparams = new string[10];
 
-            string response = SingleInference.GetScore(payloadData);
-            MessageBox.Show(response);
+            sqlparams[0] = positiveModelParams[0].sqlColumnName + ',' + PositiveText1.Text.Trim();
+            sqlparams[1] = positiveModelParams[1].sqlColumnName + ',' + PositiveText2.Text.Trim();
+            sqlparams[2] = positiveModelParams[2].sqlColumnName + ',' + PositiveText3.Text.Trim();
+            sqlparams[3] = positiveModelParams[3].sqlColumnName + ',' + PositiveText4.Text.Trim();
+            sqlparams[4] = positiveModelParams[4].sqlColumnName + ',' + PositiveText5.Text.Trim();
+
+            sqlparams[5] = negativeModelParams[0].sqlColumnName + ',' + PositiveText1.Text.Trim();
+            sqlparams[6] = negativeModelParams[1].sqlColumnName + ',' + PositiveText2.Text.Trim();
+            sqlparams[7] = negativeModelParams[2].sqlColumnName + ',' + PositiveText3.Text.Trim();
+            sqlparams[8] = negativeModelParams[3].sqlColumnName + ',' + PositiveText4.Text.Trim();
+            sqlparams[9] = negativeModelParams[4].sqlColumnName + ',' + PositiveText5.Text.Trim();
+
+            string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(selectedPatientId, sqlparams);
+
+            //try
+            //{
+                string response = DMPRW30Days_SingleInference.GetScore(payloadData);
+                string input = "Input:";
+                decimal newScore = decimal.Parse(response.Split(',')[1].Substring(0, 7)) * 100;
+                UpdateChart(newScore);
+                lbAPIResponse.Text = response;
+
+                for (int i = 0; i < payloadData.Length; i++)
+                {
+                    input += payloadData[0,i];
+                }
+                lbAPIParams.Text = input;
+
+            //}
+            //catch (Exception ex) { lbAPIException.Text = ex.Message.ToString(); }            
         }
 
         private void CellClick(int rowIndex)
@@ -142,7 +149,7 @@ namespace PatientHubUI
 
 
                     // Positive Values
-                    positiveModelParams = SingleInference.GetParameters(selectedPatientId, true);
+                    positiveModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId, true);
 
                     PositiveL1.Text = positiveModelParams[0].paramName + ":";
                     PositiveText1.Text = positiveModelParams[0].paramValue;
@@ -175,7 +182,7 @@ namespace PatientHubUI
                     PositiveText5.Items.AddRange(positiveModelParams[4].distinctValues.Split(',').ToArray());
                    
                     // Negative Values
-                    negativeModelParams = SingleInference.GetParameters(selectedPatientId, false);
+                    negativeModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId, false);
 
                     NegativeL1.Text = negativeModelParams[0].paramName + ":";
                     NegativeText1.Text = negativeModelParams[0].paramValue;

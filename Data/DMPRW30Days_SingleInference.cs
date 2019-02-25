@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Data.SqlClient;
 using System.Data;
+using System.Linq;
 
 namespace PatientHubData
 {
@@ -21,6 +22,7 @@ namespace PatientHubData
     public class ModelParams
     {
         public decimal score { get; set; }
+        public string sqlColumnName { get; set; }
         public string paramName { get; set; }
         public string paramValue { get; set; }
         public string distinctValues { get; set; }
@@ -28,7 +30,7 @@ namespace PatientHubData
 
     }
 
-    public class SingleInference
+    public class DMPRW30Days_SingleInference
     {
 
         public static List<ModelParams> GetParameters(Int64 patientId, bool isPositive)
@@ -56,9 +58,10 @@ namespace PatientHubData
                             ModelParams p = new ModelParams
                             {
                                 score = rdr.GetDecimal(0),
-                                paramName = rdr.GetString(1),
-                                paramValue = rdr.GetString(2),
-                                distinctValues = rdr.GetString(3)
+                                sqlColumnName = rdr.GetString(1),
+                                paramName = rdr.GetString(2),
+                                paramValue = rdr.GetString(3),
+                                distinctValues = rdr.GetString(4)
                             };
 
                             modelParams.Add(p);
@@ -66,6 +69,45 @@ namespace PatientHubData
                     }
                 }
                 return modelParams;
+            }
+            catch (SqlException e) { throw e; }
+            finally { }
+        }
+
+        public static string [,] GetSingleInference(Int64 patientId, string[] parameters = null)
+        {
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                // Parse parameters array
+                using (SqlConnection connection = new SqlConnection(Configuration.connectionString))
+                {
+                    connection.Open();
+
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandTimeout = Configuration.commandTimeout;
+                    cmd.CommandText = Configuration.spGet_DMPRW30Days_SingleInference;
+                    cmd.Parameters.Add(new SqlParameter("PatientId", patientId));
+
+                    if (parameters != null)
+                    {
+                        foreach (var param in parameters)
+                        {
+                            if(!cmd.Parameters.Contains(param.Split(',')[0]))
+                                cmd.Parameters.Add(new SqlParameter(param.Split(',')[0], param.Split(',')[1]));
+                        }
+                    }
+                    string[] ar = ((string)cmd.ExecuteScalar()).Split(',').ToArray();
+                    string[,] payloadData = new string[1, ar.Length];
+
+                    for (int i = 0; i < ar.Length; i++)
+                    {
+                        payloadData[0, i] = ar[i];
+                    }
+
+                    return payloadData;
+                }
             }
             catch (SqlException e) { throw e; }
             finally { }
