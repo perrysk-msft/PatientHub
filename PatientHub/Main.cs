@@ -61,7 +61,11 @@ namespace PatientHubUI
             f.ShowDialog();
 
             // Get the Model Name and add colum to the Grid
-            AddBarGraphColumn("DMPRW30Days_Score"); // TODO: Do this dynamically...
+            if (!dgPatients.Columns.Contains("DMPRW30Days_Score"))
+            {
+                AddBarGraphColumn("DMPRW30Days_Score"); // TODO: Do this dynamically...
+            }
+            
 
             // Order by the column
             var sortedList = patients.OrderByDescending(s => s.DMPRW30Days_Score).ToList();
@@ -186,31 +190,31 @@ namespace PatientHubUI
 
                     NegativeL1.Text = negativeModelParams[0].paramName + ":";
                     NegativeText1.Text = negativeModelParams[0].paramValue;
-                    tt.SetToolTip(NegativeL1, "Score: " + positiveModelParams[0].score.ToString());
+                    tt.SetToolTip(NegativeL1, "Score: " + negativeModelParams[0].score.ToString());
 
                     NegativeText1.Items.AddRange(negativeModelParams[0].distinctValues.Split(',').ToArray());
 
                     NegativeL2.Text = negativeModelParams[1].paramName + ":";
                     NegativeText2.Text = negativeModelParams[1].paramValue;
-                    tt.SetToolTip(NegativeL2, "Score: " + positiveModelParams[1].score.ToString());
+                    tt.SetToolTip(NegativeL2, "Score: " + negativeModelParams[1].score.ToString());
 
                     NegativeText2.Items.AddRange(negativeModelParams[1].distinctValues.Split(',').ToArray());
 
                     NegativeL3.Text = negativeModelParams[2].paramName + ":";
                     NegativeText3.Text = negativeModelParams[2].paramValue;
-                    tt.SetToolTip(NegativeL3, "Score: " + positiveModelParams[2].score.ToString());
+                    tt.SetToolTip(NegativeL3, "Score: " + negativeModelParams[2].score.ToString());
 
                     NegativeText3.Items.AddRange(negativeModelParams[2].distinctValues.Split(',').ToArray());
 
                     NegativeL4.Text = negativeModelParams[3].paramName + ":";
                     NegativeText4.Text = negativeModelParams[3].paramValue;
-                    tt.SetToolTip(NegativeL4, "Score: " + positiveModelParams[3].score.ToString());
+                    tt.SetToolTip(NegativeL4, "Score: " + negativeModelParams[3].score.ToString());
 
                     NegativeText4.Items.AddRange(negativeModelParams[3].distinctValues.Split(',').ToArray());
 
                     NegativeL5.Text = negativeModelParams[4].paramName + ":";
                     NegativeText5.Text = negativeModelParams[4].paramValue;
-                    tt.SetToolTip(NegativeL5, "Score: " + positiveModelParams[4].score.ToString());
+                    tt.SetToolTip(NegativeL5, "Score: " + negativeModelParams[4].score.ToString());
 
                     NegativeText5.Items.AddRange(negativeModelParams[4].distinctValues.Split(',').ToArray());
 
@@ -254,14 +258,5 @@ namespace PatientHubUI
             this.RiskChart.Update();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

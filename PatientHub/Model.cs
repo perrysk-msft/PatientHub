@@ -21,26 +21,65 @@ namespace PatientHubUI
             models = model.GetAll();
             
             ImageList il = new ImageList();
-            il.ImageSize = new Size(224, 138);
-            il.Images.Add("test1", Image.FromFile(@"images\DM.png"));
-            
+            il.ImageSize = new Size(244, 81);
+            il.Images.Add("DMReadmission30Days", Image.FromFile(@"images\DMReadmission30Days.png"));
+            il.Images.Add("Diabetes", Image.FromFile(@"images\Diabetes.png"));
+            il.Images.Add("Asthma", Image.FromFile(@"images\Asthma.png"));
+
+
+
             listView1.View = View.LargeIcon;
             listView1.CheckBoxes = true;
-            listView1.ShowItemToolTips = true;
             listView1.LargeImageList = il;
             
             for (int i = 0; i < il.Images.Count; i++)
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.ImageIndex = i;
-                lvi.ToolTipText = "This is the detailed description...This is the detailed description...This is the detailed description...This is the detailed description...This is the detailed description...This is the detailed description...";
-
                 listView1.Items.Add(lvi);
-
-
-
             }
         }
 
+        private void bCreate_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Lad form to create new model");
+        }
+
+        private void bApply_Click(object sender, EventArgs e)
+        {
+            foreach (var item in listView1.Items)
+            {
+
+            }
+            
+        }
+
+        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {            
+            if (e.Item.Checked)
+            {
+
+                panel3.Visible = true;
+
+            }
+            else
+                panel3.Visible = false;
+
+        }
+
+        private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.Index != 0) e.NewValue = e.CurrentValue;
+
+            if (e.NewValue == CheckState.Checked)
+            {
+                var checkedCount = listView1.CheckedItems.Count;
+                for (var i = 0; i < checkedCount; i++)
+                {
+                    listView1.CheckedItems[i].Checked = false;
+                }
+
+            }
+        }
     }
 }

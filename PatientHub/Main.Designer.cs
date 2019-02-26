@@ -31,13 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            this.TopToolStrip = new System.Windows.Forms.ToolStrip();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.BottomToolStrip = new System.Windows.Forms.ToolStrip();
             this.dgPatients = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +56,6 @@
             this.bSingleInferenceTest = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -65,6 +63,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lbAPIException = new System.Windows.Forms.Label();
+            this.lbAPIParams = new System.Windows.Forms.Label();
+            this.lbAPIResponse = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.RiskChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.NegativeL5 = new System.Windows.Forms.TextBox();
@@ -109,12 +110,9 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbAPIResponse = new System.Windows.Forms.Label();
-            this.lbAPIParams = new System.Windows.Forms.Label();
-            this.lbAPIException = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatients)).BeginInit();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -127,17 +125,8 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // TopToolStrip
-            // 
-            this.TopToolStrip.BackColor = System.Drawing.Color.White;
-            this.TopToolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.TopToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.TopToolStrip.Name = "TopToolStrip";
-            this.TopToolStrip.Size = new System.Drawing.Size(1741, 25);
-            this.TopToolStrip.TabIndex = 0;
-            this.TopToolStrip.Text = "toolStrip1";
             // 
             // BottomToolStrip
             // 
@@ -205,7 +194,7 @@
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPatients.Size = new System.Drawing.Size(1736, 255);
+            this.dgPatients.Size = new System.Drawing.Size(1736, 263);
             this.dgPatients.TabIndex = 2;
             this.dgPatients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPatients_CellClick);
             // 
@@ -323,9 +312,9 @@
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(0, 25);
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 995);
+            this.splitter1.Size = new System.Drawing.Size(3, 1020);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
             // 
@@ -333,26 +322,16 @@
             // 
             this.topPanel.Controls.Add(this.pictureBox1);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topPanel.Location = new System.Drawing.Point(3, 25);
+            this.topPanel.Location = new System.Drawing.Point(3, 0);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1738, 90);
             this.topPanel.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PatientHub.Properties.Resources.logo;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(297, 86);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // splitContainer1
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 115);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 90);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -364,8 +343,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1738, 905);
-            this.splitContainer1.SplitterDistance = 294;
+            this.splitContainer1.Size = new System.Drawing.Size(1738, 930);
+            this.splitContainer1.SplitterDistance = 302;
             this.splitContainer1.TabIndex = 8;
             // 
             // panel2
@@ -374,7 +353,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 37);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1736, 255);
+            this.panel2.Size = new System.Drawing.Size(1736, 263);
             this.panel2.TabIndex = 4;
             // 
             // panel1
@@ -410,21 +389,21 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1736, 605);
+            this.tabControl1.Size = new System.Drawing.Size(1736, 622);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Visible = false;
             // 
             // tabPage2
             // 
             this.tabPage2.AutoScroll = true;
+            this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.panel5);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1728, 575);
+            this.tabPage2.Size = new System.Drawing.Size(1728, 592);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Risk for Readmission within 30 days";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -465,8 +444,41 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1084, 569);
+            this.panel5.Size = new System.Drawing.Size(1084, 586);
             this.panel5.TabIndex = 7;
+            // 
+            // lbAPIException
+            // 
+            this.lbAPIException.AutoSize = true;
+            this.lbAPIException.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lbAPIException.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAPIException.Location = new System.Drawing.Point(334, 538);
+            this.lbAPIException.Name = "lbAPIException";
+            this.lbAPIException.Size = new System.Drawing.Size(61, 15);
+            this.lbAPIException.TabIndex = 55;
+            this.lbAPIException.Text = "Exception:";
+            // 
+            // lbAPIParams
+            // 
+            this.lbAPIParams.AutoSize = true;
+            this.lbAPIParams.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lbAPIParams.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAPIParams.Location = new System.Drawing.Point(334, 518);
+            this.lbAPIParams.Name = "lbAPIParams";
+            this.lbAPIParams.Size = new System.Drawing.Size(90, 15);
+            this.lbAPIParams.TabIndex = 54;
+            this.lbAPIParams.Text = "API Parameters:";
+            // 
+            // lbAPIResponse
+            // 
+            this.lbAPIResponse.AutoSize = true;
+            this.lbAPIResponse.BackColor = System.Drawing.Color.LemonChiffon;
+            this.lbAPIResponse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAPIResponse.Location = new System.Drawing.Point(334, 499);
+            this.lbAPIResponse.Name = "lbAPIResponse";
+            this.lbAPIResponse.Size = new System.Drawing.Size(81, 15);
+            this.lbAPIResponse.TabIndex = 8;
+            this.lbAPIResponse.Text = "API Response:";
             // 
             // panel4
             // 
@@ -726,7 +738,6 @@
             this.label2.Size = new System.Drawing.Size(115, 30);
             this.label2.TabIndex = 34;
             this.label2.Text = "Positive [+]";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // PositiveText5
             // 
@@ -882,35 +893,15 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Discharge Disposition";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // lbAPIResponse
+            // pictureBox1
             // 
-            this.lbAPIResponse.AutoSize = true;
-            this.lbAPIResponse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAPIResponse.Location = new System.Drawing.Point(334, 499);
-            this.lbAPIResponse.Name = "lbAPIResponse";
-            this.lbAPIResponse.Size = new System.Drawing.Size(81, 15);
-            this.lbAPIResponse.TabIndex = 8;
-            this.lbAPIResponse.Text = "API Response:";
-            // 
-            // lbAPIParams
-            // 
-            this.lbAPIParams.AutoSize = true;
-            this.lbAPIParams.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAPIParams.Location = new System.Drawing.Point(334, 518);
-            this.lbAPIParams.Name = "lbAPIParams";
-            this.lbAPIParams.Size = new System.Drawing.Size(90, 15);
-            this.lbAPIParams.TabIndex = 54;
-            this.lbAPIParams.Text = "API Parameters:";
-            // 
-            // lbAPIException
-            // 
-            this.lbAPIException.AutoSize = true;
-            this.lbAPIException.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAPIException.Location = new System.Drawing.Point(334, 538);
-            this.lbAPIException.Name = "lbAPIException";
-            this.lbAPIException.Size = new System.Drawing.Size(61, 15);
-            this.lbAPIException.TabIndex = 55;
-            this.lbAPIException.Text = "Exception:";
+            this.pictureBox1.Image = global::PatientHub.Properties.Resources.logo;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(297, 86);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Main
             // 
@@ -922,7 +913,6 @@
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.BottomToolStrip);
-            this.Controls.Add(this.TopToolStrip);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Main";
             this.Text = "ACE Patient Hub E2E";
@@ -930,7 +920,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPatients)).EndInit();
             this.topPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -945,14 +934,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip TopToolStrip;
         private System.Windows.Forms.ToolStrip BottomToolStrip;
         private System.Windows.Forms.DataGridView dgPatients;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
