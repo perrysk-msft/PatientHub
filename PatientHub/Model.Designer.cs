@@ -180,7 +180,7 @@
             this.panel4.BackColor = System.Drawing.Color.Silver;
             this.panel4.Location = new System.Drawing.Point(0, 51);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(987, 2);
+            this.panel4.Size = new System.Drawing.Size(4000, 1);
             this.panel4.TabIndex = 1;
             // 
             // Model
@@ -193,7 +193,6 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Model";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -42,7 +42,8 @@ namespace PatientHubUI
 
         private void bCreate_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Lad form to create new model");
+            CreateModel cm = new CreateModel();
+            cm.ShowDialog();
         }
 
         private void bApply_Click(object sender, EventArgs e)

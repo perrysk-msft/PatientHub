@@ -457,6 +457,7 @@
             this.lbAPIException.Size = new System.Drawing.Size(61, 15);
             this.lbAPIException.TabIndex = 55;
             this.lbAPIException.Text = "Exception:";
+            this.lbAPIException.Visible = false;
             // 
             // lbAPIParams
             // 
@@ -468,6 +469,7 @@
             this.lbAPIParams.Size = new System.Drawing.Size(90, 15);
             this.lbAPIParams.TabIndex = 54;
             this.lbAPIParams.Text = "API Parameters:";
+            this.lbAPIParams.Visible = false;
             // 
             // lbAPIResponse
             // 
@@ -479,6 +481,7 @@
             this.lbAPIResponse.Size = new System.Drawing.Size(81, 15);
             this.lbAPIResponse.TabIndex = 8;
             this.lbAPIResponse.Text = "API Response:";
+            this.lbAPIResponse.Visible = false;
             // 
             // panel4
             // 

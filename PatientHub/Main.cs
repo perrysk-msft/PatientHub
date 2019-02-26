@@ -75,10 +75,6 @@ namespace PatientHubUI
 
             tabControl1.Visible = true;
 
-            // SingleInference
-
-
-
         }
 
         private void Main_Load(object sender, EventArgs e)
