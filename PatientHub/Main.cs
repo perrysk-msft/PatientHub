@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
@@ -9,11 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientHubData;
+using model = PatientHubData.Model;
 
 namespace PatientHubUI
 {
     public partial class Main : Form
     {
+        public List<model> models;
         private List<Patient> patients;
         private List<ModelParams> positiveModelParams;
         private List<ModelParams> negativeModelParams;
@@ -31,7 +34,7 @@ namespace PatientHubUI
             tt.InitialDelay = 0;
             tt.ShowAlways = true;
 
-
+            models = model.GetAll();
             patients = Patient.GetAll();
         }
 
@@ -57,23 +60,39 @@ namespace PatientHubUI
 
         private void bPredict_Click(object sender, EventArgs e)
         {
+            // TODO: DYnamic management of tabs based on Models...
+
             Model f = new Model();
+            f.models = models;
             f.ShowDialog();
 
-            // Get the Model Name and add colum to the Grid
-            if (!dgPatients.Columns.Contains("DMPRW30Days_Score"))
+            foreach (model model in models)
             {
-                AddBarGraphColumn("DMPRW30Days_Score"); // TODO: Do this dynamically...
+                // Show
+                if(model.isSelected)
+                {
+                    if(!dgPatients.Columns.Contains(model.Name))
+                        AddBarGraphColumn(model.Name);
+                }
+
+                // Hide
+                else
+                {
+                    if (dgPatients.Columns.Contains(model.Name))
+                        dgPatients.Columns.Remove(model.Name);
+                }
             }
             
-
-            // Order by the column
+            // Order by the first column
             var sortedList = patients.OrderByDescending(s => s.DMPRW30Days_Score).ToList();
             dgPatients.DataSource = sortedList;
 
             CellClick(0);
 
-            tabControl1.Visible = true;
+            if (models.Where(x=>x.isSelected).Count() > 0)
+                tabControl1.Visible = true;
+            else
+                tabControl1.Visible = false;
 
         }
 
@@ -101,8 +120,8 @@ namespace PatientHubUI
 
             string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(selectedPatientId, sqlparams);
 
-            //try
-            //{
+            try
+            {
                 string response = DMPRW30Days_SingleInference.GetScore(payloadData);
                 string input = "Input:";
                 decimal newScore = decimal.Parse(response.Split(',')[1].Substring(0, 7)) * 100;
@@ -115,8 +134,8 @@ namespace PatientHubUI
                 }
                 lbAPIParams.Text = input;
 
-            //}
-            //catch (Exception ex) { lbAPIException.Text = ex.Message.ToString(); }            
+            }
+            catch (Exception ex) { lbAPIException.Text = ex.Message.ToString(); }            
         }
 
         private void CellClick(int rowIndex)
@@ -254,5 +273,38 @@ namespace PatientHubUI
             this.RiskChart.Update();
         }
 
+        private void dgPatients_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Up) || e.KeyCode.Equals(Keys.Down))
+            {
+                MoveUpDown(e.KeyCode == Keys.Up);
+            }
+            e.Handled = true;
+        }
+        private void MoveUpDown(bool goUp)
+        {
+            try
+            {
+                int currentRowindex = dgPatients.SelectedCells[0].OwningRow.Index;
+
+                //Here I decide to change the row with the parameter
+                //True -1 or False +1
+                int newRowIndex = currentRowindex + (goUp ? -1 : 1);
+
+                CellClick(newRowIndex);
+
+                //Here it must be ensured that we remain within the index of the DGV
+                if (newRowIndex > -1 && newRowIndex < dgPatients.Rows.Count)
+                {
+                    dgPatients.ClearSelection();
+                    dgPatients.Rows[newRowIndex].Selected = true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error");
+            }
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -13,30 +14,36 @@ namespace PatientHubUI
 {
     public partial class Model : Form
     {
-        private List<model> models;
+        public List<model> models;
+        private ImageList il = new ImageList();
 
         public Model()
         {
-            InitializeComponent();
-            models = model.GetAll();
-            
-            ImageList il = new ImageList();
+            InitializeComponent();            
+        }
+        private void Model_Load(object sender, EventArgs e)
+        {
             il.ImageSize = new Size(244, 81);
-            il.Images.Add("DMReadmission30Days", Image.FromFile(@"images\DMReadmission30Days.png"));
-            il.Images.Add("Diabetes", Image.FromFile(@"images\Diabetes.png"));
-            il.Images.Add("Asthma", Image.FromFile(@"images\Asthma.png"));
 
-
+            foreach (model model in models)
+            {
+                il.Images.Add(model.Name, Image.FromFile(model.ImagePath));
+            }
 
             listView1.View = View.LargeIcon;
             listView1.CheckBoxes = true;
             listView1.LargeImageList = il;
-            
-            for (int i = 0; i < il.Images.Count; i++)
+
+            for (int i = 0; i < models.Count; i++)
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.ImageIndex = i;
                 listView1.Items.Add(lvi);
+
+                if (models[i].isSelected)
+                {
+                    listView1.Items[i].Checked = true;
+                }
             }
         }
 
@@ -48,11 +55,12 @@ namespace PatientHubUI
 
         private void bApply_Click(object sender, EventArgs e)
         {
-            foreach (var item in listView1.Items)
+            foreach (ListViewItem item in listView1.Items)
             {
-
+                models[item.ImageIndex].isSelected = item.Checked;
             }
-            
+
+            this.Close();                        
         }
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -70,6 +78,7 @@ namespace PatientHubUI
 
         private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            // TODO: Enable all models when they are deployed
             if (e.Index != 0) e.NewValue = e.CurrentValue;
 
             if (e.NewValue == CheckState.Checked)
@@ -79,8 +88,10 @@ namespace PatientHubUI
                 {
                     listView1.CheckedItems[i].Checked = false;
                 }
-
             }
+
         }
+
+
     }
 }

@@ -30,15 +30,15 @@
         {
             this.listView1 = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.bApply = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.bCreate = new System.Windows.Forms.Button();
-            this.bApply = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -80,6 +80,26 @@
             this.panel2.Size = new System.Drawing.Size(987, 72);
             this.panel2.TabIndex = 5;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Silver;
+            this.panel4.Location = new System.Drawing.Point(0, 51);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(4000, 1);
+            this.panel4.TabIndex = 1;
+            // 
+            // bApply
+            // 
+            this.bApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bApply.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bApply.Location = new System.Drawing.Point(333, 9);
+            this.bApply.Name = "bApply";
+            this.bApply.Size = new System.Drawing.Size(129, 33);
+            this.bApply.TabIndex = 0;
+            this.bApply.Text = "Apply Model";
+            this.bApply.UseVisualStyleBackColor = true;
+            this.bApply.Click += new System.EventHandler(this.bApply_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -101,18 +121,6 @@
             this.bCreate.Text = "Create New Model";
             this.bCreate.UseVisualStyleBackColor = true;
             this.bCreate.Click += new System.EventHandler(this.bCreate_Click);
-            // 
-            // bApply
-            // 
-            this.bApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bApply.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bApply.Location = new System.Drawing.Point(333, 9);
-            this.bApply.Name = "bApply";
-            this.bApply.Size = new System.Drawing.Size(129, 33);
-            this.bApply.TabIndex = 0;
-            this.bApply.Text = "Apply Model";
-            this.bApply.UseVisualStyleBackColor = true;
-            this.bApply.Click += new System.EventHandler(this.bApply_Click);
             // 
             // panel3
             // 
@@ -175,14 +183,6 @@
             this.splitContainer1.SplitterDistance = 329;
             this.splitContainer1.TabIndex = 9;
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Silver;
-            this.panel4.Location = new System.Drawing.Point(0, 51);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(4000, 1);
-            this.panel4.TabIndex = 1;
-            // 
             // Model
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +197,7 @@
             this.Name = "Model";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Models";
+            this.Load += new System.EventHandler(this.Model_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);

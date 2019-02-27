@@ -12,7 +12,15 @@ namespace PatientHubData
     public class Model
     {
         public int Id { get; set; }
+        public int ModelIndex { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
+        public string Tags { get; set; }
+        public string ModelFile { get; set; }
+        public string ScoreFile { get; set; }
+        public string ImagePath { get; set; }
+        public bool isSelected { get; set; }
+
 
         public static List<Model> GetAll()
         {
@@ -35,10 +43,15 @@ namespace PatientHubData
                         {
                             Model model = new Model
                             {
-                                Id = rdr.GetInt32(0),
-                                Name = rdr.GetString(1)
-
-                                //TODO: Read all columns
+                                Id = int.Parse(rdr["Id"].ToString()),
+                                ModelIndex = int.Parse(rdr["ModelIndex"].ToString()),
+                                Name = rdr["Name"].ToString(),
+                                Description = rdr["Description"].ToString(),
+                                Tags = rdr["Tags"].ToString(),
+                                ModelFile = rdr["ModelFile"].ToString(),
+                                ScoreFile = rdr["ScoreFile"].ToString(),
+                                ImagePath = rdr["ImagePath"].ToString(),
+                                isSelected = false
                             };
 
                             models.Add(model);
