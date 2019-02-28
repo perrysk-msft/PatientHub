@@ -39,6 +39,8 @@ environment:
     sharedVolumes: true
 # Run with NVidia Docker extension to support GPUs.
     gpuSupport: false
+# Shared memory size for Docker container. Default is 1g.
+    shmSize: 1g
 # Extra arguments to the Docker run command.
     arguments: []
 # Image registry that contains the base image.
@@ -54,10 +56,12 @@ environment:
 # List of spark repositories.
     repositories:
     - https://mmlspark.azureedge.net/maven
+# The packages to use.
     packages:
     - group: com.microsoft.ml.spark
       artifact: mmlspark_2.11
       version: '0.12'
+# Whether to precache the packages.
     precachePackages: true
 # Databricks details
   databricks:
@@ -76,10 +80,11 @@ history:
 # Enable history tracking -- this allows status, logs, metrics, and outputs
 # to be collected for a run.
   outputCollection: true
-# whether to take snapshots for history.
+# Whether to take snapshots for history.
   snapshotProject: true
 # Spark configuration details.
 spark:
+# The Spark configuration.
   configuration:
     spark.app.name: Azure ML Experiment
     spark.yarn.maxAppAttempts: 1
@@ -105,7 +110,7 @@ sourceDirectoryDataStore:
 amlcompute:
 # VM size of the Cluster to be created.Allowed values are Azure vm sizes.The list of vm sizes is available in 'https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs
   vmSize:
-# VM priority of the Cluster to be created.Allowed values are "dedicated" , "lowpriority".
+# VM priority of the Cluster to be created. Allowed values are:"dedicated" , "lowpriority".
   vmPriority:
 # A bool that indicates if the cluster has to be retained after job completion.
   retainCluster: false

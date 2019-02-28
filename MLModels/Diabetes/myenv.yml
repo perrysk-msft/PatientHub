@@ -17,6 +17,6 @@ dependencies:
 - python=3.6.2
 
 - pip:
-  - azureml-sdk[automl]==1.0.8
+  - azureml-sdk[automl]==1.0.15.1
 - numpy
 - scikit-learn
