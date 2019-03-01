@@ -13,12 +13,34 @@ import urllib
 import numpy as np
 import pandas as pd
 from sqlalchemy import create_engine
-
+from azureml.core.model import Model
 import pyodbc
+
+import os
+
+commands = [
+    "apt-get update && apt-get install curl apt-transport-https -y",
+    "curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -",
+    "curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list",
+    "apt-get update",
+    "ACCEPT_EULA=Y apt-get install msodbcsql17 -y",
+    "ACCEPT_EULA=Y apt-get install mssql-tools -y",
+    "echo 'export PATH=\"$PATH:/opt/mssql-tools/bin\"' >> ~/.bash_profile",
+    "echo 'export PATH=\"$PATH:/opt/mssql-tools/bin\"' >> ~/.bashrc",
+    "source ~/.bashrc",
+    "apt-get install unixodbc-dev -y",
+
+]
+
+for cmd in commands:
+    print(cmd)
+    os.system(cmd)
+
 
 parser = argparse.ArgumentParser(
     description="Start Batch Scoring")
 parser.add_argument('--model_name', dest="model_name", required=True)
+parser.add_argument('--input_csv', dest="input_csv", required=True)
 
 
 args = parser.parse_args()
@@ -128,13 +150,6 @@ train.drop(['admission_source_id_11', 'admission_source_id_25',
 # In[ ]:
 
 
-# test number of columns match
-print('Train set shape:', train.shape)
-
-
-# In[ ]:
-
-
 # names of drops were changed in steps above, must redefine ('-' became '_')
 constants = ['acetohexamide', 'examide', 'citoglipton', 'citoglipton', 'glimepiride_pioglitazone', 'metformin_rosiglitazone',
              'metformin_pioglitazone']
@@ -167,22 +182,6 @@ train.loc[train[y] != '0', y] = '1'
 train[y] = train[y].apply(pd.to_numeric)
 
 
-# In[ ]:
-
-
-train.columns.values
-
-testdf_withID = pd.read_csv(
-    r'F:\PatientHub\MLModels\DiabetesReadmission\data\tranformedtestset2.csv', index_col=0)
-testdf = testdf_withID.drop(columns=['ID'])
-
-
-def diff(first, second):
-    second = set(second)
-    return [item for item in first if item not in second]
-
-
-
 def shap_localexplain_df(input_df):
     """ Summarize local Shapley information. 
 
@@ -190,13 +189,14 @@ def shap_localexplain_df(input_df):
 
     """
     global args
-    shap_values = np.loadtxt(
-        r'F:\PatientHub\MLModels\DiabetesReadmission\data\shap_values.csv', delimiter=',')  # load
+    shap_values = np.loadtxt(args.input_csv, delimiter=',')  # load
     # print confirmation
     print('Pre-calculated Shapley values loaded from disk.')
+
     # this needs to read from AML later
+    model_path = Model.get_model_path(args.model_name)
     model = pickle.load(
-        open(args.model_name, 'rb'))
+        open(model_path, 'rb'))
 
     # select shapley values for row
     # reshape into column vector
