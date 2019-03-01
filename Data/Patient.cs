@@ -11,7 +11,7 @@ namespace PatientHubData
 {
     public class Patient
     {
-        public decimal DMPRW30Days_Score { get; set; }
+        public decimal DMPRW30Days_Score { get; set; } //TODO: Tie back to models...
         public long Id { get; set; }
         public int patientNbr { get; set; }
         public string firstName { get; set; }

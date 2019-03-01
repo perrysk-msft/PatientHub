@@ -16,6 +16,7 @@ namespace PatientHubUI
 {
     public partial class Main : Form
     {
+        public ArrayList exceptions = new ArrayList();
         public List<model> models;
         private List<Patient> patients;
         private List<ModelParams> positiveModelParams;
@@ -24,7 +25,7 @@ namespace PatientHubUI
         private long selectedPatientId;
         private string selectedFirstName;
         private string selectedLastName;
-        private decimal selectedScore; //TODO: Capture this dynamically
+        private decimal selectedScore;
         private ToolTip tt = new ToolTip();
 
         public Main()
@@ -52,8 +53,6 @@ namespace PatientHubUI
             dgPatients.AutoGenerateColumns = false;
             dgPatients.DataSource = patients;
             dgPatients.Rows[0].Selected = false;
-
-            //TODO: Move to different method
             tabControl1.TabPages[0].AutoScroll = true;
 
         }
@@ -101,7 +100,7 @@ namespace PatientHubUI
             InitDataGrid();
         }
 
-        private void bSingleInferenceTest_Click(object sender, EventArgs e)
+        private void SingleInference()
         {
             // Build dynamic sql parameters:
             string[] sqlparams = new string[10];
@@ -112,30 +111,41 @@ namespace PatientHubUI
             sqlparams[3] = positiveModelParams[3].sqlColumnName + ',' + PositiveText4.Text.Trim();
             sqlparams[4] = positiveModelParams[4].sqlColumnName + ',' + PositiveText5.Text.Trim();
 
-            sqlparams[5] = negativeModelParams[0].sqlColumnName + ',' + PositiveText1.Text.Trim();
-            sqlparams[6] = negativeModelParams[1].sqlColumnName + ',' + PositiveText2.Text.Trim();
-            sqlparams[7] = negativeModelParams[2].sqlColumnName + ',' + PositiveText3.Text.Trim();
-            sqlparams[8] = negativeModelParams[3].sqlColumnName + ',' + PositiveText4.Text.Trim();
-            sqlparams[9] = negativeModelParams[4].sqlColumnName + ',' + PositiveText5.Text.Trim();
+            sqlparams[5] = negativeModelParams[0].sqlColumnName + ',' + NegativeText1.Text.Trim();
+            sqlparams[6] = negativeModelParams[1].sqlColumnName + ',' + NegativeText2.Text.Trim();
+            sqlparams[7] = negativeModelParams[2].sqlColumnName + ',' + NegativeText3.Text.Trim();
+            sqlparams[8] = negativeModelParams[3].sqlColumnName + ',' + NegativeText4.Text.Trim();
+            sqlparams[9] = negativeModelParams[4].sqlColumnName + ',' + NegativeText5.Text.Trim();
 
             string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(selectedPatientId, sqlparams);
+            string input = "[";
+            string response = DMPRW30Days_SingleInference.GetScore(payloadData);
 
             try
-            {
-                string response = DMPRW30Days_SingleInference.GetScore(payloadData);
-                string input = "Input:";
+            {                
+                for (int i = 0; i < payloadData.Length; i++)
+                {
+                    input += "\"" + payloadData[0, i] + "\"";
+
+                    if (i != payloadData.Length - 1) input += ",";
+                }
+                input += "]";
+
+                lbAPIParams.Text = input;
                 decimal newScore = decimal.Parse(response.Split(',')[1].Substring(0, 7)) * 100;
                 UpdateChart(newScore);
                 lbAPIResponse.Text = response;
-
-                for (int i = 0; i < payloadData.Length; i++)
-                {
-                    input += payloadData[0,i];
-                }
-                lbAPIParams.Text = input;
-
             }
-            catch (Exception ex) { lbAPIException.Text = ex.Message.ToString(); }            
+            catch (Exception ex)
+            {
+                lbAPIException.Text = "PatientId: " + selectedPatientId + " | Input: " + input + " | Exception: " + ex.Message.ToString() + " | Inner Exception: " + response;
+                exceptions.Add(lbAPIException.Text);
+                Console.WriteLine(lbAPIException.Text);
+            }
+        }
+        private void bSingleInferenceTest_Click(object sender, EventArgs e)
+        {
+            SingleInference();
         }
 
         private void CellClick(int rowIndex)
