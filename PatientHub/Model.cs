@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using model = PatientHubData.Model;
+using Configuration = PatientHubData.Configuration;
+using PatientHubData;
 
 namespace PatientHubUI
 {
@@ -49,7 +51,7 @@ namespace PatientHubUI
 
         private void bCreate_Click(object sender, EventArgs e)
         {
-            CreateModel cm = new CreateModel();
+            NewModel cm = new NewModel();
             cm.ShowDialog();
         }
 
@@ -69,6 +71,8 @@ namespace PatientHubUI
             {
 
                 panel3.Visible = true;
+                txtModelDetails.Text =  "Single Inderence API: " + Configuration.DMPRW30Days_singleInference_URL + System.Environment.NewLine +
+                                        "Batch Inference API: " + Configuration.DMPRW30Days_batchInference_URL;
 
             }
             else
@@ -92,6 +96,10 @@ namespace PatientHubUI
 
         }
 
-
+        private void bBatchInference_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Batch Inference API call");
+            //string response = PatientHubData.DMPRW30Days_BatchInference.GetScore();
+        }
     }
 }

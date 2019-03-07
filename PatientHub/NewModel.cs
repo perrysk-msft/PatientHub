@@ -9,14 +9,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using model = PatientHubData.Model;
 
 namespace PatientHubUI
 {
-    public partial class CreateModel : Form
+    public partial class NewModel : Form
     {
-        public CreateModel()
+        public List<model> models;
+        private ImageList il = new ImageList();
+
+        public NewModel()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }
+        private void Model_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void run_cmd()
@@ -37,12 +45,12 @@ namespace PatientHubUI
             string output = p.StandardOutput.ReadToEnd();
             p.WaitForExit();
 
-            textBox1.Text = output;            
+            txtModelName.Text = output;
         }
 
         private void bEnable_Click(object sender, EventArgs e)
         {
-            run_cmd();           
+            run_cmd();
         }
     }
 }

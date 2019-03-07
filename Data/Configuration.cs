@@ -9,8 +9,10 @@ namespace PatientHubData
 {
     public static class Configuration
     {
-        public static string scoringURL = ConfigurationManager.AppSettings["scoringURL"];
-        public static string authKey = ConfigurationManager.AppSettings["authKey"];
+        public static string DMPRW30Days_singleInference_URL = ConfigurationManager.AppSettings["DMPRW30Days_singleInference_URL"];
+        public static string DMPRW30Days_singleInference_AuthKey = ConfigurationManager.AppSettings["DMPRW30Days_singleInference_AuthKey"];
+        public static string DMPRW30Days_batchInference_URL = ConfigurationManager.AppSettings["DMPRW30Days_batchInference_URL"];
+        public static string DMPRW30Days_batchInference_AADToken = ConfigurationManager.AppSettings["DMPRW30Days_batchInference_AADToken"];
 
         public static string connectionString = ConfigurationManager.ConnectionStrings["Db"].ConnectionString;
         public static string spGetPatients = ConfigurationManager.AppSettings["spGetPatients"];
@@ -19,4 +21,5 @@ namespace PatientHubData
         public static string spGet_DMPRW30Days_SingleInference = ConfigurationManager.AppSettings["spGet_DMPRW30Days_SingleInference"];
         public static int commandTimeout = int.Parse(ConfigurationManager.AppSettings["commandTimeout"]);
     }
+    
 }

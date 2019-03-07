@@ -20,6 +20,8 @@ namespace PatientHubData
         public string ScoreFile { get; set; }
         public string ImagePath { get; set; }
         public bool isSelected { get; set; }
+        public bool isActive { get; set; }
+
 
 
         public static List<Model> GetAll()
@@ -51,6 +53,7 @@ namespace PatientHubData
                                 ModelFile = rdr["ModelFile"].ToString(),
                                 ScoreFile = rdr["ScoreFile"].ToString(),
                                 ImagePath = rdr["ImagePath"].ToString(),
+                                isActive = bool.Parse(rdr["IsActive"].ToString()),
                                 isSelected = false
                             };
 

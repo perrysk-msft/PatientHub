@@ -115,8 +115,8 @@ namespace PatientHubData
         public static string GetScore( string[,] payloadData)
         {
             // Set the scoring URI and authentication key
-            string scoringUri = Configuration.scoringURL;
-            string authKey = Configuration.authKey;
+            string scoringUri = Configuration.DMPRW30Days_singleInference_URL;
+            string authKey = Configuration.DMPRW30Days_singleInference_AuthKey;
 
             // Set the data to be sent to the service.
             // In this case, we are sending two sets of data to be scored.
