@@ -64,7 +64,7 @@ namespace PatientHubUI
             // TODO: DYnamic management of tabs based on Models...
 
             Model f = new Model();
-            f.models = models;
+            f.models = models.Where(x=>x.isActive).ToList();
             f.ShowDialog();
 
             foreach (model model in models)

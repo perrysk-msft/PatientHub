@@ -62,6 +62,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtModelDetails = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.bEdit = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -211,6 +212,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.bEdit);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.bNewModel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -402,6 +404,23 @@
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
+            // bEdit
+            // 
+            this.bEdit.BackColor = System.Drawing.Color.White;
+            this.bEdit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bEdit.Enabled = false;
+            this.bEdit.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.bEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bEdit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEdit.ForeColor = System.Drawing.Color.Black;
+            this.bEdit.Location = new System.Drawing.Point(151, 0);
+            this.bEdit.Name = "bEdit";
+            this.bEdit.Size = new System.Drawing.Size(151, 37);
+            this.bEdit.TabIndex = 7;
+            this.bEdit.Text = "Edit Model";
+            this.bEdit.UseVisualStyleBackColor = false;
+            this.bEdit.Click += new System.EventHandler(this.bEdit_Click);
+            // 
             // DataScientistMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -471,6 +490,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtModelDetails;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button bEdit;
     }
 }
 

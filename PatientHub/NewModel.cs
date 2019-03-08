@@ -15,16 +15,37 @@ namespace PatientHubUI
 {
     public partial class NewModel : Form
     {
+        private TabPage[] tps = new TabPage[3];
         public List<model> models;
         private ImageList il = new ImageList();
+        public int modelId;
 
         public NewModel()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            InitTabs();
+
+            tps[0] = step1;
+            tps[1] = step2;
+            tps[2] = step3;
+        }
+        
+        private void InitTabs()
+        {
+            //if(modelId != -1)
+            //{
+            //    var m = model.GetAll().Where(x => x.Id == modelId);
+            //    model _model = ((model)m);
+
+            //    lblTitle.Text = _model.Name;
+
+            //}
         }
         private void Model_Load(object sender, EventArgs e)
         {
-            
+            tabControl1.TabPages.Remove(tps[0]);
+            tabControl1.TabPages.Remove(tps[1]);
+            tabControl1.TabPages.Remove(tps[2]);
         }
 
         private void run_cmd()
@@ -51,6 +72,33 @@ namespace PatientHubUI
         private void bEnable_Click(object sender, EventArgs e)
         {
             run_cmd();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(!tabControl1.TabPages.Contains(tps[0]))
+                tabControl1.TabPages.Add(tps[0]);
+
+            tabControl1.TabPages.Remove(tps[1]);
+            tabControl1.TabPages.Remove(tps[2]);
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!tabControl1.TabPages.Contains(tps[1]))
+                tabControl1.TabPages.Add(tps[1]);
+
+            tabControl1.TabPages.Remove(tps[0]);
+            tabControl1.TabPages.Remove(tps[2]);
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!tabControl1.TabPages.Contains(tps[2]))
+                tabControl1.TabPages.Add(tps[2]);
+
+            tabControl1.TabPages.Remove(tps[0]);
+            tabControl1.TabPages.Remove(tps[1]);
         }
     }
 }

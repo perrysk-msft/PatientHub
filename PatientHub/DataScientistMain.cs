@@ -32,45 +32,50 @@ namespace PatientHubUI
 
             foreach (model model in models)
             {
-                il.Images.Add(model.Name, Image.FromFile(model.ImagePath));
+                il.Images.Add(model.Id.ToString(), Image.FromFile(model.ImagePath));
             }
 
             listView1.View = View.LargeIcon;
             listView1.CheckBoxes = true;
             listView1.LargeImageList = il;
+            int i = 0;
 
-            for (int i = 0; i < models.Count; i++)
+            foreach (model model in models)
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.ImageIndex = i;
+                lvi.Tag = model.Id;
                 listView1.Items.Add(lvi);
-
-                if (models[i].isSelected)
-                {
-                    listView1.Items[i].Checked = true;
-                }
-            }
+                i++;
+            } 
+            
         }
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             if (e.Item.Checked)
             {
+                bEdit.Enabled = true;
+                bEdit.Refresh();
 
+                // TODO: Replace with details from SQL
                 panel3.Visible = true;
                 txtModelDetails.Text = "Single Inderence API: " + Configuration.DMPRW30Days_singleInference_URL + System.Environment.NewLine +
                                         "Batch Inference API: " + Configuration.DMPRW30Days_batchInference_URL;
 
             }
             else
+            {
+                bEdit.Enabled = false;
                 panel3.Visible = false;
+            }
 
         }
 
         private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             // TODO: Enable all models when they are deployed
-            if (e.Index != 0) e.NewValue = e.CurrentValue;
+            //if (e.Index != 0) e.NewValue = e.CurrentValue;
 
             if (e.NewValue == CheckState.Checked)
             {
@@ -140,6 +145,14 @@ namespace PatientHubUI
         private void bNewModel_Click(object sender, EventArgs e)
         {
             NewModel cm = new NewModel();
+            cm.modelId = -1;
+            cm.ShowDialog();
+        }
+
+        private void bEdit_Click(object sender, EventArgs e)
+        {
+            NewModel cm = new NewModel();
+            cm.modelId = int.Parse(listView1.CheckedItems[0].Tag.ToString());
             cm.ShowDialog();
         }
     }

@@ -35,18 +35,22 @@ namespace PatientHubUI
             listView1.View = View.LargeIcon;
             listView1.CheckBoxes = true;
             listView1.LargeImageList = il;
+            int i = 0;
 
-            for (int i = 0; i < models.Count; i++)
+            foreach (model model in models)
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.ImageIndex = i;
+                lvi.Tag = model.Id;
                 listView1.Items.Add(lvi);
+                
 
-                if (models[i].isSelected)
+                if (model.isSelected)
                 {
                     listView1.Items[i].Checked = true;
                 }
-            }
+                i++;
+            }           
         }
 
         private void bCreate_Click(object sender, EventArgs e)
@@ -82,9 +86,6 @@ namespace PatientHubUI
 
         private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            // TODO: Enable all models when they are deployed
-            if (e.Index != 0) e.NewValue = e.CurrentValue;
-
             if (e.NewValue == CheckState.Checked)
             {
                 var checkedCount = listView1.CheckedItems.Count;
