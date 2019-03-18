@@ -1,4 +1,4 @@
-﻿namespace PatientHubUI
+﻿namespace AdminUI
 {
     partial class DataScientistMain
     {
@@ -33,18 +33,18 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.topPanel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.bLogout = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bEdit = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.ComboBox();
-            this.bSearch = new System.Windows.Forms.Button();
             this.bNewModel = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtModelDetails = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,14 +59,12 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.txtModelDetails = new System.Windows.Forms.TextBox();
+            this.bSearch = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.bEdit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,6 +74,8 @@
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // BottomToolStrip
@@ -98,8 +98,8 @@
             // 
             // topPanel
             // 
-            this.topPanel.Controls.Add(this.panel7);
             this.topPanel.Controls.Add(this.pictureBox1);
+            this.topPanel.Controls.Add(this.panel7);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(3, 0);
             this.topPanel.Name = "topPanel";
@@ -116,16 +116,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(313, 90);
             this.panel7.TabIndex = 2;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::PatientHub.Properties.Resources.user;
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(44, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 39);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
             // 
             // lblUser
             // 
@@ -151,16 +141,6 @@
             this.bLogout.UseVisualStyleBackColor = true;
             this.bLogout.Click += new System.EventHandler(this.bLogout_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PatientHub.Properties.Resources.logo;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(297, 86);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // splitContainer1
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -178,7 +158,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
             this.splitContainer1.Size = new System.Drawing.Size(1738, 930);
-            this.splitContainer1.SplitterDistance = 302;
+            this.splitContainer1.SplitterDistance = 301;
             this.splitContainer1.TabIndex = 8;
             // 
             // panel2
@@ -187,7 +167,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 37);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1736, 263);
+            this.panel2.Size = new System.Drawing.Size(1736, 262);
             this.panel2.TabIndex = 4;
             // 
             // listView1
@@ -202,7 +182,7 @@
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(1736, 263);
+            this.listView1.Size = new System.Drawing.Size(1736, 262);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Tile;
@@ -220,6 +200,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1736, 37);
             this.panel1.TabIndex = 3;
+            // 
+            // bEdit
+            // 
+            this.bEdit.BackColor = System.Drawing.Color.White;
+            this.bEdit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bEdit.Enabled = false;
+            this.bEdit.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+            this.bEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bEdit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEdit.ForeColor = System.Drawing.Color.Black;
+            this.bEdit.Location = new System.Drawing.Point(151, 0);
+            this.bEdit.Name = "bEdit";
+            this.bEdit.Size = new System.Drawing.Size(151, 37);
+            this.bEdit.TabIndex = 7;
+            this.bEdit.Text = "Edit Model";
+            this.bEdit.UseVisualStyleBackColor = false;
+            this.bEdit.Click += new System.EventHandler(this.bEdit_Click);
             // 
             // panel6
             // 
@@ -247,20 +244,6 @@
             this.txtSearch.SelectedIndexChanged += new System.EventHandler(this.txtSearch_SelectedIndexChanged);
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
-            // bSearch
-            // 
-            this.bSearch.BackColor = System.Drawing.Color.White;
-            this.bSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.ForeColor = System.Drawing.Color.White;
-            this.bSearch.Image = global::PatientHub.Properties.Resources.search;
-            this.bSearch.Location = new System.Drawing.Point(312, 2);
-            this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(36, 33);
-            this.bSearch.TabIndex = 5;
-            this.bSearch.UseVisualStyleBackColor = false;
-            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
-            // 
             // bNewModel
             // 
             this.bNewModel.BackColor = System.Drawing.Color.White;
@@ -276,6 +259,28 @@
             this.bNewModel.Text = "[+] New Model";
             this.bNewModel.UseVisualStyleBackColor = false;
             this.bNewModel.Click += new System.EventHandler(this.bNewModel_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.txtModelDetails);
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1736, 623);
+            this.panel3.TabIndex = 0;
+            // 
+            // txtModelDetails
+            // 
+            this.txtModelDetails.BackColor = System.Drawing.Color.White;
+            this.txtModelDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtModelDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtModelDetails.Location = new System.Drawing.Point(0, 513);
+            this.txtModelDetails.Multiline = true;
+            this.txtModelDetails.Name = "txtModelDetails";
+            this.txtModelDetails.Size = new System.Drawing.Size(1736, 110);
+            this.txtModelDetails.TabIndex = 11;
+            this.txtModelDetails.Text = "TODO: Add Description";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -371,55 +376,49 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Discharge Disposition";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // panel3
+            // bSearch
             // 
-            this.panel3.Controls.Add(this.txtModelDetails);
-            this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1736, 622);
-            this.panel3.TabIndex = 0;
-            // 
-            // txtModelDetails
-            // 
-            this.txtModelDetails.BackColor = System.Drawing.Color.White;
-            this.txtModelDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtModelDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtModelDetails.Location = new System.Drawing.Point(0, 512);
-            this.txtModelDetails.Multiline = true;
-            this.txtModelDetails.Name = "txtModelDetails";
-            this.txtModelDetails.Size = new System.Drawing.Size(1736, 110);
-            this.txtModelDetails.TabIndex = 11;
-            this.txtModelDetails.Text = "TODO: Add Description";
+            this.bSearch.BackColor = System.Drawing.Color.White;
+            this.bSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSearch.ForeColor = System.Drawing.Color.White;
+            this.bSearch.Image = global::Admin.Properties.Resources.search;
+            this.bSearch.Location = new System.Drawing.Point(312, 2);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.Size = new System.Drawing.Size(36, 33);
+            this.bSearch.TabIndex = 5;
+            this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Image = global::PatientHub.Properties.Resources.globalExplanation;
+            this.pictureBox3.Image = global::Admin.Properties.Resources.globalExplanation;
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1736, 622);
+            this.pictureBox3.Size = new System.Drawing.Size(1736, 623);
             this.pictureBox3.TabIndex = 10;
             this.pictureBox3.TabStop = false;
             // 
-            // bEdit
+            // pictureBox1
             // 
-            this.bEdit.BackColor = System.Drawing.Color.White;
-            this.bEdit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bEdit.Enabled = false;
-            this.bEdit.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-            this.bEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bEdit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEdit.ForeColor = System.Drawing.Color.Black;
-            this.bEdit.Location = new System.Drawing.Point(151, 0);
-            this.bEdit.Name = "bEdit";
-            this.bEdit.Size = new System.Drawing.Size(151, 37);
-            this.bEdit.TabIndex = 7;
-            this.bEdit.Text = "Edit Model";
-            this.bEdit.UseVisualStyleBackColor = false;
-            this.bEdit.Click += new System.EventHandler(this.bEdit_Click);
+            this.pictureBox1.Image = global::Admin.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(450, 81);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Admin.Properties.Resources.user;
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(44, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 39);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // DataScientistMain
             // 
@@ -439,8 +438,6 @@
             this.topPanel.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -451,6 +448,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,7 +461,6 @@
         private System.Windows.Forms.Button bNewModel;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel1;
@@ -491,6 +489,7 @@
         private System.Windows.Forms.TextBox txtModelDetails;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button bEdit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

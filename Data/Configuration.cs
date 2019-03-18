@@ -16,10 +16,13 @@ namespace PatientHubData
 
         public static string connectionString = ConfigurationManager.ConnectionStrings["Db"].ConnectionString;
         public static string spGetPatients = ConfigurationManager.AppSettings["spGetPatients"];
+        public static string spGetSinglePatient = ConfigurationManager.AppSettings["spGetSinglePatient"];        
         public static string spGetModels = ConfigurationManager.AppSettings["spGetModels"];        
         public static string spGetDMPRW30Days_LocalExplanation = ConfigurationManager.AppSettings["spGetDMPRW30Days_LocalExplanation"];
         public static string spGet_DMPRW30Days_SingleInference = ConfigurationManager.AppSettings["spGet_DMPRW30Days_SingleInference"];
         public static int commandTimeout = int.Parse(ConfigurationManager.AppSettings["commandTimeout"]);
+        public static string pyhtonPath = ConfigurationManager.AppSettings["pythonPath"];
+        public static long demoPatientId = long.Parse(ConfigurationManager.AppSettings["demoPatientId"]);
     }
     
 }

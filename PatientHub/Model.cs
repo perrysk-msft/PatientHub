@@ -52,13 +52,6 @@ namespace PatientHubUI
                 i++;
             }           
         }
-
-        private void bCreate_Click(object sender, EventArgs e)
-        {
-            NewModel cm = new NewModel();
-            cm.ShowDialog();
-        }
-
         private void bApply_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listView1.Items)
@@ -95,12 +88,6 @@ namespace PatientHubUI
                 }
             }
 
-        }
-
-        private void bBatchInference_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Batch Inference API call");
-            //string response = PatientHubData.DMPRW30Days_BatchInference.GetScore();
         }
     }
 }

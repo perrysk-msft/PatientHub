@@ -41,7 +41,7 @@ namespace PatientHubData
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandTimeout = Configuration.commandTimeout;
                     cmd.CommandText = Configuration.spGetPatients;
-
+                    
                     using (SqlDataReader rdr = cmd.ExecuteReader())
                     {
                         while (rdr.Read())
@@ -74,6 +74,52 @@ namespace PatientHubData
             }
             catch (SqlException e) { throw e; }
             finally { }
+        }
+        public static Patient GetPatient(long patientId)
+        {
+            List<Patient> patients = new List<Patient>();
+            SqlCommand cmd = new SqlCommand();
+            Patient patient = null;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Configuration.connectionString))
+                {
+                    connection.Open();
+
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandTimeout = Configuration.commandTimeout;
+                    cmd.CommandText = Configuration.spGetSinglePatient;
+                    cmd.Parameters.Add(new SqlParameter("PatientId", patientId));
+
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            patient = new Patient
+                            {
+                                DMPRW30Days_Score = decimal.Parse(rdr["DMPatientReadmittedWithin30Days_Score"].ToString()),
+                                Id = int.Parse(rdr["Id"].ToString()),
+                                patientNbr = int.Parse(rdr["patient_nbr"].ToString()),
+                                firstName = rdr["FirstName"].ToString(),
+                                lastName = rdr["LastName"].ToString(),
+                                race = rdr["race"].ToString(),
+                                gender = rdr["gender"].ToString(),
+                                age = rdr["age"].ToString(),
+                                timeInHospital = Int16.Parse(rdr["time_in_hospital"].ToString()),
+                                numberOfProcedures = Int16.Parse(rdr["num_lab_procedures"].ToString()),
+                                numberOfMedications = Int16.Parse(rdr["num_medications"].ToString()),
+                                numberOfDiagnoses = Int16.Parse(rdr["number_diagnoses"].ToString()),
+                                admissionSource = rdr["admission_source_id"].ToString(),
+                                admissionType = rdr["admission_type_id"].ToString(),
+                                dischargeDisposition = rdr["discharge_disposition_id"].ToString()
+                            };
+                        }                       
+                    }
+                }
+                return patient;
+            }
+            catch (SqlException e) { return null; }
         }
     }
 }

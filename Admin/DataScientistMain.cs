@@ -12,13 +12,12 @@ using System.Windows.Forms;
 using PatientHubData;
 using model = PatientHubData.Model;
 
-namespace PatientHubUI
+namespace AdminUI
 {
     public partial class DataScientistMain : Form
     {
         public List<model> models;
         private ImageList il = new ImageList();
-
 
         public DataScientistMain()
         {

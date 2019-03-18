@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using model = PatientHubData.Model;
 
-namespace PatientHubUI
+namespace AdminUI
 {
     public partial class NewModel : Form
     {

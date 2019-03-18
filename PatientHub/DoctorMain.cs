@@ -126,12 +126,12 @@ namespace PatientHubUI
             sqlparams[9] = negativeModelParams[4].sqlColumnName + ',' + NegativeText5.Text.Trim();
 
             string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(selectedPatientId, sqlparams);
-            string input = "[";
             string response = DMPRW30Days_SingleInference.GetScore(payloadData);
 
             try
-            {                
-                decimal newScore = decimal.Parse(response.Split(',')[1].Substring(0, 7)) * 100;
+            {
+                string scoreStr = String.Format("{0:0.0000}", response.Split(',')[1].Substring(0, 7));
+                decimal newScore = decimal.Parse(String.Format("{0:0.00}", decimal.Parse(scoreStr) * 100));
                 UpdateChart(newScore);
             }
             catch (Exception ex)
@@ -141,6 +141,7 @@ namespace PatientHubUI
         }
         private void bSingleInferenceTest_Click(object sender, EventArgs e)
         {
+            //_TEST_Update_Scores();
             SingleInference();
         }
 
@@ -366,6 +367,6 @@ namespace PatientHubUI
         private void bLogout_Click(object sender, EventArgs e)
         {
             Login.Show(this);
-        }
+        }       
     }
 }

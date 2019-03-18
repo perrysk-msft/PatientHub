@@ -8,16 +8,15 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Identity.Client;
 
 namespace PatientHubData
 {
     public class DMPRW30Days_BatchInference
     {
-        private static string ClientId = "e71e8369-81ed-4373-8d5f-973c6bc0eb59";
+        //private static string ClientId = "e71e8369-81ed-4373-8d5f-973c6bc0eb59";
         //private static string Tenant = "common";
 
-        public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+        //public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
 
         public static string GetScore()
         {

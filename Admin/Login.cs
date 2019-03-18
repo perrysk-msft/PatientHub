@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PatientHubUI
+namespace AdminUI
 {
     public partial class Login : Form
     {
@@ -16,21 +16,14 @@ namespace PatientHubUI
         public Login()
         {
             InitializeComponent();
-            cbView.SelectedIndex = 0;
+            //cbView.SelectedIndex = 0;
         }
 
         private void Authenticate()
         {
             if (txtUsername.Text == "demo" && txtPassword.Text == "demo")
-            {
-                if (cbView.SelectedIndex == 0) // Doctor
-                {
-                    form = new DoctorMain();
-                }
-                else // Patient
-                {
-                    form = new PatientMain();                    
-                }
+            {                
+                form = new DataScientistMain();
                 
                 this.Hide();
                 form.ShowDialog();
@@ -38,7 +31,7 @@ namespace PatientHubUI
             }
             else
             {
-                MessageBox.Show("Invalid Credentials. Please try again.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Invalid Credentials. Please try again.", "Admin Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

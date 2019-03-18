@@ -26,13 +26,10 @@ namespace PatientHubData
         public string paramName { get; set; }
         public string paramValue { get; set; }
         public string distinctValues { get; set; }
-
-
     }
 
     public class DMPRW30Days_SingleInference
     {
-
         public static List<ModelParams> GetParameters(Int64 patientId, bool isPositive)
         {
             List<ModelParams> modelParams = new List<ModelParams>();
@@ -49,7 +46,6 @@ namespace PatientHubData
                     cmd.CommandText = Configuration.spGetDMPRW30Days_LocalExplanation; // TODO: Read Dynamically
                     cmd.Parameters.Add(new SqlParameter("PatientId", patientId));
                     cmd.Parameters.Add(new SqlParameter("IsPositive", isPositive));
-
 
                     using (SqlDataReader rdr = cmd.ExecuteReader())
                     {
@@ -70,7 +66,7 @@ namespace PatientHubData
                 }
                 return modelParams;
             }
-            catch (SqlException e) { throw e; }
+            catch (SqlException e) { throw e;  }
             finally { }
         }
 
@@ -142,7 +138,7 @@ namespace PatientHubData
             {
                 return e.Message;
             }
-        }
+        }        
     }
 
 }

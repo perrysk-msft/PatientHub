@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorMain));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.BottomToolStrip = new System.Windows.Forms.ToolStrip();
             this.dgPatients = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,12 +57,16 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.topPanel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblUser = new System.Windows.Forms.Label();
             this.bLogout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.ComboBox();
+            this.bSearch = new System.Windows.Forms.Button();
             this.bPredict = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -97,6 +101,13 @@
             this.PositiveText2 = new System.Windows.Forms.ComboBox();
             this.PositiveText1 = new System.Windows.Forms.ComboBox();
             this.lblPositiveTitle = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.Documents = new System.Windows.Forms.TabPage();
+            this.Measurements = new System.Windows.Forms.TabPage();
+            this.Immunizations = new System.Windows.Forms.TabPage();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,20 +122,17 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.bSearch = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.Documents = new System.Windows.Forms.TabPage();
-            this.Measurements = new System.Windows.Forms.TabPage();
-            this.Immunizations = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPatients)).BeginInit();
             this.topPanel.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -138,8 +146,10 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // BottomToolStrip
@@ -160,14 +170,14 @@
             this.dgPatients.BackgroundColor = System.Drawing.Color.White;
             this.dgPatients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgPatients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgPatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgPatients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.patient_nbr,
@@ -183,28 +193,28 @@
             this.admissionSource,
             this.admissionType,
             this.dischargeDisposition});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgPatients.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgPatients.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgPatients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgPatients.GridColor = System.Drawing.Color.Gainsboro;
             this.dgPatients.Location = new System.Drawing.Point(0, 0);
             this.dgPatients.MultiSelect = false;
             this.dgPatients.Name = "dgPatients";
             this.dgPatients.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgPatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgPatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
             this.dgPatients.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -354,6 +364,26 @@
             this.panel7.Size = new System.Drawing.Size(312, 90);
             this.panel7.TabIndex = 2;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(50, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 39);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.Gray;
+            this.lblUser.Location = new System.Drawing.Point(95, 11);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(103, 21);
+            this.lblUser.TabIndex = 4;
+            this.lblUser.Text = "Demo Doctor";
+            // 
             // bLogout
             // 
             this.bLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -366,6 +396,16 @@
             this.bLogout.Text = "Logout";
             this.bLogout.UseVisualStyleBackColor = true;
             this.bLogout.Click += new System.EventHandler(this.bLogout_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PatientHub.Properties.Resources.logo;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(297, 86);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // splitContainer1
             // 
@@ -432,6 +472,20 @@
             this.txtSearch.TabIndex = 6;
             this.txtSearch.SelectedIndexChanged += new System.EventHandler(this.txtSearch_SelectedIndexChanged);
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            // 
+            // bSearch
+            // 
+            this.bSearch.BackColor = System.Drawing.Color.White;
+            this.bSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSearch.ForeColor = System.Drawing.Color.White;
+            this.bSearch.Image = global::PatientHub.Properties.Resources.search;
+            this.bSearch.Location = new System.Drawing.Point(312, 2);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.Size = new System.Drawing.Size(36, 33);
+            this.bSearch.TabIndex = 5;
+            this.bSearch.UseVisualStyleBackColor = false;
+            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
             // 
             // bPredict
             // 
@@ -527,22 +581,22 @@
             // 
             // RiskChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.RiskChart.ChartAreas.Add(chartArea2);
+            chartArea3.Name = "ChartArea1";
+            this.RiskChart.ChartAreas.Add(chartArea3);
             this.RiskChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.RiskChart.Legends.Add(legend2);
+            legend3.Name = "Legend1";
+            this.RiskChart.Legends.Add(legend3);
             this.RiskChart.Location = new System.Drawing.Point(0, 0);
             this.RiskChart.Name = "RiskChart";
             this.RiskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            dataPoint4.IsVisibleInLegend = false;
-            series2.Points.Add(dataPoint3);
-            series2.Points.Add(dataPoint4);
-            this.RiskChart.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            dataPoint6.IsVisibleInLegend = false;
+            series3.Points.Add(dataPoint5);
+            series3.Points.Add(dataPoint6);
+            this.RiskChart.Series.Add(series3);
             this.RiskChart.Size = new System.Drawing.Size(318, 205);
             this.RiskChart.TabIndex = 0;
             this.RiskChart.Text = "chart1";
@@ -836,6 +890,75 @@
             this.lblPositiveTitle.TabIndex = 15;
             this.lblPositiveTitle.Text = "Top 5";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1728, 592);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Appointments";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1728, 592);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Conversations";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.pictureBox3);
+            this.tabPage4.Location = new System.Drawing.Point(4, 26);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1728, 592);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "Labs";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1728, 596);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "Notes";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // Documents
+            // 
+            this.Documents.Location = new System.Drawing.Point(4, 22);
+            this.Documents.Name = "Documents";
+            this.Documents.Size = new System.Drawing.Size(1728, 596);
+            this.Documents.TabIndex = 6;
+            this.Documents.Text = "Documents";
+            this.Documents.UseVisualStyleBackColor = true;
+            // 
+            // Measurements
+            // 
+            this.Measurements.Location = new System.Drawing.Point(4, 22);
+            this.Measurements.Name = "Measurements";
+            this.Measurements.Size = new System.Drawing.Size(1728, 596);
+            this.Measurements.TabIndex = 7;
+            this.Measurements.Text = "Measurements";
+            this.Measurements.UseVisualStyleBackColor = true;
+            // 
+            // Immunizations
+            // 
+            this.Immunizations.Location = new System.Drawing.Point(4, 22);
+            this.Immunizations.Name = "Immunizations";
+            this.Immunizations.Size = new System.Drawing.Size(1728, 596);
+            this.Immunizations.TabIndex = 8;
+            this.Immunizations.Text = "Immunizations";
+            this.Immunizations.UseVisualStyleBackColor = true;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
@@ -930,113 +1053,65 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Discharge Disposition";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // lblUser
+            // label9
             // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.Gray;
-            this.lblUser.Location = new System.Drawing.Point(95, 11);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(103, 21);
-            this.lblUser.TabIndex = 4;
-            this.lblUser.Text = "Demo Doctor";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 107);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(227, 20);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Practice: 42 Wallaby Way, Sydney";
             // 
-            // bSearch
+            // label8
             // 
-            this.bSearch.BackColor = System.Drawing.Color.White;
-            this.bSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.ForeColor = System.Drawing.Color.White;
-            this.bSearch.Image = global::PatientHub.Properties.Resources.search;
-            this.bSearch.Location = new System.Drawing.Point(312, 2);
-            this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(36, 33);
-            this.bSearch.TabIndex = 5;
-            this.bSearch.UseVisualStyleBackColor = false;
-            this.bSearch.Click += new System.EventHandler(this.bSearch_Click);
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(10, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(131, 20);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Reason: Follow Up";
             // 
-            // pictureBox2
+            // label7
             // 
-            this.pictureBox2.Image = global::PatientHub.Properties.Resources.user;
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(50, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 39);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(11, 40);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(267, 21);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "with Dr. Demo doctor (In-Office Visit)";
             // 
-            // pictureBox1
+            // label6
             // 
-            this.pictureBox1.Image = global::PatientHub.Properties.Resources.logo;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(297, 86);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(316, 30);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Friday, October 18, 2019 9:00 am";
             // 
-            // tabPage1
+            // label10
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1728, 592);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Appointments";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(14, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(609, 21);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "For urgent care or emergencies, please call Demo Primary Care 24/7 at 425-555-444" +
+    "4.";
             // 
-            // tabPage3
+            // pictureBox3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 26);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1728, 592);
-            this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "Conversations";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 26);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1728, 592);
-            this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Labs";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 26);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1728, 592);
-            this.tabPage5.TabIndex = 5;
-            this.tabPage5.Text = "Notes";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // Documents
-            // 
-            this.Documents.Location = new System.Drawing.Point(4, 26);
-            this.Documents.Name = "Documents";
-            this.Documents.Size = new System.Drawing.Size(1728, 592);
-            this.Documents.TabIndex = 6;
-            this.Documents.Text = "Documents";
-            this.Documents.UseVisualStyleBackColor = true;
-            // 
-            // Measurements
-            // 
-            this.Measurements.Location = new System.Drawing.Point(4, 26);
-            this.Measurements.Name = "Measurements";
-            this.Measurements.Size = new System.Drawing.Size(1728, 592);
-            this.Measurements.TabIndex = 7;
-            this.Measurements.Text = "Measurements";
-            this.Measurements.UseVisualStyleBackColor = true;
-            // 
-            // Immunizations
-            // 
-            this.Immunizations.Location = new System.Drawing.Point(4, 26);
-            this.Immunizations.Name = "Immunizations";
-            this.Immunizations.Size = new System.Drawing.Size(1728, 592);
-            this.Immunizations.TabIndex = 8;
-            this.Immunizations.Text = "Immunizations";
-            this.Immunizations.UseVisualStyleBackColor = true;
+            this.pictureBox3.Image = global::PatientHub.Properties.Resources.sampleLabs;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(1488, 1005);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
             // 
             // DoctorMain
             // 
@@ -1057,6 +1132,8 @@
             this.topPanel.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -1072,8 +1149,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1165,6 +1246,12 @@
         private System.Windows.Forms.TabPage Documents;
         private System.Windows.Forms.TabPage Measurements;
         private System.Windows.Forms.TabPage Immunizations;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

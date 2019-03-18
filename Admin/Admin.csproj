@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90004E43-31E8-484F-A989-FD6F1DA5E21E}</ProjectGuid>
+    <ProjectGuid>{45B70FAB-B65A-4C76-9F1B-6D9BC38CF316}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>PatientHub</RootNamespace>
-    <AssemblyName>PatientHub</AssemblyName>
+    <RootNamespace>Admin</RootNamespace>
+    <AssemblyName>Admin</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,13 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataGridViewBarGraphCell.cs" />
-    <Compile Include="DataGridViewBarGraphColumn.cs" />
-    <Compile Include="PatientMain.cs">
+    <Compile Include="DataScientistMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientMain.Designer.cs">
-      <DependentUpon>PatientMain.cs</DependentUpon>
+    <Compile Include="DataScientistMain.Designer.cs">
+      <DependentUpon>DataScientistMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -61,68 +58,58 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoctorMain.cs">
+    <Compile Include="NewModel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoctorMain.Designer.cs">
-      <DependentUpon>DoctorMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Model.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Model.Designer.cs">
-      <DependentUpon>Model.cs</DependentUpon>
+    <Compile Include="NewModel.Designer.cs">
+      <DependentUpon>NewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PatientMain.resx">
-      <DependentUpon>PatientMain.cs</DependentUpon>
+    <EmbeddedResource Include="DataScientistMain.resx">
+      <DependentUpon>DataScientistMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoctorMain.resx">
-      <DependentUpon>DoctorMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Model.resx">
-      <DependentUpon>Model.cs</DependentUpon>
+    <EmbeddedResource Include="NewModel.resx">
+      <DependentUpon>NewModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="..\PatientHub\App.config">
+      <Link>App.config</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AIModels_Logo.png" />
-    <None Include="images\globalExplanation.png">
+    <None Include="scripts\DMPRW30Days\model.pkl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="images\AdminLogin.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="images\activeMeds.png" />
-    <Content Include="images\AIModels_Logo.png">
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{6b0efa99-8c38-4a7f-8e3d-c3566db288a8}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\AdminLogin.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\Asthma.png">
@@ -134,31 +121,27 @@
     <Content Include="images\DMReadmission30Days.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="images\login.png">
+    <Content Include="images\globalExplanation.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
+    <Content Include="images\login.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="images\search.png">
+    <Content Include="images\sampleLabs.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="images\sampleLabs.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <Content Include="images\male_patient.png">
+    </Content>
+    <Content Include="images\search.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="images\user.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="scripts\DMPRW30Days\model_registration.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{6b0efa99-8c38-4a7f-8e3d-c3566db288a8}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
