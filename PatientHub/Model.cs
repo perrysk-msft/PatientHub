@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using model = PatientHubData.Model;
+using Configuration = PatientHubData.Configuration;
+using PatientHubData;
 
 namespace PatientHubUI
 {
@@ -33,26 +35,23 @@ namespace PatientHubUI
             listView1.View = View.LargeIcon;
             listView1.CheckBoxes = true;
             listView1.LargeImageList = il;
+            int i = 0;
 
-            for (int i = 0; i < models.Count; i++)
+            foreach (model model in models)
             {
                 ListViewItem lvi = new ListViewItem();
                 lvi.ImageIndex = i;
+                lvi.Tag = model.Id;
                 listView1.Items.Add(lvi);
+                
 
-                if (models[i].isSelected)
+                if (model.isSelected)
                 {
                     listView1.Items[i].Checked = true;
                 }
-            }
+                i++;
+            }           
         }
-
-        private void bCreate_Click(object sender, EventArgs e)
-        {
-            CreateModel cm = new CreateModel();
-            cm.ShowDialog();
-        }
-
         private void bApply_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listView1.Items)
@@ -69,6 +68,8 @@ namespace PatientHubUI
             {
 
                 panel3.Visible = true;
+                txtModelDetails.Text =  "Single Inderence API: " + Configuration.DMPRW30Days_singleInference_URL + System.Environment.NewLine +
+                                        "Batch Inference API: " + Configuration.DMPRW30Days_batchInference_URL;
 
             }
             else
@@ -78,9 +79,6 @@ namespace PatientHubUI
 
         private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            // TODO: Enable all models when they are deployed
-            if (e.Index != 0) e.NewValue = e.CurrentValue;
-
             if (e.NewValue == CheckState.Checked)
             {
                 var checkedCount = listView1.CheckedItems.Count;
@@ -91,7 +89,5 @@ namespace PatientHubUI
             }
 
         }
-
-
     }
 }

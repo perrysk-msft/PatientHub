@@ -33,9 +33,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.bApply = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.bCreate = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtModelDetails = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -73,7 +72,6 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.bApply);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.bCreate);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -110,21 +108,9 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Patient Insights (with AI Models)";
             // 
-            // bCreate
-            // 
-            this.bCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bCreate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bCreate.Location = new System.Drawing.Point(468, 9);
-            this.bCreate.Name = "bCreate";
-            this.bCreate.Size = new System.Drawing.Size(142, 33);
-            this.bCreate.TabIndex = 1;
-            this.bCreate.Text = "Create New Model";
-            this.bCreate.UseVisualStyleBackColor = true;
-            this.bCreate.Click += new System.EventHandler(this.bCreate_Click);
-            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtModelDetails);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -133,17 +119,17 @@
             this.panel3.TabIndex = 7;
             this.panel3.Visible = false;
             // 
-            // textBox1
+            // txtModelDetails
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(0, 500);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(654, 110);
-            this.textBox1.TabIndex = 9;
-            this.textBox1.Text = "TODO: Add Description";
+            this.txtModelDetails.BackColor = System.Drawing.Color.White;
+            this.txtModelDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtModelDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtModelDetails.Location = new System.Drawing.Point(0, 500);
+            this.txtModelDetails.Multiline = true;
+            this.txtModelDetails.Name = "txtModelDetails";
+            this.txtModelDetails.Size = new System.Drawing.Size(654, 110);
+            this.txtModelDetails.TabIndex = 9;
+            this.txtModelDetails.Text = "TODO: Add Description";
             // 
             // pictureBox2
             // 
@@ -216,12 +202,11 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button bCreate;
         private System.Windows.Forms.Button bApply;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtModelDetails;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel4;
     }

@@ -14,8 +14,9 @@ using model = PatientHubData.Model;
 
 namespace PatientHubUI
 {
-    public partial class Main : Form
+    public partial class DoctorMain : Form
     {
+        public TabPage tp;
         public List<model> models;
         private List<Patient> patients;
         private List<ModelParams> positiveModelParams;
@@ -24,10 +25,10 @@ namespace PatientHubUI
         private long selectedPatientId;
         private string selectedFirstName;
         private string selectedLastName;
-        private decimal selectedScore; //TODO: Capture this dynamically
+        private decimal selectedScore;
         private ToolTip tt = new ToolTip();
 
-        public Main()
+        public DoctorMain()
         {
             InitializeComponent();
 
@@ -36,6 +37,8 @@ namespace PatientHubUI
 
             models = model.GetAll();
             patients = Patient.GetAll();
+            tp = tabPage2;
+            tabControl1.TabPages.Remove(tp);
         }
 
         private void AddBarGraphColumn(string columnName)
@@ -52,8 +55,6 @@ namespace PatientHubUI
             dgPatients.AutoGenerateColumns = false;
             dgPatients.DataSource = patients;
             dgPatients.Rows[0].Selected = false;
-
-            //TODO: Move to different method
             tabControl1.TabPages[0].AutoScroll = true;
 
         }
@@ -63,7 +64,7 @@ namespace PatientHubUI
             // TODO: DYnamic management of tabs based on Models...
 
             Model f = new Model();
-            f.models = models;
+            f.models = models.Where(x=>x.isActive).ToList();
             f.ShowDialog();
 
             foreach (model model in models)
@@ -89,10 +90,16 @@ namespace PatientHubUI
 
             CellClick(0);
 
-            if (models.Where(x=>x.isSelected).Count() > 0)
-                tabControl1.Visible = true;
+            if (models.Where(x => x.isSelected).Count() > 0)
+            {
+                if (!tabControl1.TabPages.Contains(tp))
+                    tabControl1.TabPages.Add(tp);
+            }
             else
-                tabControl1.Visible = false;
+            {
+                if (tabControl1.TabPages.Contains(tp))
+                    tabControl1.TabPages.Remove(tp);
+            }
 
         }
 
@@ -101,7 +108,7 @@ namespace PatientHubUI
             InitDataGrid();
         }
 
-        private void bSingleInferenceTest_Click(object sender, EventArgs e)
+        private void SingleInference()
         {
             // Build dynamic sql parameters:
             string[] sqlparams = new string[10];
@@ -112,30 +119,30 @@ namespace PatientHubUI
             sqlparams[3] = positiveModelParams[3].sqlColumnName + ',' + PositiveText4.Text.Trim();
             sqlparams[4] = positiveModelParams[4].sqlColumnName + ',' + PositiveText5.Text.Trim();
 
-            sqlparams[5] = negativeModelParams[0].sqlColumnName + ',' + PositiveText1.Text.Trim();
-            sqlparams[6] = negativeModelParams[1].sqlColumnName + ',' + PositiveText2.Text.Trim();
-            sqlparams[7] = negativeModelParams[2].sqlColumnName + ',' + PositiveText3.Text.Trim();
-            sqlparams[8] = negativeModelParams[3].sqlColumnName + ',' + PositiveText4.Text.Trim();
-            sqlparams[9] = negativeModelParams[4].sqlColumnName + ',' + PositiveText5.Text.Trim();
+            sqlparams[5] = negativeModelParams[0].sqlColumnName + ',' + NegativeText1.Text.Trim();
+            sqlparams[6] = negativeModelParams[1].sqlColumnName + ',' + NegativeText2.Text.Trim();
+            sqlparams[7] = negativeModelParams[2].sqlColumnName + ',' + NegativeText3.Text.Trim();
+            sqlparams[8] = negativeModelParams[3].sqlColumnName + ',' + NegativeText4.Text.Trim();
+            sqlparams[9] = negativeModelParams[4].sqlColumnName + ',' + NegativeText5.Text.Trim();
 
             string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(selectedPatientId, sqlparams);
+            string response = DMPRW30Days_SingleInference.GetScore(payloadData);
 
             try
             {
-                string response = DMPRW30Days_SingleInference.GetScore(payloadData);
-                string input = "Input:";
-                decimal newScore = decimal.Parse(response.Split(',')[1].Substring(0, 7)) * 100;
+                string scoreStr = String.Format("{0:0.0000}", response.Split(',')[1].Substring(0, 7));
+                decimal newScore = decimal.Parse(String.Format("{0:0.00}", decimal.Parse(scoreStr) * 100));
                 UpdateChart(newScore);
-                lbAPIResponse.Text = response;
-
-                for (int i = 0; i < payloadData.Length; i++)
-                {
-                    input += payloadData[0,i];
-                }
-                lbAPIParams.Text = input;
+            }
+            catch (Exception ex)
+            {
 
             }
-            catch (Exception ex) { lbAPIException.Text = ex.Message.ToString(); }            
+        }
+        private void bSingleInferenceTest_Click(object sender, EventArgs e)
+        {
+            //_TEST_Update_Scores();
+            SingleInference();
         }
 
         private void CellClick(int rowIndex)
@@ -306,5 +313,60 @@ namespace PatientHubUI
             }
 
         }
+
+        private void Search()
+        {
+            List<Patient> filter = null;
+            if (txtSearch.Text != "")
+            {
+                try
+                {
+                    if (txtSearch.Text.ToLower().Contains("id="))
+                    {
+                        filter = patients.Where(x => x.Id == long.Parse(txtSearch.Text.Split('=')[1].Trim())).ToList();
+                    }
+                    if (txtSearch.Text.ToLower() == "order by id desc")
+                    {
+                        filter = patients.OrderByDescending(s => s.Id).ToList();
+                    }
+                    if (txtSearch.Text.ToLower() == "order by first name desc")
+                    {
+                        filter = patients.OrderByDescending(s => s.firstName).ToList();
+                    }
+                    if (txtSearch.Text.ToLower() == "order by last name desc")
+                    {
+                        filter = patients.OrderByDescending(s => s.lastName).ToList();
+                    }
+                    if (txtSearch.Text == "order by DMPRW30Days score desc")
+                    {
+                        filter = patients.OrderByDescending(s => s.DMPRW30Days_Score).ToList();
+                    }
+
+                    dgPatients.DataSource = filter;
+                }
+                catch (Exception ex) { MessageBox.Show("Invalied search input." + "\n" + "Detailed Exception:" + ex.Message, "Invalid format", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }
+            }
+            else
+                dgPatients.DataSource = patients.OrderByDescending(s => s.DMPRW30Days_Score).ToList();
+        }
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void txtSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13) Search();
+        }
+
+        private void bLogout_Click(object sender, EventArgs e)
+        {
+            Login.Show(this);
+        }       
     }
 }
