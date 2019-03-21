@@ -2,21 +2,19 @@
 # coding: utf-8
 
 
-import numpy as np
-from azureml.telemetry import set_diagnostics_collection
-from azureml.train.automl import AutoMLConfig
-from azureml.train.automl.run import AutoMLRun
-from azureml.core.model import Model
-
-from azureml.core.image import Image, ContainerImage
-from azureml.core.experiment import Experiment
-from azureml.core.compute import AksCompute, ComputeTarget
-from azureml.core.webservice import Webservice, AksWebservice
-from time import gmtime, strftime
-import azureml.core
-import os
-from azureml.core import Workspace
 import argparse
+import os
+from time import gmtime, strftime
+
+import azureml.core
+import numpy as np
+from azureml.core import Workspace
+from azureml.core.compute import AksCompute, ComputeTarget
+from azureml.core.experiment import Experiment
+from azureml.core.image import ContainerImage, Image
+from azureml.core.model import Model
+from azureml.core.webservice import AksWebservice, Webservice
+from azureml.telemetry import set_diagnostics_collection
 
 # import variables
 parser = argparse.ArgumentParser(description='Process some integers.')
@@ -59,7 +57,8 @@ with open(script_file_name, 'r') as cefr:
     content = cefr.read()
 
 with open(script_file_name, 'w') as cefw:
-    cefw.write(content.replace('global_model_name=', "global_model_name=\"" + model_name  +"\"#"))
+    cefw.write(content.replace('global_model_name=',
+                               "global_model_name=\"" + model_name + "\"#"))
 # exit(0)
 
 subscription_id = os.getenv("SUBSCRIPTION_ID", default=default_subscription_id)
@@ -97,8 +96,6 @@ model = Model.register(model_path=model_path,  # this points to a local file
 print("[Register] " + model.name + "registered successfully")
 
 
-
-
 # # Create container image
 
 print("[Image] Starting to create container image")
@@ -119,7 +116,7 @@ image.wait_for_creation(show_output=True)
 
 if image.creation_state == 'Failed':
     print("[ERROR] Image build log at: " + image.image_build_log_uri)
-print("[Image] Container Image" + model_name+"image" +"created successfully")
+print("[Image] Container Image" + model_name+"image" + "created successfully")
 
 # In[5]:
 
@@ -163,6 +160,3 @@ aks_service.wait_for_deployment(show_output=True)
 services = Webservice.list(ws)
 print("[Deployment] AKS cluster deployed successfully. The end point is:")
 print(services[0].scoring_uri)
-
-
-
