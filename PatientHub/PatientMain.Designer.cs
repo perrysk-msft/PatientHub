@@ -28,24 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientMain));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.BottomToolStrip = new System.Windows.Forms.ToolStrip();
             this.bSingleInferenceTest = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.topPanel = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.bLogout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lbPatientNbr = new System.Windows.Forms.Label();
+            this.lbGender = new System.Windows.Forms.Label();
+            this.lbAge = new System.Windows.Forms.Label();
+            this.lbRace = new System.Windows.Forms.Label();
+            this.lbFullName = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.ComboBox();
+            this.bSearch = new System.Windows.Forms.Button();
             this.bPredict = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -57,6 +72,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -105,46 +121,30 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lbPatientNbr = new System.Windows.Forms.Label();
-            this.lbGender = new System.Windows.Forms.Label();
-            this.lbAge = new System.Windows.Forms.Label();
-            this.lbRace = new System.Windows.Forms.Label();
-            this.lbFullName = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.bSearch = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // BottomToolStrip
@@ -200,6 +200,16 @@
             this.panel7.Size = new System.Drawing.Size(312, 90);
             this.panel7.TabIndex = 2;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::PatientHub.Properties.Resources.user;
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(50, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 39);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
@@ -223,6 +233,16 @@
             this.bLogout.Text = "Logout";
             this.bLogout.UseVisualStyleBackColor = true;
             this.bLogout.Click += new System.EventHandler(this.bLogout_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PatientHub.Properties.Resources.logo;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(297, 86);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // splitContainer1
             // 
@@ -265,6 +285,129 @@
             this.panel2.Size = new System.Drawing.Size(1736, 273);
             this.panel2.TabIndex = 4;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::PatientHub.Properties.Resources.activeMeds;
+            this.pictureBox5.Location = new System.Drawing.Point(418, 20);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(1387, 342);
+            this.pictureBox5.TabIndex = 66;
+            this.pictureBox5.TabStop = false;
+            // 
+            // lbPatientNbr
+            // 
+            this.lbPatientNbr.AutoSize = true;
+            this.lbPatientNbr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPatientNbr.Location = new System.Drawing.Point(276, 52);
+            this.lbPatientNbr.Name = "lbPatientNbr";
+            this.lbPatientNbr.Size = new System.Drawing.Size(95, 21);
+            this.lbPatientNbr.TabIndex = 65;
+            this.lbPatientNbr.Text = "Patient NBR:";
+            // 
+            // lbGender
+            // 
+            this.lbGender.AutoSize = true;
+            this.lbGender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGender.Location = new System.Drawing.Point(276, 124);
+            this.lbGender.Name = "lbGender";
+            this.lbGender.Size = new System.Drawing.Size(64, 21);
+            this.lbGender.TabIndex = 64;
+            this.lbGender.Text = "Gender:";
+            // 
+            // lbAge
+            // 
+            this.lbAge.AutoSize = true;
+            this.lbAge.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAge.Location = new System.Drawing.Point(276, 100);
+            this.lbAge.Name = "lbAge";
+            this.lbAge.Size = new System.Drawing.Size(40, 21);
+            this.lbAge.TabIndex = 63;
+            this.lbAge.Text = "Age:";
+            // 
+            // lbRace
+            // 
+            this.lbRace.AutoSize = true;
+            this.lbRace.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRace.Location = new System.Drawing.Point(276, 76);
+            this.lbRace.Name = "lbRace";
+            this.lbRace.Size = new System.Drawing.Size(46, 21);
+            this.lbRace.TabIndex = 62;
+            this.lbRace.Text = "Race:";
+            // 
+            // lbFullName
+            // 
+            this.lbFullName.AutoSize = true;
+            this.lbFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFullName.Location = new System.Drawing.Point(276, 28);
+            this.lbFullName.Name = "lbFullName";
+            this.lbFullName.Size = new System.Drawing.Size(92, 21);
+            this.lbFullName.TabIndex = 61;
+            this.lbFullName.Text = "Full Name:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.DimGray;
+            this.label15.Location = new System.Drawing.Point(182, 52);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(95, 21);
+            this.label15.TabIndex = 59;
+            this.label15.Text = "Patient NBR:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.DimGray;
+            this.label14.Location = new System.Drawing.Point(182, 124);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 21);
+            this.label14.TabIndex = 58;
+            this.label14.Text = "Gender:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DimGray;
+            this.label13.Location = new System.Drawing.Point(182, 100);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(40, 21);
+            this.label13.TabIndex = 57;
+            this.label13.Text = "Age:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DimGray;
+            this.label12.Location = new System.Drawing.Point(182, 76);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 21);
+            this.label12.TabIndex = 56;
+            this.label12.Text = "Race:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DimGray;
+            this.label11.Location = new System.Drawing.Point(182, 28);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(84, 21);
+            this.label11.TabIndex = 55;
+            this.label11.Text = "Full Name:";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::PatientHub.Properties.Resources.male_patient;
+            this.pictureBox4.Location = new System.Drawing.Point(13, 18);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(163, 152);
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -294,6 +437,19 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(292, 28);
             this.txtSearch.TabIndex = 6;
+            // 
+            // bSearch
+            // 
+            this.bSearch.BackColor = System.Drawing.Color.White;
+            this.bSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSearch.ForeColor = System.Drawing.Color.White;
+            this.bSearch.Image = global::PatientHub.Properties.Resources.search;
+            this.bSearch.Location = new System.Drawing.Point(312, 2);
+            this.bSearch.Name = "bSearch";
+            this.bSearch.Size = new System.Drawing.Size(36, 33);
+            this.bSearch.TabIndex = 5;
+            this.bSearch.UseVisualStyleBackColor = false;
             // 
             // bPredict
             // 
@@ -393,9 +549,9 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Location = new System.Drawing.Point(4, 26);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1728, 582);
+            this.tabPage4.Size = new System.Drawing.Size(1728, 586);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Conversations";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -415,19 +571,28 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.Controls.Add(this.pictureBox3);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1728, 582);
+            this.tabPage1.Size = new System.Drawing.Size(1728, 586);
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "Labs";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::PatientHub.Properties.Resources.sampleLabs;
+            this.pictureBox3.Location = new System.Drawing.Point(4, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(1488, 1005);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.textBox1);
-            this.tabPage5.Location = new System.Drawing.Point(4, 26);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1728, 582);
+            this.tabPage5.Size = new System.Drawing.Size(1728, 586);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "Notes";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -449,10 +614,10 @@
             this.tabPage2.AutoScroll = true;
             this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.panel5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1728, 582);
+            this.tabPage2.Size = new System.Drawing.Size(1728, 586);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Risk for Readmission within 30 days";
             // 
@@ -492,7 +657,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1084, 576);
+            this.panel5.Size = new System.Drawing.Size(1084, 580);
             this.panel5.TabIndex = 7;
             // 
             // NegativeText5
@@ -605,22 +770,22 @@
             // 
             // RiskChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.RiskChart.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.RiskChart.ChartAreas.Add(chartArea1);
             this.RiskChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.RiskChart.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.RiskChart.Legends.Add(legend1);
             this.RiskChart.Location = new System.Drawing.Point(0, 0);
             this.RiskChart.Name = "RiskChart";
             this.RiskChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            dataPoint4.IsVisibleInLegend = false;
-            series2.Points.Add(dataPoint3);
-            series2.Points.Add(dataPoint4);
-            this.RiskChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            dataPoint2.IsVisibleInLegend = false;
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            this.RiskChart.Series.Add(series1);
             this.RiskChart.Size = new System.Drawing.Size(318, 205);
             this.RiskChart.TabIndex = 0;
             this.RiskChart.Text = "chart1";
@@ -908,170 +1073,6 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Discharge Disposition";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(182, 28);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 21);
-            this.label11.TabIndex = 55;
-            this.label11.Text = "Full Name:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Location = new System.Drawing.Point(182, 76);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 21);
-            this.label12.TabIndex = 56;
-            this.label12.Text = "Race:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(182, 100);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 21);
-            this.label13.TabIndex = 57;
-            this.label13.Text = "Age:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.DimGray;
-            this.label14.Location = new System.Drawing.Point(182, 124);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 21);
-            this.label14.TabIndex = 58;
-            this.label14.Text = "Gender:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.DimGray;
-            this.label15.Location = new System.Drawing.Point(182, 52);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(95, 21);
-            this.label15.TabIndex = 59;
-            this.label15.Text = "Patient NBR:";
-            // 
-            // lbPatientNbr
-            // 
-            this.lbPatientNbr.AutoSize = true;
-            this.lbPatientNbr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPatientNbr.Location = new System.Drawing.Point(276, 52);
-            this.lbPatientNbr.Name = "lbPatientNbr";
-            this.lbPatientNbr.Size = new System.Drawing.Size(95, 21);
-            this.lbPatientNbr.TabIndex = 65;
-            this.lbPatientNbr.Text = "Patient NBR:";
-            // 
-            // lbGender
-            // 
-            this.lbGender.AutoSize = true;
-            this.lbGender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGender.Location = new System.Drawing.Point(276, 124);
-            this.lbGender.Name = "lbGender";
-            this.lbGender.Size = new System.Drawing.Size(64, 21);
-            this.lbGender.TabIndex = 64;
-            this.lbGender.Text = "Gender:";
-            // 
-            // lbAge
-            // 
-            this.lbAge.AutoSize = true;
-            this.lbAge.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAge.Location = new System.Drawing.Point(276, 100);
-            this.lbAge.Name = "lbAge";
-            this.lbAge.Size = new System.Drawing.Size(40, 21);
-            this.lbAge.TabIndex = 63;
-            this.lbAge.Text = "Age:";
-            // 
-            // lbRace
-            // 
-            this.lbRace.AutoSize = true;
-            this.lbRace.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRace.Location = new System.Drawing.Point(276, 76);
-            this.lbRace.Name = "lbRace";
-            this.lbRace.Size = new System.Drawing.Size(46, 21);
-            this.lbRace.TabIndex = 62;
-            this.lbRace.Text = "Race:";
-            // 
-            // lbFullName
-            // 
-            this.lbFullName.AutoSize = true;
-            this.lbFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFullName.Location = new System.Drawing.Point(276, 28);
-            this.lbFullName.Name = "lbFullName";
-            this.lbFullName.Size = new System.Drawing.Size(92, 21);
-            this.lbFullName.TabIndex = 61;
-            this.lbFullName.Text = "Full Name:";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::PatientHub.Properties.Resources.activeMeds;
-            this.pictureBox5.Location = new System.Drawing.Point(418, 20);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(1387, 342);
-            this.pictureBox5.TabIndex = 66;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::PatientHub.Properties.Resources.male_patient;
-            this.pictureBox4.Location = new System.Drawing.Point(13, 18);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(163, 152);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // bSearch
-            // 
-            this.bSearch.BackColor = System.Drawing.Color.White;
-            this.bSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSearch.ForeColor = System.Drawing.Color.White;
-            this.bSearch.Image = global::PatientHub.Properties.Resources.search;
-            this.bSearch.Location = new System.Drawing.Point(312, 2);
-            this.bSearch.Name = "bSearch";
-            this.bSearch.Size = new System.Drawing.Size(36, 33);
-            this.bSearch.TabIndex = 5;
-            this.bSearch.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::PatientHub.Properties.Resources.sampleLabs;
-            this.pictureBox3.Location = new System.Drawing.Point(4, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1488, 1005);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(50, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 39);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::PatientHub.Properties.Resources.logo;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(297, 86);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // PatientMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1090,12 +1091,16 @@
             this.topPanel.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
@@ -1104,6 +1109,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1113,11 +1119,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.RiskChart)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
