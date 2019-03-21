@@ -1,0 +1,6 @@
+--Setup the local environment with the dependencies
+conda env create -f azurefunctions.yml
+conda active azurefunctions
+python3 call_aml_pipeline.py
+
+--Azure functions related packaging is in the sub folder 'azfuncdeployment'

@@ -1,0 +1,66 @@
+this is for running the azure functions locally and also deploy to azure
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-python
+
+# In Bash
+python3.6 -m venv .env
+source .env/bin/activate
+
+# In PowerShell
+py -3.6 -m venv .env
+.env\scripts\activate
+
+to run the functions locally,
+go to the BatchScoringHttpTrigger folder
+pip install -r requirements.txt
+func host start
+
+from a browser
+http://localhost:7071/api/BatchScoringHttpTrigger?name=rama
+
+output should be like this:
+
+[3/21/19 6:20:21 PM] Executing HTTP request: {
+[3/21/19 6:20:21 PM]   "requestId": "5f0ebb18-eaa3-4222-b510-53c5c54aa531",
+[3/21/19 6:20:21 PM]   "method": "GET",
+[3/21/19 6:20:21 PM]   "uri": "/api/BatchScoringHttpTrigger"
+[3/21/19 6:20:21 PM] }
+[3/21/19 6:20:21 PM] Executing 'Functions.BatchScoringHttpTrigger' (Reason='This function was programmatically called via the host APIs.', Id=e1f7db0c-f3f8-49d8-8c1d-2a88ebd70171)
+[3/21/19 6:20:22 PM]  INFO: Received FunctionInvocationRequest, request ID: b6ad0aeb-d795-4424-b91c-da18b1d421d2, function ID: 9b8483e2-b413-4e2f-9ec8-0a3af9c934d4, invocation ID: e1f7db0c-f3f8-49d8-8c1d-2a88ebd70171
+[3/21/19 6:20:22 PM] Python HTTP trigger function processed a batch scoring request.
+[3/21/19 6:20:22 PM] 963e882c-592b-4367-94ea-5882ae2d3a07 - TokenRequest:Getting token with client credentials.
+[3/21/19 6:20:22 PM] 963e882c-592b-4367-94ea-5882ae2d3a07 - OAuth2Client:Get Token Server returned this correlation_id: 963e882c-592b-4367-94ea-5882ae2d3a07
+[3/21/19 6:20:22 PM] 732ae4ca-6849-4c53-885f-64f0cfd0cb32 - TokenRequest:Getting token with client credentials.
+[3/21/19 6:20:22 PM] 732ae4ca-6849-4c53-885f-64f0cfd0cb32 - OAuth2Client:Get Token Server returned this correlation_id: 732ae4ca-6849-4c53-885f-64f0cfd0cb32
+[3/21/19 6:20:22 PM] Found workspace and experiments
+[3/21/19 6:20:22 PM] d79cab29-9936-4c6a-a47a-ea97ed384d94 - TokenRequest:Getting token with client credentials.
+[3/21/19 6:20:23 PM] d79cab29-9936-4c6a-a47a-ea97ed384d94 - OAuth2Client:Get Token Server returned this correlation_id: d79cab29-9936-4c6a-a47a-ea97ed384d94
+[3/21/19 6:20:27 PM] daed8d87-f776-48d7-8e05-279262e2fc31
+[3/21/19 6:20:27 PM]  INFO: Successfully processed FunctionInvocationRequest, request ID: b6ad0aeb-d795-4424-b91c-da18b1d421d2, function ID: 9b8483e2-b413-4e2f-9ec8-0a3af9c934d4, invocation ID: e1f7db0c-f3f8-49d8-8c1d-2a88ebd70171
+[3/21/19 6:20:27 PM] Executed 'Functions.BatchScoringHttpTrigger' (Succeeded, Id=e1f7db0c-f3f8-49d8-8c1d-2a88ebd70171)
+[3/21/19 6:20:27 PM] Executed HTTP request: {
+[3/21/19 6:20:27 PM]   "requestId": "5f0ebb18-eaa3-4222-b510-53c5c54aa531",
+[3/21/19 6:20:27 PM]   "method": "GET",
+[3/21/19 6:20:27 PM]   "uri": "/api/BatchScoringHttpTrigger",
+[3/21/19 6:20:27 PM]   "identities": [
+[3/21/19 6:20:27 PM]     {
+[3/21/19 6:20:27 PM]       "type": "WebJobsAuthLevel",
+[3/21/19 6:20:27 PM]       "level": "Admin"
+[3/21/19 6:20:27 PM]     }
+[3/21/19 6:20:27 PM]   ],
+[3/21/19 6:20:27 PM]   "status": 200,
+[3/21/19 6:20:27 PM]   "duration": 5904
+[3/21/19 6:20:27 PM] }
+[3/21/19 6:20:27 PM] Executing HTTP request: {
+[3/21/19 6:20:27 PM]   "requestId": "ed14e467-280b-4590-a6c1-74716f8f464e",
+[3/21/19 6:20:27 PM]   "method": "GET",
+[3/21/19 6:20:27 PM]   "uri": "/favicon.ico"
+[3/21/19 6:20:27 PM] }
+[3/21/19 6:20:27 PM] Executed HTTP request: {
+[3/21/19 6:20:27 PM]   "requestId": "ed14e467-280b-4590-a6c1-74716f8f464e",
+[3/21/19 6:20:27 PM]   "method": "GET",
+[3/21/19 6:20:27 PM]   "uri": "/favicon.ico",
+[3/21/19 6:20:27 PM]   "identities": [],
+[3/21/19 6:20:27 PM]   "status": 404,
+[3/21/19 6:20:27 PM]   "duration": 291
+[3/21/19 6:20:27 PM] }
+
