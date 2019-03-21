@@ -399,55 +399,6 @@
         X331/874D/thF0//AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="textBox1.Text" xml:space="preserve">
-    <value>PROVIDER NOTE - Chronic Conditions Visit
-Attendees at today's visit are:  Demo Patient and Health Coach
-
-Subjective:
-•Renal Agenesis/ CKD Type 3: Reports saw nephrologist who would like labs done every 3 months. 
-•Gout- Denies recent flares. Flares usually left heel area. Reports Uloric 80 mg daily. 
-•HTN: Reports in AM after waking up BP is 160-170/80s. 
-
-Health Coach Agenda:
-•na
-
-Medication Changes/Refill Requests:
-•See Medication List all refilled.
-
-Medications
-•Clopidogrel 75 mg tablet – Take 1 tab daily for hear prevention
-•Losartan 100 mg tablet – Take 1/2 tablet daily for 2 days. Then if no side effects increase to 1 tablet daily. Labs and blood pressure check 1 week after starting.
-•NIFEdipine 20 mg capsule – Take 1 tab 2 times daily for blood pressure
-•Omeprazole 20 mg delayed release tablet – Take 1 tab daily for acid reflux
-•Simvastatin 20 mg tablet – Take one tablet daily for cholesterol
-•Uloric 80 mg tablet – Take 1 tab daily for gout prevention
-
-Allergies
-•No Known Allergies
-
-Chronic Medical Conditions:
-HTN
-Gout
-Hyperlipidemia
-CKD 3
-Aquired solitary kidney.
-
-Physical Exam:  
-BP: 142/75 Temp:  98.1HR: 69 RR:  SPO2: 98 HT: 63.2 WT:  153.2 BMI: 26.9
-
-GENERAL-  Well appearing and in no acute distress.
-AFFECT-  Appropriate.
-MENTATION-  Conversationally normal and alert.
-NEUROLOGICAL-  No Focal Abnormalities.
-EYES-  Conjunctivae are not inflamed;EOMI.
-NECK-  Supple without adenopathy. No thyromegaly.  No jugular venous distension.
-LUNGS-  Clear to auscultation bilaterally without rales, wheezes or rhonchi.
-HEART-  Regular rate and rhythm; normal S1S2 without murmurs, rubs, or gallops.
-ABDOMEN-  Soft; diffusely non-tender.
-EXTREMITIES-  No Edema
-
-</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

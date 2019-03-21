@@ -10,42 +10,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using model = PatientHubData.Model;
+using System.Threading;
 
 namespace AdminUI
 {
     public partial class NewModel : Form
     {
-        private TabPage[] tps = new TabPage[3];
+        private Process p = new Process();
+        private ProcessCaller processCaller;
+        
         public List<model> models;
         private ImageList il = new ImageList();
-        public int modelId;
+        public int modelId;        
 
         public NewModel()
         {
             InitializeComponent();
-            InitTabs();
 
-            tps[0] = step1;
-            tps[1] = step2;
-            tps[2] = step3;
         }
-        
-        private void InitTabs()
-        {
-            //if(modelId != -1)
-            //{
-            //    var m = model.GetAll().Where(x => x.Id == modelId);
-            //    model _model = ((model)m);
 
-            //    lblTitle.Text = _model.Name;
-
-            //}
-        }
         private void Model_Load(object sender, EventArgs e)
         {
-            tabControl1.TabPages.Remove(tps[0]);
-            tabControl1.TabPages.Remove(tps[1]);
-            tabControl1.TabPages.Remove(tps[2]);
         }
 
         private void run_cmd()
@@ -74,31 +59,50 @@ namespace AdminUI
             run_cmd();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if(!tabControl1.TabPages.Contains(tps[0]))
-                tabControl1.TabPages.Add(tps[0]);
 
-            tabControl1.TabPages.Remove(tps[1]);
-            tabControl1.TabPages.Remove(tps[2]);
+        private void bRegisterModel_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.AppStarting;
+            this.bRegisterModel.Enabled = false;
+
+            progressBar1.Visible = true;
+
+            processCaller = new ProcessCaller(this);
+            processCaller.FileName = @"D:\python\python.exe";
+            processCaller.WorkingDirectory = @"D:\AI\PatientHub\Admin\scripts\Diabetes";
+            processCaller.Arguments = @"D:\AI\PatientHub\Admin\scripts\Diabetes\Login_register_deploy_perry.py --script_file_name=""D:\AI\PatientHub\Admin\scripts\Diabetes\score.py"" --model_path=""D:\AI\PatientHub\Admin\scripts\Diabetes\model.pkl"" --conda_env_file_name=""D:\AI\PatientHub\Admin\scripts\Diabetes\myenv.yml"" --default_subscription_id=""a6c2a7cc-d67e-4a1a-b765-983f08c0423a"" --default_resource_group=""xiaoyzhu-mlworkspace"" --default_workspace_name=""xiaoyzhu-MLworkspace"" --default_workspace_region=""eastus2"" --model_name=""phdeploymodel"" --model_description=""Ridge regression model to predict diabetes"" --aks_cluster_name=""ace-patienthub""";
+
+            processCaller.StdErrReceived += new DataReceivedHandler(errorStreamInfo);
+            processCaller.StdOutReceived += new DataReceivedHandler(writeStreamInfo);
+            processCaller.Completed += new EventHandler(processCompletedOrCanceled);
+            processCaller.Cancelled += new EventHandler(processCompletedOrCanceled);
+            
+            this.txtOutput.Text = string.Format("[{0}] {1}", DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString(), "Started the execution of the model registration and deployment script.") + Environment.NewLine;
+
+            processCaller.Start();
+        }
+        private void writeStreamInfo(object sender, DataReceivedEventArgs e)
+        {
+            string output = string.Format("[{0}] {1}", DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString(), e.Text.Trim());
+            this.txtOutput.AppendText(output + Environment.NewLine);
+        }
+        private void errorStreamInfo(object sender, DataReceivedEventArgs e)
+        {
+            txtOutput.SelectionColor = Color.OrangeRed;
+            string output = string.Format("[{0}] {1}", DateTime.Now.ToLongTimeString(), e.Text.Trim());
+            this.txtOutput.AppendText(output + Environment.NewLine);
+        }
+        private void processCompletedOrCanceled(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+            this.bRegisterModel.Enabled = true;
+
+            progressBar1.Visible = false;
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void NewModel_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!tabControl1.TabPages.Contains(tps[1]))
-                tabControl1.TabPages.Add(tps[1]);
-
-            tabControl1.TabPages.Remove(tps[0]);
-            tabControl1.TabPages.Remove(tps[2]);
-        }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (!tabControl1.TabPages.Contains(tps[2]))
-                tabControl1.TabPages.Add(tps[2]);
-
-            tabControl1.TabPages.Remove(tps[0]);
-            tabControl1.TabPages.Remove(tps[1]);
+            MessageBox.Show("Update models");
         }
     }
 }

@@ -4,6 +4,7 @@ import os
 from azureml.core import Workspace
 import argparse
 
+print("test...")
 parser = argparse.ArgumentParser(
     description="model registration")
 
