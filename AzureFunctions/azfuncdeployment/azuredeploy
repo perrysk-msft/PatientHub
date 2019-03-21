@@ -1,0 +1,4 @@
+az functionapp create --resource-group raramanirg --os-type Linux --consumption-plan-location westeurope --runtime python --name batchfunctionapp --storage-account raramanistorageilnxwodd --subscription a6c2a7cc-d67e-4a1a-b765-983f08c0423a
+
+go to batchfunctionapp folder:
+func azure functionapp publish batchfunctionapp
