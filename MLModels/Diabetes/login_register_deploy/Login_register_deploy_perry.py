@@ -1,6 +1,6 @@
 # python.exe f:/PatientHub/MLModels/Diabetes/login_register_deploy/Login_register_deploy_perry.py --script_file_name="./score.py" --model_path="./sklearn_regression_model.pkl" --conda_env_file_name="myenv.yml" --default_subscription_id="a6c2a7cc-d67e-4a1a-b765-983f08c0423a" --default_resource_group="xiaoyzhu-mlworkspace" --default_workspace_name="xiaoyzhu-MLworkspace" --default_workspace_region="eastus2" --model_name="phdeploymodel" --model_description="Ridge regression model to predict diabetes" --aks_cluster_name="ace-patienthub"
 # coding: utf-8
-
+# updated: 3/21/2019 12:59
 
 import argparse
 import os
