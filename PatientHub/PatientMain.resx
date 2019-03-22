@@ -121,6 +121,28 @@
     <value>139, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAgCAYAAACYTcH3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAA9hJREFUWEfFmOkrrV0Yxs8/xmfJEJF5KBEps8w+mDeOeciYWT7hgxAZIkNIRKYQ
+        mRKKQkjXu6/7LN73PTz2evZ7znl/9dh73Ws/+7n2Wve61r18e3l5cXl9ff1uvSz/8/X9m/VPFezEei8O
+        Dg6wuLiIpaUlHB8fqx77oBiLeq/N4eEhcnNzERwcjIiICCQnJyMxMRFhYWEIDQ1FeXk5rq6u1Kf1MS2m
+        p6cHrq6uKC0txe7uLp6enlQP8PDwgLW1NWRnZ8Pd3R0TExOqRw9TYpqamuDh4YHNzU0VMWZychJOTk4Y
+        GRlREdtoi5mampIROTk5URHbrKyswNnZWUZQBy0xj4+PCAwMxNjYmIro09jYiISEBNX6Gi0x4+Pjkqj2
+        cHd3B39/f+zs7KiIMVpiCgsLJV/shQnd2dmpWsZoiUlKSrJrit5obW1FUVGRahmjJSY2NhYzMzOqZZ7u
+        7m7xJVtoiUlLS8Pg4KBqmae2thZlZWWqZYyWmLq6Oq1hNoIjOzQ0pFrGaImhyfn4+MjKMAs9hvdeX1+r
+        iDFaYkhKSopsAWaJiYmRadJBW8zp6Snc3NzQ39+vIraprKxESEiImKYO2mLI+vo6XFxc5JdyUzSCOza9
+        xdfXF+fn5ypqG1NiyNHREaKjoxEQEICGhgYsLy9LTbO/v4+5uTkpH7y9vZGZmYnb21t1lx6mxbyxuroq
+        D05NTZW9h/VMeno66uvrRZg9mBZjLVNlhdCROzo6UFJSIoIyMjJEHOud6elpKcDMoi2Gv7aqquq9mqMR
+        8uHccwYGBiSx29raUFxcLNtHUFAQIiMj0dzcjLOzM/UtX2NTDHMkKytL8iA/Px8LCwtaucAkZqXHqfPy
+        8hJbuLm5Ub2f86WYrq4uKag4FWZWxc9wVDmNnp6eGB0dVdGPfCqGdS1v9vPzw8bGhor+d1iK0qs43Z/x
+        QQyFcOnGxcXh/v5eRX8dFxcXUmwVFBSoyN98EEPb51K1xlXk18M9jj5VU1OjIj/4l5j29napdf95/Phd
+        MAeZj7SBN97F0BfYube3Jx1/AuYQV+lbNfAuhsv352H7EzAt6EVExFxeXkpS0VNoUKxfZmdnpSCiy1ZX
+        V8NisSAnJ0dE03FpbPHx8VI4vV1MeuYbj7s0RW6WvIfWwAKN5efw8DDm5+exvb0NPpdndB6Tn5+ff4jh
+        qc/BwUFWUXh4OKKiouRBNCxmPZci3bWvr0/KT36eQ0zB/GIe/HnxPWtlmh0fSmfu7e1FS0sLKioqkJeX
+        Jz+EounOPP7w1dHRUcRRTCUTdmtrS06Lv2M5G8Fc4X8uKAQA/gKupyTSqi5EwQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="pictureBox2.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAZ0AAACHCAIAAABChxO8AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

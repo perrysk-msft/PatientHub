@@ -1,4 +1,4 @@
-global_model_name="phdeploymodel"#"phdeploymodel"#"phdeploymodel"
+global_model_name="new-model-name"#"new-model-name"#"new-model-name"#"new-model-name"#"new-model-namePK sadf"#"new-model-name"#"new-model-name"#"phdeploymodel"#"phdeploymodel"#"phdeploymodel"
 
 import pickle
 import json

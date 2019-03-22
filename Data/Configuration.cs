@@ -23,6 +23,13 @@ namespace PatientHubData
         public static int commandTimeout = int.Parse(ConfigurationManager.AppSettings["commandTimeout"]);
         public static string pyhtonPath = ConfigurationManager.AppSettings["pythonPath"];
         public static long demoPatientId = long.Parse(ConfigurationManager.AppSettings["demoPatientId"]);
+
+        public static string SubscriptionId = ConfigurationManager.AppSettings["SubscriptionId"];
+        public static string ResourceGroup = ConfigurationManager.AppSettings["ResourceGroup"];
+        public static string WorkspaceName = ConfigurationManager.AppSettings["WorkspaceName"];
+        public static string Region = ConfigurationManager.AppSettings["Region"];
+        public static string AKSClusterName = ConfigurationManager.AppSettings["AKSClusterName"];
+
     }
-    
+
 }

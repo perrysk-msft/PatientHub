@@ -19,8 +19,7 @@ namespace PatientHubUI
         public TabPage tp;
         public List<model> models;
         private List<Patient> patients;
-        private List<ModelParams> positiveModelParams;
-        private List<ModelParams> negativeModelParams;
+        private List<ModelParams> ModelParams;
 
         private long selectedPatientId;
         private string selectedFirstName;
@@ -111,19 +110,13 @@ namespace PatientHubUI
         private void SingleInference()
         {
             // Build dynamic sql parameters:
-            string[] sqlparams = new string[10];
+            string[] sqlparams = new string[5];
 
-            sqlparams[0] = positiveModelParams[0].sqlColumnName + ',' + PositiveText1.Text.Trim();
-            sqlparams[1] = positiveModelParams[1].sqlColumnName + ',' + PositiveText2.Text.Trim();
-            sqlparams[2] = positiveModelParams[2].sqlColumnName + ',' + PositiveText3.Text.Trim();
-            sqlparams[3] = positiveModelParams[3].sqlColumnName + ',' + PositiveText4.Text.Trim();
-            sqlparams[4] = positiveModelParams[4].sqlColumnName + ',' + PositiveText5.Text.Trim();
-
-            sqlparams[5] = negativeModelParams[0].sqlColumnName + ',' + NegativeText1.Text.Trim();
-            sqlparams[6] = negativeModelParams[1].sqlColumnName + ',' + NegativeText2.Text.Trim();
-            sqlparams[7] = negativeModelParams[2].sqlColumnName + ',' + NegativeText3.Text.Trim();
-            sqlparams[8] = negativeModelParams[3].sqlColumnName + ',' + NegativeText4.Text.Trim();
-            sqlparams[9] = negativeModelParams[4].sqlColumnName + ',' + NegativeText5.Text.Trim();
+            sqlparams[0] = ModelParams[0].sqlColumnName + ',' + ParamText1.Text.Trim();
+            sqlparams[1] = ModelParams[1].sqlColumnName + ',' + ParamText2.Text.Trim();
+            sqlparams[2] = ModelParams[2].sqlColumnName + ',' + ParamText3.Text.Trim();
+            sqlparams[3] = ModelParams[3].sqlColumnName + ',' + ParamText4.Text.Trim();
+            sqlparams[4] = ModelParams[4].sqlColumnName + ',' + ParamText5.Text.Trim();
 
             string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(selectedPatientId, sqlparams);
             string response = DMPRW30Days_SingleInference.GetScore(payloadData);
@@ -145,7 +138,38 @@ namespace PatientHubUI
             SingleInference();
         }
 
-        private void CellClick(int rowIndex)
+        private void _TEST_Update_Scores()
+        {
+            for (int i = 0; i <= 16220; i++)
+            {
+                try
+                {
+                    long PatientId = long.Parse(dgPatients.Rows[i].Cells[0].Value.ToString());
+
+                    CellClick(i);
+                    string[] sqlparams = new string[5];
+
+                    sqlparams[0] = ModelParams[0].sqlColumnName + ',' + ParamText1.Text.Trim();
+                    sqlparams[1] = ModelParams[1].sqlColumnName + ',' + ParamText2.Text.Trim();
+                    sqlparams[2] = ModelParams[2].sqlColumnName + ',' + ParamText3.Text.Trim();
+                    sqlparams[3] = ModelParams[3].sqlColumnName + ',' + ParamText4.Text.Trim();
+                    sqlparams[4] = ModelParams[4].sqlColumnName + ',' + ParamText5.Text.Trim();
+
+                    string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(PatientId, sqlparams);
+                    string response = DMPRW30Days_SingleInference.GetScore(payloadData);
+                    decimal newScore = decimal.Parse(response.Split(',')[1].Substring(0, 7)) * 100;
+
+                    DMPRW30Days_SingleInference._TEST_InsertScores(PatientId, newScore);
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            }
+        }
+
+            private void CellClick(int rowIndex)
         {
             if (rowIndex >= 0)
             { 
@@ -162,83 +186,44 @@ namespace PatientHubUI
                     lbPatientInfo.Text = selectedLastName + ", " + selectedFirstName;
 
                     //Reset DropDown Items
-                    PositiveText1.Items.Clear();
-                    PositiveText2.Items.Clear();
-                    PositiveText3.Items.Clear();
-                    PositiveText4.Items.Clear();
-                    PositiveText5.Items.Clear();
-                    NegativeText1.Items.Clear();
-                    NegativeText2.Items.Clear();
-                    NegativeText3.Items.Clear();
-                    NegativeText4.Items.Clear();
-                    NegativeText5.Items.Clear();
-
+                    ParamText1.Items.Clear();
+                    ParamText2.Items.Clear();
+                    ParamText3.Items.Clear();
+                    ParamText4.Items.Clear();
+                    ParamText5.Items.Clear();
 
                     // Positive Values
-                    positiveModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId, true);
+                    ModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId);
 
-                    PositiveL1.Text = positiveModelParams[0].paramName + ":";
-                    PositiveText1.Text = positiveModelParams[0].paramValue;
-                    tt.SetToolTip(PositiveL1, "Score: " + positiveModelParams[0].score.ToString());
+                    ParamL1.Text = ModelParams[0].paramName + ":";
+                    ParamText1.Text = ModelParams[0].paramValue;
+                    tt.SetToolTip(ParamL1, "Score: " + ModelParams[0].score.ToString());
 
-                    PositiveText1.Items.AddRange(positiveModelParams[0].distinctValues.Split(',').ToArray());
+                    ParamText1.Items.AddRange(ModelParams[0].distinctValues.Split(',').ToArray());
 
-                    PositiveL2.Text = positiveModelParams[1].paramName + ":";
-                    PositiveText2.Text = positiveModelParams[1].paramValue;
-                    tt.SetToolTip(PositiveL2, "Score: " + positiveModelParams[1].score.ToString());
+                    ParamL2.Text = ModelParams[1].paramName + ":";
+                    ParamText2.Text = ModelParams[1].paramValue;
+                    tt.SetToolTip(ParamL2, "Score: " + ModelParams[1].score.ToString());
 
-                    PositiveText2.Items.AddRange(positiveModelParams[1].distinctValues.Split(',').ToArray());
+                    ParamText2.Items.AddRange(ModelParams[1].distinctValues.Split(',').ToArray());
          
-                    PositiveL3.Text = positiveModelParams[2].paramName + ":";
-                    PositiveText3.Text = positiveModelParams[2].paramValue;
-                    tt.SetToolTip(PositiveL3, "Score: " + positiveModelParams[2].score.ToString());
+                    ParamL3.Text = ModelParams[2].paramName + ":";
+                    ParamText3.Text = ModelParams[2].paramValue;
+                    tt.SetToolTip(ParamL3, "Score: " + ModelParams[2].score.ToString());
 
-                    PositiveText3.Items.AddRange(positiveModelParams[2].distinctValues.Split(',').ToArray());
+                    ParamText3.Items.AddRange(ModelParams[2].distinctValues.Split(',').ToArray());
                    
-                    PositiveL4.Text = positiveModelParams[3].paramName + ":";
-                    PositiveText4.Text = positiveModelParams[3].paramValue;
-                    tt.SetToolTip(PositiveL4, "Score: " + positiveModelParams[3].score.ToString());
+                    ParamL4.Text = ModelParams[3].paramName + ":";
+                    ParamText4.Text = ModelParams[3].paramValue;
+                    tt.SetToolTip(ParamL4, "Score: " + ModelParams[3].score.ToString());
 
-                    PositiveText4.Items.AddRange(positiveModelParams[3].distinctValues.Split(',').ToArray());
+                    ParamText4.Items.AddRange(ModelParams[3].distinctValues.Split(',').ToArray());
                    
-                    PositiveL5.Text = positiveModelParams[4].paramName + ":";
-                    PositiveText5.Text = positiveModelParams[4].paramValue;
-                    tt.SetToolTip(PositiveL5, "Score: " + positiveModelParams[4].score.ToString());
+                    ParamL5.Text = ModelParams[4].paramName + ":";
+                    ParamText5.Text = ModelParams[4].paramValue;
+                    tt.SetToolTip(ParamL5, "Score: " + ModelParams[4].score.ToString());
 
-                    PositiveText5.Items.AddRange(positiveModelParams[4].distinctValues.Split(',').ToArray());
-                   
-                    // Negative Values
-                    negativeModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId, false);
-
-                    NegativeL1.Text = negativeModelParams[0].paramName + ":";
-                    NegativeText1.Text = negativeModelParams[0].paramValue;
-                    tt.SetToolTip(NegativeL1, "Score: " + negativeModelParams[0].score.ToString());
-
-                    NegativeText1.Items.AddRange(negativeModelParams[0].distinctValues.Split(',').ToArray());
-
-                    NegativeL2.Text = negativeModelParams[1].paramName + ":";
-                    NegativeText2.Text = negativeModelParams[1].paramValue;
-                    tt.SetToolTip(NegativeL2, "Score: " + negativeModelParams[1].score.ToString());
-
-                    NegativeText2.Items.AddRange(negativeModelParams[1].distinctValues.Split(',').ToArray());
-
-                    NegativeL3.Text = negativeModelParams[2].paramName + ":";
-                    NegativeText3.Text = negativeModelParams[2].paramValue;
-                    tt.SetToolTip(NegativeL3, "Score: " + negativeModelParams[2].score.ToString());
-
-                    NegativeText3.Items.AddRange(negativeModelParams[2].distinctValues.Split(',').ToArray());
-
-                    NegativeL4.Text = negativeModelParams[3].paramName + ":";
-                    NegativeText4.Text = negativeModelParams[3].paramValue;
-                    tt.SetToolTip(NegativeL4, "Score: " + negativeModelParams[3].score.ToString());
-
-                    NegativeText4.Items.AddRange(negativeModelParams[3].distinctValues.Split(',').ToArray());
-
-                    NegativeL5.Text = negativeModelParams[4].paramName + ":";
-                    NegativeText5.Text = negativeModelParams[4].paramValue;
-                    tt.SetToolTip(NegativeL5, "Score: " + negativeModelParams[4].score.ToString());
-
-                    NegativeText5.Items.AddRange(negativeModelParams[4].distinctValues.Split(',').ToArray());
+                    ParamText5.Items.AddRange(ModelParams[4].distinctValues.Split(',').ToArray());
 
                 }
                 catch (System.ArgumentException) { }

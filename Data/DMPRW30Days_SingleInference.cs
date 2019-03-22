@@ -30,7 +30,7 @@ namespace PatientHubData
 
     public class DMPRW30Days_SingleInference
     {
-        public static List<ModelParams> GetParameters(Int64 patientId, bool isPositive)
+        public static List<ModelParams> GetParameters(Int64 patientId)
         {
             List<ModelParams> modelParams = new List<ModelParams>();
             SqlCommand cmd = new SqlCommand();
@@ -45,7 +45,6 @@ namespace PatientHubData
                     cmd.CommandTimeout = Configuration.commandTimeout;
                     cmd.CommandText = Configuration.spGetDMPRW30Days_LocalExplanation; // TODO: Read Dynamically
                     cmd.Parameters.Add(new SqlParameter("PatientId", patientId));
-                    cmd.Parameters.Add(new SqlParameter("IsPositive", isPositive));
 
                     using (SqlDataReader rdr = cmd.ExecuteReader())
                     {
@@ -138,7 +137,29 @@ namespace PatientHubData
             {
                 return e.Message;
             }
-        }        
+        }
+        public static void _TEST_InsertScores(Int64 patientId, decimal score)
+        {
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Configuration.connectionString))
+                {
+                    connection.Open();
+
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandTimeout = Configuration.commandTimeout;
+                    cmd.CommandText = "ml._TEST_spInsert_Scores";
+                    cmd.Parameters.Add(new SqlParameter("PatientId", patientId));
+                    cmd.Parameters.Add(new SqlParameter("Score", score));
+
+                    cmd.ExecuteScalar();
+                }
+            }
+            catch (SqlException e) { throw e; }
+            finally { }
+        }
     }
 
 }

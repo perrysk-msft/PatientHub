@@ -18,8 +18,7 @@ namespace PatientHubUI
     {        
         public List<model> models;
         private Patient patient;
-        private List<ModelParams> positiveModelParams;
-        private List<ModelParams> negativeModelParams;
+        private List<ModelParams> ModelParams;
 
         private long selectedPatientId = Configuration.demoPatientId;
         private string selectedFirstName;
@@ -41,8 +40,6 @@ namespace PatientHubUI
             selectedLastName = patient.lastName;
             selectedScore = patient.DMPRW30Days_Score;
 
-            //patients[0].firstName + ", " + patients[0].lastName;
-
         }
         private void Init()
         {
@@ -56,46 +53,27 @@ namespace PatientHubUI
                 lbRace.Text = patient.race;
                 lbGender.Text = patient.gender;
 
-
                 UpdateChart(selectedScore);
 
                 lbPatientInfo.Text = selectedLastName + ", " + selectedFirstName;
 
                 // Positive Values
-                positiveModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId, true);
+                ModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId);
 
-                PositiveL1.Text = positiveModelParams[0].paramName + ":";
-                PositiveText1.Text = positiveModelParams[0].paramValue;
+                L1.Text = ModelParams[0].paramName + ":";
+                Text1.Text = ModelParams[0].paramValue;
 
-                PositiveL2.Text = positiveModelParams[1].paramName + ":";
-                PositiveText2.Text = positiveModelParams[1].paramValue;
+                L2.Text = ModelParams[1].paramName + ":";
+                Text2.Text = ModelParams[1].paramValue;
 
-                PositiveL3.Text = positiveModelParams[2].paramName + ":";
-                PositiveText3.Text = positiveModelParams[2].paramValue;
+                L3.Text = ModelParams[2].paramName + ":";
+                Text3.Text = ModelParams[2].paramValue;
 
-                PositiveL4.Text = positiveModelParams[3].paramName + ":";
-                PositiveText4.Text = positiveModelParams[3].paramValue;
+                L4.Text = ModelParams[3].paramName + ":";
+                Text4.Text = ModelParams[3].paramValue;
 
-                PositiveL5.Text = positiveModelParams[4].paramName + ":";
-                PositiveText5.Text = positiveModelParams[4].paramValue;
-
-                // Negative Values
-                negativeModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId, false);
-
-                NegativeL1.Text = negativeModelParams[0].paramName + ":";
-                NegativeText1.Text = negativeModelParams[0].paramValue;
-
-                NegativeL2.Text = negativeModelParams[1].paramName + ":";
-                NegativeText2.Text = negativeModelParams[1].paramValue;
-
-                NegativeL3.Text = negativeModelParams[2].paramName + ":";
-                NegativeText3.Text = negativeModelParams[2].paramValue;
-
-                NegativeL4.Text = negativeModelParams[3].paramName + ":";
-                NegativeText4.Text = negativeModelParams[3].paramValue;
-
-                NegativeL5.Text = negativeModelParams[4].paramName + ":";
-                NegativeText5.Text = negativeModelParams[4].paramValue;
+                L5.Text = ModelParams[4].paramName + ":";
+                Text5.Text = ModelParams[4].paramValue;
 
             }
             catch (System.ArgumentException) { }
