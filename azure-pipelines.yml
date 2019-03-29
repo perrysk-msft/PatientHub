@@ -1,0 +1,65 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+name: PatientHubMLModelDevOps
+
+variables:
+  script_file_name: ./score.py
+  model_path: ./sklearn_regression_model.pkl
+  conda_env_file_name: ./myenv.yml
+  default_subscription_id: a6c2a7cc-d67e-4a1a-b765-983f08c0423a
+  default_resource_group: xiaoyzhu-mlworkspace
+  default_workspace_name: xiaoyzhu-MLworkspace
+  default_workspace_region: eastus2
+  model_name: phdeploymodel
+  model_description: Ridge regression model to predict diabetes
+  aks_cluster_name: ace-patienthub
+
+# specific path build
+trigger:
+  branches:
+    include:
+    - master
+    - releases/*
+  paths:
+    include:
+    - MLModels/*
+    exclude:
+    - Admin
+    - DAL
+    - PatientHub
+    - Db
+
+jobs:
+
+- job: 'RegisterAndDeploy'
+  pool:
+    vmImage: 'Ubuntu-16.04'
+  strategy:
+    matrix:
+      Python36:
+        python.version: '3.6.5'
+    maxParallel: 4
+
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+      architecture: 'x64'
+  - script: conda env create --quiet --file MLModels/Diabetes/login_register_deploy/myenv.yml
+    displayName: 'Create Anaconda environment with requirements'
+
+# - script: pip install -r requirements.txt
+#    displayName: 'Install requirements'
+  - bash: echo "##vso[task.prependpath]$CONDA/bin"
+    displayName: Add conda to PATH
+
+  - bash: sudo chown -R $USER /usr/share/miniconda
+    displayName: Take ownership of conda installation
+    
+  - bash: |
+      source activate project_environment
+      python MLModels/Diabetes/login_register_deploy/Login_register_deploy_perry.py $(script_file_name) $(model_path) $(conda_env_file_name) $(default_subscription_id) $(default_resource_group) $(default_workspace_name) $(default_workspace_region) $(model_name) $(model_description) $(aks_cluster_name)
+    displayName: 'Running python script to register, build image and deploy'
