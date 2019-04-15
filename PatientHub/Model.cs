@@ -68,8 +68,8 @@ namespace PatientHubUI
             {
 
                 panel3.Visible = true;
-                txtModelDetails.Text =  "Single Inderence API: " + Configuration.DMPRW30Days_singleInference_URL + System.Environment.NewLine +
-                                        "Batch Inference API: " + Configuration.DMPRW30Days_batchInference_URL;
+                //txtModelDetails.Text =  "Single Inderence API: " + Configuration.DMPRW30Days_singleInference_URL + System.Environment.NewLine +
+                //                        "Batch Inference API: " + Configuration.DMPRW30Days_batchInference_URL;
 
             }
             else

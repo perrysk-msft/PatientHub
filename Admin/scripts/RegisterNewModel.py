@@ -158,5 +158,5 @@ aks_service = Webservice.deploy_from_image(workspace=ws,
 aks_service.wait_for_deployment(show_output=True)
 
 services = Webservice.list(ws)
-print("[Deployment] AKS cluster deployed successfully. The end point is:")
-print(services[0].scoring_uri)
+print("[Deployment] AKS cluster deployed successfully. The end point is: ")
+print("[RT-Endpoint]: " + services[0].scoring_uri)

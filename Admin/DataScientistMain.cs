@@ -22,11 +22,19 @@ namespace AdminUI
         public DataScientistMain()
         {
             InitializeComponent();
-            models = model.GetAll();
         }
 
         private void DataScientistMain_Load(object sender, EventArgs e)
         {
+            LoadModels();           
+        }
+
+        private void LoadModels()
+        {
+            models = model.GetAll();
+            il = new ImageList();
+            listView1.Items.Clear();
+
             il.ImageSize = new Size(244, 81);
 
             foreach (model model in models)
@@ -44,10 +52,10 @@ namespace AdminUI
                 ListViewItem lvi = new ListViewItem();
                 lvi.ImageIndex = i;
                 lvi.Tag = model.Id;
+                lvi.Text = model.Name;
                 listView1.Items.Add(lvi);
                 i++;
-            } 
-            
+            }
         }
 
         private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -86,7 +94,7 @@ namespace AdminUI
             }
         }
 
-            private void Search()
+        private void Search()
         {
             //List<Patient> filter = null;
             //if (txtSearch.Text != "")
@@ -143,9 +151,16 @@ namespace AdminUI
 
         private void bNewModel_Click(object sender, EventArgs e)
         {
+            var checkedCount = listView1.CheckedItems.Count;
+            for (var i = 0; i < checkedCount; i++)
+            {
+                listView1.CheckedItems[i].Checked = false;
+            }
+
             NewModel cm = new NewModel();
             cm.modelId = -1;
             cm.ShowDialog();
+            LoadModels();
         }
 
         private void bEdit_Click(object sender, EventArgs e)
@@ -153,6 +168,7 @@ namespace AdminUI
             NewModel cm = new NewModel();
             cm.modelId = int.Parse(listView1.CheckedItems[0].Tag.ToString());
             cm.ShowDialog();
+            LoadModels();
         }
     }
 }

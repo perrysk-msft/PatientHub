@@ -20,6 +20,9 @@ namespace PatientHubData
         public static string spGetModels = ConfigurationManager.AppSettings["spGetModels"];        
         public static string spGetDMPRW30Days_LocalExplanation = ConfigurationManager.AppSettings["spGetDMPRW30Days_LocalExplanation"];
         public static string spGet_DMPRW30Days_SingleInference = ConfigurationManager.AppSettings["spGet_DMPRW30Days_SingleInference"];
+        public static string spInsert_Model = ConfigurationManager.AppSettings["spInsert_Model"];
+        public static string spUpdate_Model = ConfigurationManager.AppSettings["spUpdate_Model"];
+
         public static int commandTimeout = int.Parse(ConfigurationManager.AppSettings["commandTimeout"]);
         public static string pyhtonPath = ConfigurationManager.AppSettings["pythonPath"];
         public static long demoPatientId = long.Parse(ConfigurationManager.AppSettings["demoPatientId"]);

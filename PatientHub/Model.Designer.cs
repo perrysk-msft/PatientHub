@@ -34,7 +34,6 @@
             this.bApply = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtModelDetails = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -110,7 +109,6 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.txtModelDetails);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -118,18 +116,6 @@
             this.panel3.Size = new System.Drawing.Size(654, 610);
             this.panel3.TabIndex = 7;
             this.panel3.Visible = false;
-            // 
-            // txtModelDetails
-            // 
-            this.txtModelDetails.BackColor = System.Drawing.Color.White;
-            this.txtModelDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtModelDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtModelDetails.Location = new System.Drawing.Point(0, 500);
-            this.txtModelDetails.Multiline = true;
-            this.txtModelDetails.Name = "txtModelDetails";
-            this.txtModelDetails.Size = new System.Drawing.Size(654, 110);
-            this.txtModelDetails.TabIndex = 9;
-            this.txtModelDetails.Text = "TODO: Add Description";
             // 
             // pictureBox2
             // 
@@ -187,7 +173,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -206,7 +191,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtModelDetails;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel4;
     }

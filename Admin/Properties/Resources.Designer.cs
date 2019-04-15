@@ -73,19 +73,9 @@ namespace Admin.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Asthma {
+        internal static System.Drawing.Bitmap DiabetesRisk {
             get {
-                object obj = ResourceManager.GetObject("Asthma", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Diabetes {
-            get {
-                object obj = ResourceManager.GetObject("Diabetes", resourceCulture);
+                object obj = ResourceManager.GetObject("DiabetesRisk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

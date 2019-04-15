@@ -20,10 +20,14 @@ namespace AdminUI
         private Process p = new Process();
         private ProcessCaller processCaller;
         private string LoginRegisterDeployScript = Application.StartupPath + @"\scripts\" + "RegisterNewModel.py";
-        
+        private string scriptOutput;
+        private string RTEndpointMrker = "[RT-Endpoint]:";
+
+
         public List<model> models;
         private ImageList il = new ImageList();
         public int modelId;
+        Model selectedModel;
 
         string modelName;
         string modelFile;
@@ -36,12 +40,16 @@ namespace AdminUI
         string aksClusterName;
         string description;
         string workingDirectory;
+        string realTimeEndpoint;
+        string batchEndpoint;
+
 
 
         public NewModel()
         {
             InitializeComponent();
             link.Visible = false;
+            models = Model.GetAll();
         }
 
         private void Model_Load(object sender, EventArgs e)
@@ -51,6 +59,32 @@ namespace AdminUI
             txtWorkspace.Text = Configuration.WorkspaceName;
             txtRegion.Text = Configuration.Region;
             txtAKSCluster.Text = Configuration.AKSClusterName;
+
+            // If this is EDIT
+            if (modelId != -1)
+            {
+                
+                selectedModel = models.Where(x => x.Id == modelId).ToList()[0];
+                lblTitle.Text = "Edit Model: " + selectedModel.Name;
+
+                txtModelName.Text = selectedModel.Name;
+                txtModelFile.Text = selectedModel.ModelFile;
+                txtScoreFile.Text = selectedModel.ScoreFile;
+                txtYamlFile.Text = selectedModel.YamlFile;
+                txtDescription.Text = selectedModel.Description;
+
+                modelName = txtModelName.Text.Trim();
+                modelFile = txtModelFile.Text.Trim();
+                scoreFile = txtScoreFile.Text.Trim();
+                ymlFile = txtYamlFile.Text.Trim();
+                subscriptionId = txtSubscriptionId.Text.Trim();
+                resourceGroup = txtResourceGroup.Text.Trim();
+                workspace = txtWorkspace.Text.Trim();
+                region = txtRegion.Text.Trim();
+                aksClusterName = txtAKSCluster.Text.Trim();
+                description = txtDescription.Text.Trim();
+            }
+
         }
 
         private void bRegisterModel_Click(object sender, EventArgs e)
@@ -95,27 +129,61 @@ namespace AdminUI
         }
 
         private void writeStreamInfo(object sender, PatientHubData.DataReceivedEventArgs e)
-        {            
-            string output = string.Format("[{0}] {1}", DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString(), e.Text.Trim());
-            this.txtOutput.AppendText(output + Environment.NewLine);
+        {
+            string output = e.Text.Trim();
+            scriptOutput = string.Format("[{0}] {1}", DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString(), output);
+            // Get the Real-TIme Endpoint
+            if (output.StartsWith(RTEndpointMrker))
+            {
+                realTimeEndpoint = output.Replace(RTEndpointMrker, "").Trim();
+            }
+            this.txtOutput.AppendText(scriptOutput + Environment.NewLine);
         }
 
         private void processCompletedOrCanceled(object sender, EventArgs e)
         {
+            //this.txtOutput.Text.Last("[Deployment] AKS cluster deployed successfully. The end point is: ")
             //TODO: Update SQL Model table...and refresh model view
 
-            this.Cursor = Cursors.Default;
-            this.bRegisterModel.Enabled = true;
+            try
+            {
+                model.Insert(modelName, description, workingDirectory, modelFile, scoreFile, ymlFile, realTimeEndpoint, "TBD", true);
 
-            progressBar1.Visible = false;
+                this.Cursor = Cursors.Default;
+                this.bRegisterModel.Enabled = true;
+
+                progressBar1.Visible = false;
+
+                //this.Hide();
+                //this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Model", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private bool CheckInput()
         {
             link.Visible = false;
             string errorMessage;
-            // Check for all inputs
-            if (modelName == "")
+            bool modelExists = false;
+
+            foreach (Model m in models)
+            {
+                if (m.Name.ToLower() == modelName.ToLower())
+                {
+                    modelExists = true;
+                    break;
+                }
+            }
+            
+            if (modelExists && modelId != -1)
+            {
+                errorMessage = "A Model with the same name exist. Please provide a unique name.";
+            }
+            
+            else if (modelName == "")
             {
                 errorMessage = "Model Name cannot be empty.";
             }
@@ -226,6 +294,12 @@ namespace AdminUI
             string file = LoginRegisterDeployScript;
             if (File.Exists(file))
                 Process.Start(file);
+        }
+
+        private void BUpdate_Click(object sender, EventArgs e)
+        {
+            CheckInput();
+            Model.Update(selectedModel.Id, txtModelName.Text.Trim(), txtDescription.Text.Trim(), workingDirectory, txtModelFile.Text.Trim(), txtScoreFile.Text.Trim(), txtYamlFile.Text.Trim());
         }
     }
 }

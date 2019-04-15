@@ -121,11 +121,9 @@
   <data name="AdminLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\AdminLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Asthma" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Asthma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Diabetes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Diabetes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+ 
+  <data name="DiabetesRisk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\DiabetesRisk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DMReadmission30Days" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\DMReadmission30Days.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

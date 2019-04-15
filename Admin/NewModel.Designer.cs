@@ -31,6 +31,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BUpdate = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.bRegisterModel = new System.Windows.Forms.Button();
             this.txtModelName = new System.Windows.Forms.TextBox();
@@ -46,6 +47,7 @@
             this.lblModelFile = new System.Windows.Forms.Label();
             this.lblSubscriptionId = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.link = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAKSCluster = new System.Windows.Forms.TextBox();
@@ -59,7 +61,6 @@
             this.txtYamlFile = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtOutput = new System.Windows.Forms.RichTextBox();
-            this.link = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.BUpdate);
             this.panel2.Controls.Add(this.progressBar1);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.lblTitle);
@@ -96,6 +98,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1142, 72);
             this.panel2.TabIndex = 5;
+            // 
+            // BUpdate
+            // 
+            this.BUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BUpdate.Location = new System.Drawing.Point(1005, 12);
+            this.BUpdate.Name = "BUpdate";
+            this.BUpdate.Size = new System.Drawing.Size(125, 31);
+            this.BUpdate.TabIndex = 26;
+            this.BUpdate.Text = "Update Details";
+            this.BUpdate.UseVisualStyleBackColor = true;
+            this.BUpdate.Visible = false;
+            this.BUpdate.Click += new System.EventHandler(this.BUpdate_Click);
             // 
             // progressBar1
             // 
@@ -127,7 +142,7 @@
             this.txtModelName.Name = "txtModelName";
             this.txtModelName.Size = new System.Drawing.Size(538, 25);
             this.txtModelName.TabIndex = 0;
-            this.txtModelName.Text = "new-model-name";
+            this.txtModelName.Text = "diabetes-risk";
             // 
             // txtDescription
             // 
@@ -271,6 +286,17 @@
             this.splitContainer2.SplitterDistance = 341;
             this.splitContainer2.TabIndex = 19;
             // 
+            // link
+            // 
+            this.link.AutoSize = true;
+            this.link.Location = new System.Drawing.Point(136, 235);
+            this.link.Name = "link";
+            this.link.Size = new System.Drawing.Size(74, 13);
+            this.link.TabIndex = 25;
+            this.link.TabStop = true;
+            this.link.Text = "Python script";
+            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -408,17 +434,6 @@
             this.txtOutput.TabIndex = 1;
             this.txtOutput.Text = "";
             // 
-            // link
-            // 
-            this.link.AutoSize = true;
-            this.link.Location = new System.Drawing.Point(136, 235);
-            this.link.Name = "link";
-            this.link.Size = new System.Drawing.Size(74, 13);
-            this.link.TabIndex = 25;
-            this.link.TabStop = true;
-            this.link.Text = "Python script";
-            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
-            // 
             // NewModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,5 +495,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAKSCluster;
         private System.Windows.Forms.LinkLabel link;
+        private System.Windows.Forms.Button BUpdate;
     }
 }
