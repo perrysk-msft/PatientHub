@@ -3,24 +3,44 @@
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
+name: PatientHubMLModelDevOps
+
+variables:
+  script_file_name: ./score.py
+  model_path: ./sklearn_regression_model.pkl
+  conda_env_file_name: ./myenv.yml
+  default_subscription_id: a6c2a7cc-d67e-4a1a-b765-983f08c0423a
+  default_resource_group: xiaoyzhu-mlworkspace
+  default_workspace_name: xiaoyzhu-MLworkspace
+  default_workspace_region: eastus2
+  model_name: phdeploymodel
+  model_description: Ridge regression model to predict diabetes
+  aks_cluster_name: ace-patienthub
+
+# specific path build
 trigger:
-- master
+  branches:
+    include:
+    - master
+    - releases/*
+  paths:
+    include:
+    - MLModels/*
+    exclude:
+    - Admin
+    - DAL
+    - PatientHub
+    - Db
 
 jobs:
 
-- job: 'Test'
+- job: 'RegisterAndDeploy'
   pool:
     vmImage: 'Ubuntu-16.04'
   strategy:
     matrix:
-      Python27:
-        python.version: '2.7'
-      Python35:
-        python.version: '3.5'
       Python36:
-        python.version: '3.6'
-      Python37:
-        python.version: '3.7'
+        python.version: '3.6.5'
     maxParallel: 4
 
   steps:
@@ -28,31 +48,18 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
+  - script: conda env create --quiet --file MLModels/Diabetes/login_register_deploy/myenv.yml
+    displayName: 'Create Anaconda environment with requirements'
 
-  - script: python -m pip install --upgrade pip && pip install -r requirements.txt
-    displayName: 'Install dependencies'
+# - script: pip install -r requirements.txt
+#    displayName: 'Install requirements'
+  - bash: echo "##vso[task.prependpath]$CONDA/bin"
+    displayName: Add conda to PATH
 
-  - script: |
-      pip install pytest
-      pytest tests --doctest-modules --junitxml=junit/test-results.xml
-    displayName: 'pytest'
-
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFiles: '**/test-results.xml'
-      testRunTitle: 'Python $(python.version)'
-    condition: succeededOrFailed()
-
-- job: 'Publish'
-  dependsOn: 'Test'
-  pool:
-    vmImage: 'Ubuntu-16.04'
-
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.x'
-      architecture: 'x64'
-
-  - script: python setup.py sdist
-    displayName: 'Build sdist'
+  - bash: sudo chown -R $USER /usr/share/miniconda
+    displayName: Take ownership of conda installation
+    
+  - bash: |
+      source activate project_environment
+      python MLModels/Diabetes/login_register_deploy/Login_register_deploy_perry.py $(script_file_name) $(model_path) $(conda_env_file_name) $(default_subscription_id) $(default_resource_group) $(default_workspace_name) $(default_workspace_region) $(model_name) $(model_description) $(aks_cluster_name)
+    displayName: 'Running python script to register, build image and deploy'
