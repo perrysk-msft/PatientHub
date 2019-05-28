@@ -38,6 +38,7 @@ namespace PatientHubUI
             patients = Patient.GetAll();
             tp = tabPage2;
             tabControl1.TabPages.Remove(tp);
+            label6.Text = DateTime.Now.AddDays(1).ToLongDateString() + " at 8:00 AM";
         }
 
         private void AddBarGraphColumn(string columnName)

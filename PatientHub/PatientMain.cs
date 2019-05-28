@@ -39,6 +39,7 @@ namespace PatientHubUI
             selectedFirstName = patient.firstName;
             selectedLastName = patient.lastName;
             selectedScore = patient.DMPRW30Days_Score;
+            label6.Text = DateTime.Now.AddDays(1).ToLongDateString() + " at 8:00 AM";
 
         }
         private void Init()
@@ -47,7 +48,7 @@ namespace PatientHubUI
             {
 
                 lbPatientNbr.Text = patient.patientNbr.ToString();
-                lbFullName.Text = patient.firstName + ", " + patient.lastName;
+                lbFullName.Text = patient.lastName + ", " + patient.firstName;
 
                 lbAge.Text = patient.age;
                 lbRace.Text = patient.race;

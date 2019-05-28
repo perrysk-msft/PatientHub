@@ -262,7 +262,7 @@
             this.pictureBox5.Image = global::PatientHub.Properties.Resources.activeMeds;
             this.pictureBox5.Location = new System.Drawing.Point(418, 20);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(1387, 342);
+            this.pictureBox5.Size = new System.Drawing.Size(1387, 150);
             this.pictureBox5.TabIndex = 66;
             this.pictureBox5.TabStop = false;
             // 
