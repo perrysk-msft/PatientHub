@@ -119,7 +119,7 @@ namespace PatientHubData
                 }
                 return patient;
             }
-            catch (SqlException e) { return null; }
+            catch (SqlException ex) { return null; }
         }
     }
 }

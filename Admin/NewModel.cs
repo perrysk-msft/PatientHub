@@ -41,7 +41,7 @@ namespace AdminUI
         string description;
         string workingDirectory;
         string realTimeEndpoint;
-        string batchEndpoint;
+        //string batchEndpoint;
 
 
 
