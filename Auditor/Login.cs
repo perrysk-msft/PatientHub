@@ -13,6 +13,7 @@ namespace AdminUI
 {
     public partial class Login : Form
     {
+        private static string default_cs = PatientHubData.Configuration.connectionString;
         private Form form;
         public Login()
         {
@@ -22,13 +23,17 @@ namespace AdminUI
 
         private void Authenticate()
         {
-            string cs = PatientHubData.Configuration.connectionString = "data source=ledgermi.public.f4b451b7ec3a.database.windows.net,3342;Initial Catalog=PatientHub;User ID=" + txtUsername.Text + ";Password=" + txtPassword.Text + ";Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string cs = default_cs;
+            cs = cs.Replace("@v1", txtUsername.Text);
+            cs = cs.Replace("@v2", txtPassword.Text);
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(cs))
                 {
                     connection.Open();
+                    PatientHubData.Configuration.connectionString = cs;
+
                     form = new Auditor();
 
                     connection.Close();

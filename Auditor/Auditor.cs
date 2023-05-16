@@ -33,7 +33,7 @@ namespace AdminUI
              lblLedgerVerify.Text = Ledger.Verify();
             if (lblLedgerVerify.Text == "Ledger verification succeeded.")
             {
-                lblLedgerVerify.BackColor = Color.Green;
+                lblLedgerVerify.BackColor = Color.LightGreen;
             }
             else
                 lblLedgerVerify.BackColor = Color.Tomato;

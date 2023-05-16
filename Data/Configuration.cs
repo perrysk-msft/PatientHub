@@ -15,6 +15,7 @@ namespace PatientHubData
         public static string DMPRW30Days_batchInference_AADToken = ConfigurationManager.AppSettings["DMPRW30Days_batchInference_AADToken"];
 
         public static string connectionString = ConfigurationManager.ConnectionStrings["Db"].ConnectionString;
+
         public static string spGetPatients = ConfigurationManager.AppSettings["spGetPatients"];
         public static string spGetMedications = ConfigurationManager.AppSettings["spGetMedications"];
         public static string spUpdateMedications = ConfigurationManager.AppSettings["spUpdateMedications"];
