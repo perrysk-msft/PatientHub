@@ -10,16 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientHubData;
-using model = PatientHubData.Model;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Reflection;
 
 namespace PatientHubUI
 {
     public partial class DoctorMain : Form
     {
         public TabPage tp;
-        public List<model> models;
         private List<Patient> patients;
-        private List<ModelParams> ModelParams;
+        private List<Medication> medications;
 
         private long selectedPatientId;
         private string selectedFirstName;
@@ -33,12 +33,10 @@ namespace PatientHubUI
 
             tt.InitialDelay = 0;
             tt.ShowAlways = true;
-
-            models = model.GetAll();
             patients = Patient.GetAll();
+
             tp = tabPage2;
             tabControl1.TabPages.Remove(tp);
-            label6.Text = DateTime.Now.AddDays(1).ToLongDateString() + " at 8:00 AM";
         }
 
         private void AddBarGraphColumn(string columnName)
@@ -56,50 +54,11 @@ namespace PatientHubUI
             dgPatients.DataSource = patients;
             dgPatients.Rows[0].Selected = false;
             tabControl1.TabPages[0].AutoScroll = true;
-
         }
 
         private void bPredict_Click(object sender, EventArgs e)
         {
-            // TODO: DYnamic management of tabs based on Models...
-
-            Model f = new Model();
-            f.models = models.Where(x=>x.isActive).ToList();
-            f.ShowDialog();
-
-            foreach (model model in models)
-            {
-                // Show
-                if(model.isSelected)
-                {
-                    if(!dgPatients.Columns.Contains(model.Name))
-                        AddBarGraphColumn(model.Name);
-                }
-
-                // Hide
-                else
-                {
-                    if (dgPatients.Columns.Contains(model.Name))
-                        dgPatients.Columns.Remove(model.Name);
-                }
-            }
             
-            // Order by the first column
-            var sortedList = patients.OrderByDescending(s => s.DMPRW30Days_Score).ToList();
-            dgPatients.DataSource = sortedList;
-
-            CellClick(0);
-
-            if (models.Where(x => x.isSelected).Count() > 0)
-            {
-                if (!tabControl1.TabPages.Contains(tp))
-                    tabControl1.TabPages.Add(tp);
-            }
-            else
-            {
-                if (tabControl1.TabPages.Contains(tp))
-                    tabControl1.TabPages.Remove(tp);
-            }
 
         }
 
@@ -113,20 +72,10 @@ namespace PatientHubUI
             // Build dynamic sql parameters:
             string[] sqlparams = new string[5];
 
-            sqlparams[0] = ModelParams[0].sqlColumnName + ',' + ParamText1.Text.Trim();
-            sqlparams[1] = ModelParams[1].sqlColumnName + ',' + ParamText2.Text.Trim();
-            sqlparams[2] = ModelParams[2].sqlColumnName + ',' + ParamText3.Text.Trim();
-            sqlparams[3] = ModelParams[3].sqlColumnName + ',' + ParamText4.Text.Trim();
-            sqlparams[4] = ModelParams[4].sqlColumnName + ',' + ParamText5.Text.Trim();
-
-            string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(selectedPatientId, sqlparams);
-            string response = DMPRW30Days_SingleInference.GetScore(payloadData);
 
             try
             {
-                string scoreStr = String.Format("{0:0.0000}", response.Split(',')[1].Substring(0, 7));
-                decimal newScore = decimal.Parse(String.Format("{0:0.00}", decimal.Parse(scoreStr) * 100));
-                UpdateChart(newScore);
+
             }
             catch (Exception ex)
             {
@@ -141,33 +90,6 @@ namespace PatientHubUI
 
         private void _TEST_Update_Scores()
         {
-            for (int i = 0; i <= 16220; i++)
-            {
-                try
-                {
-                    long PatientId = long.Parse(dgPatients.Rows[i].Cells[0].Value.ToString());
-
-                    CellClick(i);
-                    string[] sqlparams = new string[5];
-
-                    sqlparams[0] = ModelParams[0].sqlColumnName + ',' + ParamText1.Text.Trim();
-                    sqlparams[1] = ModelParams[1].sqlColumnName + ',' + ParamText2.Text.Trim();
-                    sqlparams[2] = ModelParams[2].sqlColumnName + ',' + ParamText3.Text.Trim();
-                    sqlparams[3] = ModelParams[3].sqlColumnName + ',' + ParamText4.Text.Trim();
-                    sqlparams[4] = ModelParams[4].sqlColumnName + ',' + ParamText5.Text.Trim();
-
-                    string[,] payloadData = DMPRW30Days_SingleInference.GetSingleInference(PatientId, sqlparams);
-                    string response = DMPRW30Days_SingleInference.GetScore(payloadData);
-                    decimal newScore = decimal.Parse(response.Split(',')[1].Substring(0, 7)) * 100;
-
-                    DMPRW30Days_SingleInference._TEST_InsertScores(PatientId, newScore);
-                }
-                catch (Exception ex)
-                {
-
-                }
-
-            }
         }
 
             private void CellClick(int rowIndex)
@@ -179,8 +101,45 @@ namespace PatientHubUI
                 selectedFirstName = row.Cells["FirstName"].Value.ToString();
                 selectedLastName = row.Cells["LastName"].Value.ToString();
 
+
                 try
                 {
+                    medications = Medication.GetAll(selectedPatientId);
+                    dgMedications.DataSource = null;
+
+                    if (medications.Count > 0)
+                    {
+                        bUpdateMedications.Visible = true;
+
+                        dgMedications.AutoGenerateColumns = false;
+                        dgMedications.DataSource = medications;
+                        dgMedications.Rows[0].Selected = false;
+                        tabControl1.TabPages[0].AutoScroll = true;
+
+                        int i = 0;
+                        foreach (DataGridViewRow r in dgMedications.Rows)
+                        {
+                            for (int j = 0; j < 14; j++)
+                            {
+                                if (j == 11)
+                                {
+                                    this.dgMedications.Rows[i].Cells[j].ReadOnly = false;
+
+                                }
+                                else
+                                    this.dgMedications.Rows[i].Cells[j].ReadOnly = true;
+                            }
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        
+                        bUpdateMedications.Visible = false;
+                    }
+
+                    dgMedications.Refresh();
+
                     selectedScore = decimal.Parse(row.Cells["DMPRW30Days_Score"].Value.ToString());
                     UpdateChart(selectedScore);
 
@@ -193,38 +152,6 @@ namespace PatientHubUI
                     ParamText4.Items.Clear();
                     ParamText5.Items.Clear();
 
-                    // Positive Values
-                    ModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId);
-
-                    ParamL1.Text = ModelParams[0].paramName + ":";
-                    ParamText1.Text = ModelParams[0].paramValue;
-                    tt.SetToolTip(ParamL1, "Score: " + ModelParams[0].score.ToString());
-
-                    ParamText1.Items.AddRange(ModelParams[0].distinctValues.Split(',').ToArray());
-
-                    ParamL2.Text = ModelParams[1].paramName + ":";
-                    ParamText2.Text = ModelParams[1].paramValue;
-                    tt.SetToolTip(ParamL2, "Score: " + ModelParams[1].score.ToString());
-
-                    ParamText2.Items.AddRange(ModelParams[1].distinctValues.Split(',').ToArray());
-         
-                    ParamL3.Text = ModelParams[2].paramName + ":";
-                    ParamText3.Text = ModelParams[2].paramValue;
-                    tt.SetToolTip(ParamL3, "Score: " + ModelParams[2].score.ToString());
-
-                    ParamText3.Items.AddRange(ModelParams[2].distinctValues.Split(',').ToArray());
-                   
-                    ParamL4.Text = ModelParams[3].paramName + ":";
-                    ParamText4.Text = ModelParams[3].paramValue;
-                    tt.SetToolTip(ParamL4, "Score: " + ModelParams[3].score.ToString());
-
-                    ParamText4.Items.AddRange(ModelParams[3].distinctValues.Split(',').ToArray());
-                   
-                    ParamL5.Text = ModelParams[4].paramName + ":";
-                    ParamText5.Text = ModelParams[4].paramValue;
-                    tt.SetToolTip(ParamL5, "Score: " + ModelParams[4].score.ToString());
-
-                    ParamText5.Items.AddRange(ModelParams[4].distinctValues.Split(',').ToArray());
 
                 }
                 catch (System.ArgumentException) { }
@@ -307,6 +234,7 @@ namespace PatientHubUI
             {
                 try
                 {
+
                     if (txtSearch.Text.ToLower().Contains("id="))
                     {
                         filter = patients.Where(x => x.Id == long.Parse(txtSearch.Text.Split('=')[1].Trim())).ToList();
@@ -353,6 +281,24 @@ namespace PatientHubUI
         private void bLogout_Click(object sender, EventArgs e)
         {
             Login.Show(this);
-        }       
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            int newRefills;
+            int orderMedId;
+
+            foreach (DataGridViewRow r in dgMedications.Rows)
+            {
+                newRefills = int.Parse(dgMedications.Rows[i].Cells[11].FormattedValue.ToString());
+                orderMedId = int.Parse(dgMedications.Rows[i].Cells[0].FormattedValue.ToString());
+
+                Medication.Update(orderMedId, newRefills);
+
+                i++;
+            }
+        }
+
     }
 }

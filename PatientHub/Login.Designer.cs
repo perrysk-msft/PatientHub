@@ -88,7 +88,7 @@
             this.cbView.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbView.FormattingEnabled = true;
             this.cbView.Items.AddRange(new object[] {
-            "doctor",
+            "nurse",
             "patient"});
             this.cbView.Location = new System.Drawing.Point(211, 210);
             this.cbView.Name = "cbView";
@@ -169,7 +169,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(11, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 32);
+            this.label1.Size = new System.Drawing.Size(198, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "PatientHub Login";
             // 
@@ -189,7 +189,7 @@
             this.ClientSize = new System.Drawing.Size(594, 352);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";

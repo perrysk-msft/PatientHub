@@ -10,21 +10,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PatientHubData;
-using model = PatientHubData.Model;
 
 namespace PatientHubUI
 {
     public partial class PatientMain : Form
     {        
-        public List<model> models;
         private Patient patient;
-        private List<ModelParams> ModelParams;
 
         private long selectedPatientId = Configuration.demoPatientId;
         private string selectedFirstName;
         private string selectedLastName;
         private decimal selectedScore;
         private ToolTip tt = new ToolTip();
+        private List<Medication> medications;
 
         public PatientMain()
         {
@@ -33,13 +31,11 @@ namespace PatientHubUI
             tt.InitialDelay = 0;
             tt.ShowAlways = true;
 
-            models = model.GetAll().Where(x => x.isActive).ToList(); ;
             patient = Patient.GetPatient(selectedPatientId);
 
             selectedFirstName = patient.firstName;
             selectedLastName = patient.lastName;
             selectedScore = patient.DMPRW30Days_Score;
-            label6.Text = DateTime.Now.AddDays(1).ToLongDateString() + " at 8:00 AM";
 
         }
         private void Init()
@@ -58,23 +54,36 @@ namespace PatientHubUI
 
                 lbPatientInfo.Text = selectedLastName + ", " + selectedFirstName;
 
-                // Positive Values
-                ModelParams = DMPRW30Days_SingleInference.GetParameters(selectedPatientId);
 
-                L1.Text = ModelParams[0].paramName + ":";
-                Text1.Text = ModelParams[0].paramValue;
+                medications = Medication.GetAll(selectedPatientId);
+                dgMedications.DataSource = null;
 
-                L2.Text = ModelParams[1].paramName + ":";
-                Text2.Text = ModelParams[1].paramValue;
+                if (medications.Count > 0)
+                {                    
+                    dgMedications.AutoGenerateColumns = false;
+                    dgMedications.DataSource = medications;
+                    dgMedications.Rows[0].Selected = false;
+                    tabControl1.TabPages[0].AutoScroll = true;
 
-                L3.Text = ModelParams[2].paramName + ":";
-                Text3.Text = ModelParams[2].paramValue;
+                    int i = 0;
+                    foreach (DataGridViewRow r in dgMedications.Rows)
+                    {
+                        for (int j = 0; j < 14; j++)
+                        {
+                            if (j == 11)
+                            {
+                                this.dgMedications.Rows[i].Cells[j].ReadOnly = false;
 
-                L4.Text = ModelParams[3].paramName + ":";
-                Text4.Text = ModelParams[3].paramValue;
+                            }
+                            else
+                                this.dgMedications.Rows[i].Cells[j].ReadOnly = true;
+                        }
+                        i++;
+                    }
+                }
 
-                L5.Text = ModelParams[4].paramName + ":";
-                Text5.Text = ModelParams[4].paramValue;
+                dgMedications.Refresh();
+
 
             }
             catch (System.ArgumentException) { }

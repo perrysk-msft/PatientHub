@@ -16,6 +16,12 @@ namespace PatientHubData
 
         public static string connectionString = ConfigurationManager.ConnectionStrings["Db"].ConnectionString;
         public static string spGetPatients = ConfigurationManager.AppSettings["spGetPatients"];
+        public static string spGetMedications = ConfigurationManager.AppSettings["spGetMedications"];
+        public static string spUpdateMedications = ConfigurationManager.AppSettings["spUpdateMedications"];
+
+        public static string spGetAllMedicationsHistory = ConfigurationManager.AppSettings["spGetAllMedicationsHistory"];
+        public static string spVerifyLedger = ConfigurationManager.AppSettings["spVerifyLedger"];
+
         public static string spGetSinglePatient = ConfigurationManager.AppSettings["spGetSinglePatient"];        
         public static string spGetModels = ConfigurationManager.AppSettings["spGetModels"];        
         public static string spGetDMPRW30Days_LocalExplanation = ConfigurationManager.AppSettings["spGetDMPRW30Days_LocalExplanation"];

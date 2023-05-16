@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "PatientHub\UI.csproj", "{90004E43-31E8-484F-A989-FD6F1DA5E21E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{6B0EFA99-8C38-4A7F-8E3D-C3566DB288A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{45B70FAB-B65A-4C76-9F1B-6D9BC38CF316}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auditor", "Auditor\Auditor.csproj", "{45B70FAB-B65A-4C76-9F1B-6D9BC38CF316}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
