@@ -30,7 +30,7 @@ namespace PatientHubData
                     cmd.CommandText = Configuration.spVerifyLedger;
 
                     result = cmd.ExecuteScalar().ToString();
-                    if (result == "0")
+                    if (!result.StartsWith("Error code:"))
                     {
                         result = "Ledger verification succeeded.";
                     }

@@ -520,7 +520,7 @@
             this.tabControl1.Controls.Add(this.Measurements);
             this.tabControl1.Controls.Add(this.Immunizations);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -619,7 +619,7 @@
             this.ParamL5.Location = new System.Drawing.Point(337, 203);
             this.ParamL5.Name = "ParamL5";
             this.ParamL5.ReadOnly = true;
-            this.ParamL5.Size = new System.Drawing.Size(233, 26);
+            this.ParamL5.Size = new System.Drawing.Size(233, 22);
             this.ParamL5.TabIndex = 43;
             this.ParamL5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -630,7 +630,7 @@
             this.ParamL4.Location = new System.Drawing.Point(337, 170);
             this.ParamL4.Name = "ParamL4";
             this.ParamL4.ReadOnly = true;
-            this.ParamL4.Size = new System.Drawing.Size(233, 26);
+            this.ParamL4.Size = new System.Drawing.Size(233, 22);
             this.ParamL4.TabIndex = 42;
             this.ParamL4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -641,7 +641,7 @@
             this.ParamL3.Location = new System.Drawing.Point(337, 137);
             this.ParamL3.Name = "ParamL3";
             this.ParamL3.ReadOnly = true;
-            this.ParamL3.Size = new System.Drawing.Size(233, 26);
+            this.ParamL3.Size = new System.Drawing.Size(233, 22);
             this.ParamL3.TabIndex = 41;
             this.ParamL3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -652,7 +652,7 @@
             this.ParamL2.Location = new System.Drawing.Point(337, 104);
             this.ParamL2.Name = "ParamL2";
             this.ParamL2.ReadOnly = true;
-            this.ParamL2.Size = new System.Drawing.Size(233, 26);
+            this.ParamL2.Size = new System.Drawing.Size(233, 22);
             this.ParamL2.TabIndex = 40;
             this.ParamL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -663,7 +663,7 @@
             this.ParamL1.Location = new System.Drawing.Point(337, 71);
             this.ParamL1.Name = "ParamL1";
             this.ParamL1.ReadOnly = true;
-            this.ParamL1.Size = new System.Drawing.Size(233, 26);
+            this.ParamL1.Size = new System.Drawing.Size(233, 22);
             this.ParamL1.TabIndex = 39;
             this.ParamL1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -753,9 +753,9 @@
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.bUpdateMedications);
             this.tabPage1.Controls.Add(this.dgMedications);
-            this.tabPage1.Location = new System.Drawing.Point(4, 34);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1728, 584);
+            this.tabPage1.Size = new System.Drawing.Size(1728, 588);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Medications";
             // 
@@ -783,7 +783,7 @@
             this.dgMedications.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -807,19 +807,20 @@
             this.dataGridViewTextBoxColumn28});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgMedications.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgMedications.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgMedications.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgMedications.Location = new System.Drawing.Point(8, 8);
+            this.dgMedications.Location = new System.Drawing.Point(0, 0);
             this.dgMedications.MultiSelect = false;
             this.dgMedications.Name = "dgMedications";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
@@ -828,7 +829,7 @@
             this.dgMedications.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
             this.dgMedications.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgMedications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgMedications.Size = new System.Drawing.Size(1736, 419);
+            this.dgMedications.Size = new System.Drawing.Size(1728, 588);
             this.dgMedications.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn15
