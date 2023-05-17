@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using PatientHubData;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Reflection;
+using System.Threading;
 
 namespace PatientHubUI
 {
@@ -26,6 +27,8 @@ namespace PatientHubUI
         private string selectedLastName;
         private decimal selectedScore;
         private ToolTip tt = new ToolTip();
+        private int newRefills;
+        private int orderMedId;
 
         public DoctorMain()
         {
@@ -110,7 +113,6 @@ namespace PatientHubUI
                     if (medications.Count > 0)
                     {
                         bUpdateMedications.Visible = true;
-
                         dgMedications.AutoGenerateColumns = false;
                         dgMedications.DataSource = medications;
                         dgMedications.Rows[0].Selected = false;
@@ -132,12 +134,11 @@ namespace PatientHubUI
                             i++;
                         }
                     }
+
                     else
                     {
-                        
                         bUpdateMedications.Visible = false;
                     }
-
                     dgMedications.Refresh();
 
                     selectedScore = decimal.Parse(row.Cells["DMPRW30Days_Score"].Value.ToString());
@@ -285,20 +286,43 @@ namespace PatientHubUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i = 0;
-            int newRefills;
-            int orderMedId;
 
-            foreach (DataGridViewRow r in dgMedications.Rows)
+            //newRefills = int.Parse(dgMedications.Rows[1].Cells[11].Value.ToString());
+            //orderMedId = int.Parse(dgMedications.Rows[1].Cells[0].Value.ToString());
+
+            bool res = Medication.Update(orderMedId, newRefills);
+
+            if (res)
             {
-                newRefills = int.Parse(dgMedications.Rows[i].Cells[11].FormattedValue.ToString());
-                orderMedId = int.Parse(dgMedications.Rows[i].Cells[0].FormattedValue.ToString());
-
-                Medication.Update(orderMedId, newRefills);
-
-                i++;
+                lblUpdateMessage.Text = "Update was successful.";
+                lblUpdateMessage.Refresh();
             }
+            int milliseconds = 2000;
+            Thread.Sleep(milliseconds);
+            lblUpdateMessage.Text = "";
+            lblUpdateMessage.Refresh();
+            bUpdateMedications.Enabled = false;
         }
 
+        private void dgMedications_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            bUpdateMedications.Enabled = true;
+            //newRefills = int.Parse(dgMedications.Rows[e.RowIndex].Cells[11].Value.ToString());
+            //orderMedId = int.Parse(dgMedications.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+        }
+
+        private void dgMedications_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            //bUpdateMedications.Enabled = true;
+            //newRefills = int.Parse(dgMedications.Rows[e.RowIndex].Cells[11].Value.ToString());
+            //orderMedId = int.Parse(dgMedications.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+
+        private void dgMedications_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            newRefills = int.Parse(dgMedications.Rows[e.RowIndex].Cells[11].Value.ToString());
+            orderMedId = int.Parse(dgMedications.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
     }
 }

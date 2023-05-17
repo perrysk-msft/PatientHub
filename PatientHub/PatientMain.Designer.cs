@@ -190,7 +190,7 @@
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.Gray;
-            this.lblUser.Location = new System.Drawing.Point(95, 11);
+            this.lblUser.Location = new System.Drawing.Point(63, 9);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(88, 21);
             this.lblUser.TabIndex = 4;
@@ -253,7 +253,7 @@
             // 
             this.lbPatientNbr.AutoSize = true;
             this.lbPatientNbr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPatientNbr.Location = new System.Drawing.Point(314, 51);
+            this.lbPatientNbr.Location = new System.Drawing.Point(336, 51);
             this.lbPatientNbr.Name = "lbPatientNbr";
             this.lbPatientNbr.Size = new System.Drawing.Size(95, 21);
             this.lbPatientNbr.TabIndex = 65;
@@ -263,7 +263,7 @@
             // 
             this.lbGender.AutoSize = true;
             this.lbGender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGender.Location = new System.Drawing.Point(314, 123);
+            this.lbGender.Location = new System.Drawing.Point(336, 123);
             this.lbGender.Name = "lbGender";
             this.lbGender.Size = new System.Drawing.Size(64, 21);
             this.lbGender.TabIndex = 64;
@@ -273,7 +273,7 @@
             // 
             this.lbAge.AutoSize = true;
             this.lbAge.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAge.Location = new System.Drawing.Point(314, 99);
+            this.lbAge.Location = new System.Drawing.Point(336, 99);
             this.lbAge.Name = "lbAge";
             this.lbAge.Size = new System.Drawing.Size(40, 21);
             this.lbAge.TabIndex = 63;
@@ -283,7 +283,7 @@
             // 
             this.lbRace.AutoSize = true;
             this.lbRace.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRace.Location = new System.Drawing.Point(314, 75);
+            this.lbRace.Location = new System.Drawing.Point(336, 75);
             this.lbRace.Name = "lbRace";
             this.lbRace.Size = new System.Drawing.Size(46, 21);
             this.lbRace.TabIndex = 62;
@@ -293,7 +293,7 @@
             // 
             this.lbFullName.AutoSize = true;
             this.lbFullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFullName.Location = new System.Drawing.Point(314, 27);
+            this.lbFullName.Location = new System.Drawing.Point(336, 27);
             this.lbFullName.Name = "lbFullName";
             this.lbFullName.Size = new System.Drawing.Size(92, 21);
             this.lbFullName.TabIndex = 61;
@@ -304,7 +304,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.DimGray;
-            this.label15.Location = new System.Drawing.Point(220, 51);
+            this.label15.Location = new System.Drawing.Point(242, 51);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(95, 21);
             this.label15.TabIndex = 59;
@@ -315,7 +315,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.DimGray;
-            this.label14.Location = new System.Drawing.Point(220, 123);
+            this.label14.Location = new System.Drawing.Point(242, 123);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 21);
             this.label14.TabIndex = 58;
@@ -326,7 +326,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(220, 99);
+            this.label13.Location = new System.Drawing.Point(242, 99);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 21);
             this.label13.TabIndex = 57;
@@ -337,7 +337,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Location = new System.Drawing.Point(220, 75);
+            this.label12.Location = new System.Drawing.Point(242, 75);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 21);
             this.label12.TabIndex = 56;
@@ -348,7 +348,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(220, 27);
+            this.label11.Location = new System.Drawing.Point(242, 27);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 21);
             this.label11.TabIndex = 55;
@@ -966,7 +966,7 @@
             this.pictureBox4.Image = global::PatientHub.Properties.Resources.Christina;
             this.pictureBox4.Location = new System.Drawing.Point(13, 18);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(194, 216);
+            this.pictureBox4.Size = new System.Drawing.Size(222, 222);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
@@ -997,9 +997,9 @@
             // 
             this.pictureBox2.Image = global::PatientHub.Properties.Resources.Christina;
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 5);
+            this.pictureBox2.Location = new System.Drawing.Point(7, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(90, 79);
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
