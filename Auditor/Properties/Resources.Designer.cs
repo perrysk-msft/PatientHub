@@ -123,6 +123,16 @@ namespace Auditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Michael {
+            get {
+                object obj = ResourceManager.GetObject("Michael", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sampleLabs {
             get {
                 object obj = ResourceManager.GetObject("sampleLabs", resourceCulture);

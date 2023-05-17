@@ -93,6 +93,26 @@ namespace PatientHub.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Betty {
+            get {
+                object obj = ResourceManager.GetObject("Betty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Christina {
+            get {
+                object obj = ResourceManager.GetObject("Christina", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DMReadmission30Days {
             get {
                 object obj = ResourceManager.GetObject("DMReadmission30Days", resourceCulture);
